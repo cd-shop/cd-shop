@@ -4,18 +4,23 @@
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </divdiv>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "例）aaa@gmail.com" %>
+    </div>
 
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.label :パスワード %><br />
+      <%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワードを入力してください" %>
     </div>
+
+      <div class="field">
+        <%= f.label :パスワード再入力 %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "パスワードを再入力してください" %>
+      </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="field">
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :ユーザ情報を保存 %>
       </div>
     <% end %>
 
