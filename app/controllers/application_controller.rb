@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
     protected
     def after_sign_in_path_for(resource)
-        practices_index_path
+        products_path
     end
 
     def after_sign_out_path_for(resource)
@@ -15,4 +15,3 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :email, :tellnumber])
     end
 end
-
