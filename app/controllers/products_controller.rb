@@ -5,4 +5,8 @@ class ProductsController < ApplicationController
 		@artist = Artist.all
 	end
 
+	def show
+		@product = Product.find(params[:id])
+	end
+
 end
