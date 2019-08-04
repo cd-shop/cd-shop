@@ -23,14 +23,18 @@
 }
 
 header {
-  color: white;
   .navbar-right li {
+    padding-top: 15px;
+    margin:0 0 30px 30px;
     float: left;
     list-style: none;
   }
 }
-
-
+.glyphicon {
+  color: black;
+  font-size: 30px;
+  font-weight: 100;
+}
 
    .sign_in_form {
     text-align: center;

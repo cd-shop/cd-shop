@@ -5,17 +5,13 @@ class UsersController < ApplicationController
         @users = User.all
     end
     
-    def index
-        @user = User.new
-    end
-    
     def edit
         @user = User.find(params[:id])
     end
     
     def update
         @user = User.find(params[:id])
-        @user.save
+        @user.update(user_params)
         redirect_to user_path(params[:id])
     end
 
