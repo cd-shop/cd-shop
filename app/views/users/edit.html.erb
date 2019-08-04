@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+      <div class= "field">
+        <%= f.label :名前 %><br>
+        <%= f.text_field :name, :placeholder => "例）おちんぽ 太郎" %>
+      </div>
+
+      <div class= "field">
+        <%= f.label :フリガナ %><br>
+        <%= f.text_field :name_kana, :placeholder => "例）オチンポ タロウ" %>
+      </div>
+
+      <div class= "field">
+        <%= f.label :電話番号 %><br>
+        <%= f.text_field :tellnumber, :placeholder => "ハイフンなしで入力してください" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "例）aaa@gmail.com" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "変更する" %>
+      </div>
+    <% end %>
