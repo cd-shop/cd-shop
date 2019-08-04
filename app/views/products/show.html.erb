@@ -6,4 +6,6 @@
 <label>CD名：</label><%= @product.cd.cdname %>
 <label>レーベル名：</label><%= @product.label.labelname %>
 <label>ジャンル：</label><%= @product.genre.genrename %>
-<label>価格：</label><%= @product.price %>
+<label>価格：</label>¥<%= @product.price %>
+
+<%= link_to '戻る', products_path %>
