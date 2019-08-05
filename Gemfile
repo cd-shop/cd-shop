@@ -67,3 +67,8 @@ gem 'pry-byebug'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+
+group :development, :test do
+  gem 'hirb'
+  gem 'hirb-unicode'
+end
