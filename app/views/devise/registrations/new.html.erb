@@ -37,9 +37,22 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up",class:"btn btn-success" %>
       </div>
-    <% end %>
+    <% end %><br>
 
     <%= render "devise/shared/links" %>
 </div>
+
+<style>
+
+    .sign_in_form {
+    margin: 0 auto;
+    text-align: center;
+    margin-top:70px;
+    border :inset;
+    width: 800px;
+    height: 600px
+  }
+
+</style>

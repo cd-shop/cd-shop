@@ -30,21 +30,19 @@ header {
     list-style: none;
   }
 }
+.header_greet {
+  margin-left: 10px;
+}
 .glyphicon {
   color: black;
   font-size: 30px;
   font-weight: 100;
 }
-
-   .sign_in_form {
-    text-align: center;
- }
-
- input[type="text"] {
-   width: 200px;
-   height: 30px;
+  input[type="text"] {
+    width: 200px;
+    height: 30px;
   margin-bottom: 10px;
- }
+  }
 
 
  input[type="email"] {

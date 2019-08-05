@@ -13,6 +13,10 @@
   <body>
     <header>
       <div class="container">
+        <div class="nav navbar-nav navbar-left">
+          <li><%= image_tag "kaoru.jpg", class:"header_icon", :size => '65x75' %></li>
+          <li><h4 class="header_greet">こんにちは<%= @header_name %>さん</h4></li>
+        </div>
         <nav class="nav navbar-nav navbar-right">
           <ul>
               <li><%= link_to 'CD一覧 ', products_path, class: 'glyphicon glyphicon-cd' %></li>
