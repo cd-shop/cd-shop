@@ -1,3 +1,8 @@
+<% if current_user.admin?  %>
+    管理者
+<% else %>
+    一般人
+<% end %>
 
 <div class= "user_information">
     <h2>ユーザー情報</h2>
@@ -6,8 +11,8 @@
 
     <%= link_to "ユーザー情報の変更", edit_user_path(@user), class:"btn btn-success" %><br><br>
 
-    <%= link_to "退会",user_path, class:"btn btn-danger" %>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-     <%= link_to "log out", destroy_user_session_path, method: :delete,class:"btn btn-primary" %>
+    <%= link_to "退会",user_path(@user),method: :delete, class:"btn btn-danger" %>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+    <%= link_to "log out", destroy_user_session_path, method: :delete,class:"btn btn-primary" %>
 </div>
 <div class="border"></div>
 
