@@ -1,19 +1,21 @@
 class UsersController < ApplicationController
-      
+    def index
+        @users = User.all
+        @user = User.new
+    end
+
     def show
         @user = User.find(params[:id])
         @users = User.all
-        # if @user.admin == "true"
-        #     @admin = "true"
-        # else
-    
-        # end
+        if @user.id == 6
+            redirect_to products_path
+        end
     end
-    
+
     def edit
         @user = User.find(params[:id])
     end
-    
+
     def update
         @user = User.find(params[:id])
         @user.update(user_params)

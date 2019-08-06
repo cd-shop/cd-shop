@@ -4,6 +4,8 @@ class User < ApplicationRecord
         devise :database_authenticatable, :registerable,
                 :recoverable, :rememberable, :validatable
 
+        has_many :addresses, dependent: :destroy
+
         validates :name, presence: true
         validates :name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
 

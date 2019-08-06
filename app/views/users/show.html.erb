@@ -1,7 +1,7 @@
-<% if current_user.admin?  %>
-    管理者
+<% unless current_user.admin?  %>
+    管理者ではない
 <% else %>
-    一般人
+    管理者
 <% end %>
 
 <div class= "user_information">
@@ -11,8 +11,12 @@
 
     <%= link_to "ユーザー情報の変更", edit_user_path(@user), class:"btn btn-success" %><br><br>
 
-    <%= link_to "退会",user_path(@user),method: :delete, class:"btn btn-danger" %>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-    <%= link_to "log out", destroy_user_session_path, method: :delete,class:"btn btn-primary" %>
+    <% if current_user.admin? %>
+        <%= link_to "ユーザーの削除",user_path(@user),method: :delete, class:"btn btn-danger" %>
+    <% else %>
+        <%= link_to "退会",user_path(@user),method: :delete, class:"btn btn-danger",data: {confirm: "退会しますか？"} %>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <%= link_to "log out",destroy_user_session_path,class:"btn btn-primary", data: {confirm: "ログアウトしますか？"}, method: :delete %>
+    <% end %>
 </div>
 <div class="border"></div>
 

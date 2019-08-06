@@ -21,8 +21,13 @@
           <ul>
               <li><%= link_to 'CD一覧 ', products_path, class: 'glyphicon glyphicon-cd' %></li>
             <% if user_signed_in? %>
-              <li><%= link_to 'ユーザー ',user_path(current_user.id), class: 'glyphicon glyphicon-user' %></li>
-              <li><%= link_to 'カート ', practices_index_path, class: 'glyphicon glyphicon-shopping-cart' %></li>
+                <% if current_user.admin?%>
+                  <li><%= link_to 'ユーザーの一覧',users_path, class:'glyphicon glyphicon-user' %></li>
+                  <li><%= link_to '管理者ログアウト',destroy_user_session_path,class: 'glyphicon glyphicon-fire', method: :delete,data: {confirm: "管理者のログアウトをしますか？"} %></li>
+                <% else %>
+                  <li><%= link_to 'ユーザー ',user_path(current_user.id), class: 'glyphicon glyphicon-user' %></li>
+                  <li><%= link_to 'カート ', practices_index_path, class: 'glyphicon glyphicon-shopping-cart' %></li>
+                <% end %>
 
             <% else %>
               <li><%= link_to '会員登録 ', new_user_registration_path, class: 'glyphicon glyphicon-bell' %></li>
