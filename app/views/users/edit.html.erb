@@ -23,7 +23,16 @@
         <div class="actions">
           <%= f.submit "変更する",class:"btn btn-success" %>
         </div>
-      <% end %>
+  <% end %>
+
+  <% @addresses.each do |f| %>
+    <%= f.address_number %>
+    <%= f.prefecture %>
+    <%= f.municipality %>
+    <%= f.building %>
+  <% end %>
+
+
 </div>
 
 <style>

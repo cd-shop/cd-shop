@@ -1,7 +1,7 @@
-<% if current_user.admin?  %>
-    管理者
-<% else %>
+<% unless current_user.admin?  %>
     管理者ではない
+<% else %>
+    管理者
 <% end %>
 
 <div class= "user_information">
