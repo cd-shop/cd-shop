@@ -1,0 +1,48 @@
+<% unless current_user.admin?  %>
+    管理者ではない
+<% else %>
+    管理者
+<% end %>
+
+<div class= "user_information">
+    <h2>ユーザー情報</h2>
+    <div class="user_name">ユーザー名：　<%= @user.name %></div><br>
+    <div class="user_email">E-mail：　<%= @user.email %></div><br>
+
+    <%= link_to "ユーザー情報の変更", edit_user_path(@user), class:"btn btn-success" %><br><br>
+
+    <% if current_user.admin? %>
+        <%= link_to "ユーザーの削除",user_path(@user),method: :delete, class:"btn btn-danger",data: {confirm: "ユーザーを削除しますか？"}  %>
+    <% else %>
+        <%= link_to "退会",user_path(@user),method: :delete, class:"btn btn-danger",data: {confirm: "退会しますか？"} %>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <%= link_to "log out",destroy_user_session_path,class:"btn btn-primary", data: {confirm: "ログアウトしますか？"}, method: :delete %>
+    <% end %>
+</div>
+<div class="border"></div>
+<style>
+
+.user_information {
+    text-align: center;
+    margin: 40px auto 0 auto;
+}
+
+.user_name {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 27px;
+}
+.user_email {
+    display: inline-block;
+    margin: 10px;
+    font-size: 25px;
+}
+.btn btn-danger {
+    margin-right:20px;
+}
+
+.border{
+    border: solid 2px gray;
+    margin:30px auto;
+    width: 700px;
+}
+</style>

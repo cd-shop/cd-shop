@@ -1,0 +1,11 @@
+<h2>CD情報</h2>
+<p>在庫残り<strong><%= @product.stock_number %></strong>枚</p>
+<p><%= @product.sale_status %></p>
+<label>曲名：</label><%= @product.cd.song.songname %>
+<label>アーティスト名：</label><%= @product.artist.artistname %>
+<label>CD名：</label><%= @product.cd.cdname %>
+<label>レーベル名：</label><%= @product.label.labelname %>
+<label>ジャンル：</label><%= @product.genre.genrename %>
+<label>価格：</label>¥<%= @product.price %>
+
+<%= link_to '戻る', products_path %>
