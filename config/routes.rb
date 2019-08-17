@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :products
-
   namespace :admin do
     resources :users
+    resources :products
   end
 end
