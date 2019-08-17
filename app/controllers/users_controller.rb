@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find(params[:id])
+        @addresses = Address.all
     end
 
     def update
@@ -30,6 +31,6 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :name, :lastname, :name_kane, :lastname_kana, :tellnumber)
+        params.require(:user).permit(:email, :name, :name_kane, :tellnumber, addresses_attributes: [:id, :prefecture, :municipaitity, :building, :address_number, :_destroy])
     end
 end
