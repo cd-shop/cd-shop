@@ -1,4 +1,4 @@
 class Label < ApplicationRecord
 
-	has_many :products, dependet: :destroy
+	has_many :products, dependent: :destroy
 end
