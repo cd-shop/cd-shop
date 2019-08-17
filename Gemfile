@@ -66,6 +66,7 @@ gem 'devise'
 gem 'pry-byebug'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'jquery-rails'
 
 group :development, :test do
@@ -74,3 +75,5 @@ group :development, :test do
 end
 
 gem 'paranoia'
+
+gem 'cocoon'
