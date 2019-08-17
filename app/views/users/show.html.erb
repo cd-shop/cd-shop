@@ -8,6 +8,13 @@
     <h2>ユーザー情報</h2>
     <div class="user_name">ユーザー名：　<%= @user.name %></div><br>
     <div class="user_email">E-mail：　<%= @user.email %></div><br>
+    <% @user.addresses.each_with_index do |address, i| %>
+        <h3>住所<%= i + 1 %></h3>
+        <div>郵便番号：　<%= address.address_number %></div>
+        <div>都道府県：　<%= address.prefecture %></div>
+        <div>市区町村：　<%= address.municipality %></div>
+        <div>建物：　<%= address.building %></div>
+    <% end %>
 
     <%= link_to "ユーザー情報の変更", edit_user_path(@user), class:"btn btn-success" %><br><br>
 
