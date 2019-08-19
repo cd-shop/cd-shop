@@ -17,7 +17,15 @@ class Admin::ProductsController < ApplicationController
         product.save
         redirect_to admin_products_path
     end
-
+    product = Product.new(product_params)
+    genre = Genre.find_or_create_by(params[:id])
+    product.genre_id = genre.id
+    label = Label.find_or_create_by(params[:id])
+    product.label_id = label.id
+    artist = Artist.new(artist_params)
+    artist.save
+    product.save
+    redirect_to admin_products_path
     def index
         @products = Product.all
     end
