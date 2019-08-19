@@ -13,8 +13,8 @@ class Admin::ProductsController < ApplicationController
         product.genre_id = genre.id
         label = Label.find_or_create_by(params[:id])
         product.label_id = label.id
-        artist = Artist.find_or_create_by(params[:id])
-        product.artist_id = artist.id
+        artist = Artist.new(artist_params)
+        artist.save
         product.save
         redirect_to admin_products_path
     end
@@ -39,6 +39,9 @@ class Admin::ProductsController < ApplicationController
 
     def product_params
         params.require(:product).permit(:productname, :sale_status, :price, :image, genres_attributes: [:id, :genrename], artists_attributes: [:id, :artistname], labels_attributes: [:id, :labelname])
+    end
+    def artist_params
+        params.require(:artist).permit(:id, :artistname)
     end
         # def product_params
     #     params.require(:product).permit(:genre_id, :label_id, :artist_id, :productname, :sale_status, :price, :image)
