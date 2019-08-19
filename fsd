@@ -1,0 +1,23 @@
+
+[1mFrom:[0m /vagrant/cd-shop/app/controllers/admin/products_controller.rb @ line 16 Admin::ProductsController#create:
+
+     [1;34m9[0m:     [32mdef[0m [1;34mcreate[0m
+    [1;34m10[0m:         @genre = [1;34;4mGenre[0m.new(genre_params)
+    [1;34m11[0m:         @genre = [1;34;4mGenre[0m.find_or_create_by(params[[33m:id[0m])
+    [1;34m12[0m: 
+    [1;34m13[0m:         @label = [1;34;4mLabel[0m.new(label_params)
+    [1;34m14[0m:         @label = [1;34;4mLabel[0m.find_or_create_by(params[[33m:id[0m])
+    [1;34m15[0m: binding.pry
+ => [1;34m16[0m:         @artist = [1;34;4mArtist[0m.new(artist_params)
+    [1;34m17[0m:         @artist = [1;34;4mArtist[0m.find_or_create_by(params[[33m:id[0m])
+    [1;34m18[0m:         product = [1;34;4mProduct[0m.new(product_params)
+    [1;34m19[0m: 
+    [1;34m20[0m:         binding.pry
+    [1;34m21[0m:         
+    [1;34m22[0m:         [1;34m# product.genre_id = @genre.id[0m
+    [1;34m23[0m: 		[1;34m# product.label_id = @label.id[0m
+    [1;34m24[0m: 		[1;34m# product.artist_id = @artist.id[0m
+    [1;34m25[0m:         product.save
+    [1;34m26[0m:         redirect_to admin_products_path
+    [1;34m27[0m:     [32mend[0m
+

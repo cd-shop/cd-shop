@@ -1,1 +1,6 @@
-<li><%= link_to 'ユーザーの一覧',admin_users_path, class:'glyphicon glyphicon-user' %></li>
+<% @products.each do |product| %>
+
+    <%= product.productname %>
+
+    <%= product.genre.genrename %>
+<% end %>

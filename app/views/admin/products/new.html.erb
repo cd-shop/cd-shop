@@ -1,0 +1,22 @@
+
+
+<%= nested_form_for(@product, url:"/admin/products") do |product| %>
+    <%= product.text_field :productname, :placeholder => "商品名"  %> <br>
+    <%= product.number_field :price, :placeholder => "値段" %><br>
+    <%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %>
+    <%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%><br>
+
+        <%= product.fields_for(@artist) do |artist| %>
+            <%= artist.text_field :artistname %>
+        <% end %><br>
+
+        <%= product.fields_for(@genre) do |genre| %>
+            <%= genre.text_field :genrename %>
+        <% end %><br>
+
+        <%= product.fields_for(@label) do |label| %>
+            <%= label.text_field :labelname %>
+        <% end %><br>
+    <%= product.submit "商品を追加する"%>
+
+<% end %>

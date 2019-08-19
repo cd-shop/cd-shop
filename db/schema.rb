@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_064634) do
+ActiveRecord::Schema.define(version: 2019_08_18_063639) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_064634) do
   end
 
   create_table "cds", force: :cascade do |t|
-    t.string "song_id"
+    t.integer "song_id"
     t.string "product_id"
     t.string "cdname"
     t.datetime "created_at", null: false
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 2019_08_17_064634) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "genre_id"
-    t.string "artist_id"
-    t.string "label_id"
+    t.integer "genre_id"
+    t.integer "artist_id"
+    t.integer "label_id"
     t.string "productname"
     t.integer "price"
     t.string "update_date"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_064634) do
     t.integer "sale_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -87,9 +88,9 @@ ActiveRecord::Schema.define(version: 2019_08_17_064634) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.time "deleted_at"
+    t.integer "user_status"
     t.string "lastname"
     t.string "lastname_kana"
-    t.integer "user_status"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
