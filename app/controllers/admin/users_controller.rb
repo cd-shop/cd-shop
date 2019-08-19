@@ -15,7 +15,7 @@ class Admin::UsersController < ApplicationController
 
     def destroy
     end
-    
+
     private
     def admin_users
         redirect_to products_path unless current_user.admin?
