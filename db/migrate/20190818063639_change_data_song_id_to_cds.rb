@@ -1,0 +1,5 @@
+class ChangeDataSongIdToCds < ActiveRecord::Migration[5.2]
+  def change
+    change_column :cds, :song_id, :integer
+  end
+end
