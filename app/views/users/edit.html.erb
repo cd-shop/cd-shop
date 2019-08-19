@@ -21,6 +21,14 @@
             <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "例）aaa@gmail.com" %>
           </div>
 
+          <div class="links">
+            <%= link_to_add_association '住所を追加', f, :addresses %>
+          </div>
+
+          <%= f.fields_for :addresses do |address| %>
+            <%= render 'address_fields', f: address %>
+          <% end %>
+
           <div class="actions">
             <%= f.submit "変更する",class:"btn btn-success" %>
           </div>

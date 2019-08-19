@@ -1,0 +1,23 @@
+<div class="nested-fields">
+	<div class="field">
+		<div class="field">
+			<%= f.label :郵便番号 %><br>
+		  <%= f.text_field :address_number %>
+		</div>
+		<div class="field">
+			<%= f.label :都道府県 %><br>
+		  <%= f.text_field :prefecture %>
+		</div>
+		<div class="field">
+			<%= f.label :市区町村 %><br>
+		  <%= f.text_field :municipality %>
+		</div>
+		<div class="field">
+			<%= f.label :建物 %><br>
+		  <%= f.text_field :building %>
+		</div>
+	</div>
+	<div class="links">
+		<%= link_to_remove_association '住所を削除', f %>
+	</div>
+</div>

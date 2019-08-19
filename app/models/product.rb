@@ -6,4 +6,8 @@ class Product < ApplicationRecord
 	belongs_to :genre
 	belongs_to :label
 
+	attachment :image
+
+	#enum
+	enum sale_status: {販売中: 0, 品切: 1}
 end
