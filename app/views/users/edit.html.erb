@@ -1,43 +1,44 @@
 <div class="user_edit">
-  <%= form_for @user do |f| %>
-        <div class= "field">
-          <%= f.label :名前 %><br>
-          <%= f.text_field :name, :placeholder => "例）おちんぽ 太郎" %>
-        </div>
+  <div class="border-edit">
+    <%= form_for @user do |f| %>
+          <div class= "field">
+            <%= f.label :名前 %><br>
+            <%= f.text_field :name, :placeholder => "例）おちんぽ 太郎" %>
+          </div>
 
-        <div class= "field">
-          <%= f.label :フリガナ %><br>
-          <%= f.text_field :name_kana, :placeholder => "例）オチンポ タロウ" %>
-        </div>
+          <div class= "field">
+            <%= f.label :フリガナ %><br>
+            <%= f.text_field :name_kana, :placeholder => "例）オチンポ タロウ" %>
+          </div>
 
-        <div class= "field">
-          <%= f.label :電話番号 %><br>
-          <%= f.text_field :tellnumber, :placeholder => "ハイフンなしで入力してください" %>
-        </div>
+          <div class= "field">
+            <%= f.label :電話番号 %><br>
+            <%= f.text_field :tellnumber, :placeholder => "ハイフンなしで入力してください" %>
+          </div>
 
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "例）aaa@gmail.com" %>
-        </div>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "例）aaa@gmail.com" %>
+          </div>
 
-        <div class="actions">
-          <%= f.submit "変更する",class:"btn btn-success" %>
-        </div>
-  <% end %>
-
-  <% @addresses.each do |f| %>
-    <%= f.address_number %>
-    <%= f.prefecture %>
-    <%= f.municipality %>
-    <%= f.building %>
-  <% end %>
-
-
+          <div class="actions">
+            <%= f.submit "変更する",class:"btn btn-success" %>
+          </div>
+    <% end %>
+  </div>
 </div>
 
 <style>
 .user_edit {
   text-align: center;
+    border: solid 2px gray;
+    margin:30px auto;
+    width: 700px;
+    height: 500px;
+}
+.border-edit {
+    margin:80px auto;
+
 }
 
 </style>

@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
         has_many :addresses, dependent: :destroy
 
+        accepts_nested_attributes_for :addresses, allow_destroy: true
+
         validates :name, presence: true
         validates :name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
         validates :lastname_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
@@ -18,4 +20,7 @@ class User < ApplicationRecord
 
         #退会処理の記述
         acts_as_paranoid
+
+        #ユーザーステータス
+        enum user_status: [["---", 0], ["アクティブ中", 1], ["退会済み", 2]]
 end

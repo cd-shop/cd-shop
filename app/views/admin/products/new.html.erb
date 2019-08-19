@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+        <header>
+            <%= image_tag "cd_logo.png", class:"header_icon", :size => '181x66' %>
+            <ul>
+                <li class="head_tx"><%= link_to '商品の追加', products_path, class: 'glyphicon glyphicon-plus-sign' %></li>
+                <li class="head_tx"><%= link_to '商品一覧', products_path, class: 'glyphicon glyphicon-cd' %></li>
+                <li class="head_tx"><%= link_to 'ユーザー情報', products_path, class: 'glyphicon glyphicon-user' %></li>
+            </ul>
+        </header>
+        <h1>商品の追加</h1>
+        <div class="left_up">
+            <p class="left_up_text">画像の追加</p>
+        </div>
+        <div class="left_down">
+            <p>アルバム/シングル名</p>
+            <p>曲を追加</p>
+            <p>ミュージシャン名</p>
+            <p>レーベル名</p>
+            <p>ジャンル</p>
+            <p>在庫数</p>
+            <p>価格</p>
+            <p>販売中・販売停止中</p>
+        </div>
+        <div class="right_up">
+        <p>いう亜c位会うcいうscい</p>
+        </div>
+        <div class="right_down">
+        <%= form_for @pd,url:admin_products_path do |f| %>
+            <%= f.text_field :price %>
+            <br>
+            <%= f.text_field :productname %>
+            <br>
+            <%= f.text_field :stock_number %>
+            <br>
+            <%= f.fields_for :genre do |i| %>
+            <%= i.text_field :genrename %>
+            <% end %>
+            <br>
+            <%= f.fields_for :label do |a| %>
+            <%= a.text_field :labelname %>
+            <% end %>
+            <br>
+            <%= f.fields_for :artist do |b| %>
+            <%= b.text_field :artistname %>
+            <% end %>
+            <br>
+            <%= f.fields_for :cd do |c| %>
+            <%= c.text_field :cdname %>
+            <% end %>
+            <br>
+            <%= f.fields_for :song do |d| %>
+            <%= d.text_field :songname %>
+            <% end %>
+            <%= f.submit "送信" %>
+        <% end %>
+        </div>
+    </body>
+</html>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width:100%;
+    height:96px;
+    border-bottom:medium solid #000000;
+}
+
+.head_tx{
+    float:right;
+    margin:30px 7px 0px 7px;
+}
+
+.header_icon{
+    margin-top:13px;
+}
+
+ul{
+    width:60%;
+    height:60px;
+    float:right;
+    list-style:none;
+}
+
+li{
+    float:right;
+}
+
+h1{
+    text-align:center;
+}
+
+p{
+    font-size:25px;
+    text-align:center;
+    margin-top:60px;
+}
+
+.left_up{
+    width:25%;
+    height:100px;
+    margin-left:20%;
+    margin-top:30px;
+    border-bottom:medium solid #444;
+    border-right:medium solid #444;
+}
+
+.left_up_text{
+    margin-top:0;
+    padding-top:25px;
+}
+
+.left_down{
+    width:25%;
+    margin-left:20%;
+    border-right:medium solid #444;
+}
+
+.right_up{
+    width:45%;
+    hight:100%;
+    margin-top:30px;
+    border-botom:medium solid #444;
+    float:right;
+}
+
+.right_down{
+    width:45%;
+}
+</style>

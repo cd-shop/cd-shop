@@ -8,7 +8,7 @@
 
 User.create!(name:"管理者",
             name_kana: "カンリシャ",
-            email:"aa@a",
+            email: "aa@a",
             tellnumber: '09012345678',
             password: 'pppppp',
             password_confirmation: "pppppp",

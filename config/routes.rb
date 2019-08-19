@@ -5,4 +5,17 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :products
+
+  namespace :admin do
+    resources :users
+  end
+
+  namespace :admin do
+    resources :products
+  end
+
+  namespace :admin do
+    resources :order_histries
+  end
+
 end
