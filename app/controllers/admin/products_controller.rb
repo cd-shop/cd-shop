@@ -8,7 +8,6 @@ class Admin::ProductsController < ApplicationController
     end
     def create
         product = Product.new(product_params)
-
         genre = Genre.find_or_create_by(params[:id])
         product.genre_id = genre.id
         label = Label.find_or_create_by(params[:id])
