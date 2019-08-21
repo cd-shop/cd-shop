@@ -1,14 +1,33 @@
 
 
-<%= form_for @product, url:admin_products_path do |p| %>
-    <%= p.text_field :productname, :placeholder => "商品名"  %> <br>
-    <%= p.number_field :price, :placeholder => "値段" %><br>
-    <%= p.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %>
-    <%= p.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%><br>
+<%= nested_form_for(@product, url:"/admin/products") do |product| %>
+    <%= product.text_field :productname, :placeholder => "商品名"  %> <br>
+    <%= product.number_field :price, :placeholder => "値段" %><br>
+    <%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %>
+    <%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%><br>
 
-    <%= p.submit "商品を追加する"%>
+        <%= product.collection_select :genre_id, Genre.all, :id, :genrename %>
+        <%= product.fields_for(@genre) do |genre| %>
+            <%= genre.text_field :genrename, placeholder: "ジャンル名" %>
+        <% end %><br>
+
+
+        <%= product.collection_select :artist_id, Artist.all, :id, :artistname %>
+        <%= product.fields_for(@artist) do |artist| %>
+            <%= artist.text_field :artistname, placeholder: "アーティスト名"%><br>
+        <% end %>
+
+        <%= product.collection_select :label_id, Label.all, :id, :labelname %>
+        <%= product.fields_for(@label) do |label| %>
+            <%= label.text_field :labelname, placeholder: "レーベル名" %>
+        <% end %><br>
+
+
+    <%= link_to 'artist', new_admin_artist_path %>
+    <%= link_to 'genre', new_admin_genre_path %>
+    <%= link_to 'label', new_admin_label_path %>
+    <%= product.submit "商品を追加する"%>
+
+
 <% end %>
 
-<%= link_to 'artist', new_admin_artist_path %>
-<%= link_to 'genre', new_admin_genre_path %>
-<%= link_to 'label', new_admin_label_path %>

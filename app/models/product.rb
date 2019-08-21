@@ -10,6 +10,9 @@ class Product < ApplicationRecord
 	attachment :image
 	paginates_per 10
 
+	accepts_nested_attributes_for :genre
+	accepts_nested_attributes_for :label
+	accepts_nested_attributes_for :artist
 	#enum
 	enum sale_status: {販売中: 0, 品切: 1}
 end
