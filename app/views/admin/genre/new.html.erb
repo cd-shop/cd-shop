@@ -1,0 +1,5 @@
+<%= form_for @genre, url:admin_genre_index_path do |g| %>
+    <%= g.text_field :genrename, :placeholder => "ジャンル名" %>
+
+    <%= g.submit "商品を追加する" %>
+<% end %>

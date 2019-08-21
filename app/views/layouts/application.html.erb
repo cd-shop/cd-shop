@@ -8,15 +8,15 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <%= link_to "log out", destroy_user_session_path, method: :delete %>
+ 
 
   <body>
     <header>
       <div class="container">
         <div class="nav navbar-nav navbar-left">
-          <li><h4 class="header_greet">こんにちは<%= @header_name %>さん</h4></li>
-          <%= image_tag "cd_logo.png", class:"header_icon", :size => '181x66' %>
-        </div>
+        <%= link_to image_tag("cd_logo.png", class:"header_icon", :size => '181x66'), products_path %>
+        <h4 class="header_greet">こんにちは<%= @header_name %>さん</h4>
+      </div>
         <nav class="nav navbar-nav navbar-right">
           <ul>
               <li><%= link_to 'CD一覧 ', products_path, class: 'glyphicon glyphicon-cd' %></li>
@@ -27,6 +27,7 @@
                   <li><%= link_to '管理者ログアウト',destroy_user_session_path,class: 'glyphicon glyphicon-fire', method: :delete,data: {confirm: "管理者のログアウトをしますか？"} %></li>
                 <% else %>
                   <li><%= link_to 'ユーザー ',user_path(current_user.id), class: 'glyphicon glyphicon-user' %></li>
+                  <li><%= link_to "ログアウト", destroy_user_session_path,class: 'glyphicon glyphicon-fire', method: :delete %></li>
                 <% end %>
 
             <% else %>

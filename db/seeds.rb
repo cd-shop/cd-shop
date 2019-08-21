@@ -4,7 +4,6 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(name:"管理者",
             name_kana: "カンリシャ",
@@ -15,3 +14,4 @@ User.create(name:"管理者",
             admin: true)
 
 Artist.create(:id => 2, :artistname => "西野カナ")
+

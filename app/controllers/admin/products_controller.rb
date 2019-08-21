@@ -1,11 +1,9 @@
 class Admin::ProductsController < ApplicationController
     def new
-        @product = Product.new
-        @genre = Genre.new
-        @label = Label.new
-        @artist = Artist.new
-    end
+        @product = Product.new    end
+
     def create
+
         @genre = Genre.create(genrename: params[:genrename])
         @label = Label.create(labelname: params[:labelname])
         @product = Product.new(product_params)
