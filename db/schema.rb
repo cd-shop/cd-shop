@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 2019_08_18_063639) do
+ActiveRecord::Schema.define(version: 2019_08_21_060315) do
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
     t.string "prefecture"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_063639) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "cd_id"
+    t.integer "cd_id"
     t.string "songname"
     t.integer "song_number"
     t.datetime "created_at", null: false
@@ -122,9 +122,9 @@ ActiveRecord::Schema.define(version: 2019_08_18_063639) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.time "deleted_at"
+    t.integer "user_status"
     t.string "lastname"
     t.string "lastname_kana"
-    t.integer "user_status"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
