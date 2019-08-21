@@ -1,5 +1,5 @@
 class Artist < ApplicationRecord
 
-	has_many :products, dependent: :destroy
+	has_many :products
 	accepts_nested_attributes_for :products
 end

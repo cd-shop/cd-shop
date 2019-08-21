@@ -1,0 +1,5 @@
+<%= form_for @artist, url:admin_artist_index_path  do |g| %>
+    <%= g.text_field :artistname, :placeholder => "アーティスト名" %>
+
+    <%= g.submit "商品を追加する" %>
+<% end %>    
