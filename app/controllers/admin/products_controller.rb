@@ -1,5 +1,4 @@
 class Admin::ProductsController < ApplicationController
-
     def new
         @product = Product.new
         @genre = Genre.new
@@ -7,29 +6,13 @@ class Admin::ProductsController < ApplicationController
         @artist = Artist.new
     end
     def create
-        @genre = Genre.new(genre_params)
-        if @genre.save
-            redirect_to admin_products_path
-        end
+        @genre = Genre.create(genrename: params[:genrename])
+        @label = Label.create(labelname: params[:labelname])
+        @artist = Artist.create(artistname: params[:artistname])
+        @product = Product.new(product_params)
 
-        @label = Label.new(label_params)
-        if @label.save
-            redirect_to admin_products_path
-        end
-        
-        @artist = Artist.new(artist_params)
-        if @artist.save
-            redirect_to admin_products_path
-        end
-        # product = Product.new(product_params)
-        # genre = Genre.find_or_create_by(genrename: params[:genrename])
-        # product.genre_id = genre.id
-        # label = Label.find_or_create_by(params[:id])
-        # product.label_id = label.id
-        # artist = Artist.find_or_create_by(params[:id])
-        # product.artist_id = artist.id
-        # product.save
-        # redirect_to admin_products_path
+        @product.save
+        redirect_to admin_products_path
     end
 
     def index
@@ -50,22 +33,8 @@ class Admin::ProductsController < ApplicationController
 
     private
 
-    # def product_params
-    #     params.require(:product).permit(:productname, :sale_status, :price, :image, genres_attributes: [:genrename], artists_attributes: [:id, :artistname], labels_attributes: [:id, :labelname])
-    # end
-        # def product_params
-    #     params.require(:product).permit(:genre_id, :label_id, :artist_id, :productname, :sale_status, :price, :image)
-    # end
-
-    def genre_params
-        params.require(:genre).permit(:genrename)
+    def product_params
+        params.require(:product).permit(:label_id,:genre_id, :artist_id, :productname, :sale_status, :price, :image, genre_attribute: [:genrename], label_attribute: [:labelname], artist_attribute: [:artistsname])
     end
 
-    def label_params
-        params.require(:label).permit(:lablename)
-    end
-
-    def artist_params
-        params.require(:artist).permit(:artistname)
-    end
 end

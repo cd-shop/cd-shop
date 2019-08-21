@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
         validates :name, presence: true
         validates :name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+        validates :lastname_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
 
-        # カタカナの制御
         VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
 
         # 電話番号の制御

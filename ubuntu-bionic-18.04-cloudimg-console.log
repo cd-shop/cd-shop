@@ -1,3 +1,4 @@
+
 [    0.000000] Linux version 4.15.0-55-generic (buildd@lcy01-amd64-029) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #60-Ubuntu SMP Tue Jul 2 18:22:20 UTC 2019 (Ubuntu 4.15.0-55.60-generic 4.15.18)
 [    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-55-generic root=UUID=a35c0336-90dc-4445-a988-b60872c987a7 ro console=tty1 console=ttyS0
 [    0.000000] KERNEL supported cpus:
@@ -5,16 +6,16 @@
 [    0.000000]   AMD AuthenticAMD
 [    0.000000]   Centaur CentaurHauls
 [    0.000000] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
-[    0.000000] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+    0.000000] x86/fpu: Supporting XSAVE feature 00x002: 'SSE registers'
 [    0.000000] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
 [    0.000000] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
-[    0.000000] x86/fpu: Enabled xstate features 0x7, context size is 832 bytes, using 'standard' format.
-[    0.000000] e820: BIOS-provided physical RAM map:
-[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
-[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
-[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
-[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffeffff] usable
-[    0.000000] BIOS-e820: [mem 0x000000003fff0000-0x000000003fffffff] ACPI data
+[    0.000000] x86/fpu: Enabled xstate features 0x7, context size is 832 bytes, using 'sndard' foat
+[    0.000000] e20: BIOS-provided physical RAM map:
+[   0.0000] BIOS820: [mem 0x0000000000000000-0x000000000009fbff] usable
+    0.000000] BIOS-20 [mem 00000000009fc00x0000000009ffff] reserd
+[   0.00000] BI-e820: me 0x00000000f0000-0x00000000000fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffeffff] usbl
+[   .000000] BIOS-e820: [mem 0x000000003fff0000-0x000000003fffffff] ACPI data
 [    0.000000] BIOS-e820: [mem 0x00000000fec00000-0x00000000fec00fff] reserved
 [    0.000000] BIOS-e820: [mem 0x00000000fee00000-0x00000000fee00fff] reserved
 [    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
@@ -27,15 +28,15 @@
 [    0.000000] x86/PAT: MTRRs disabled, skipping PAT initialization too.
 [    0.000000] CPU MTRRs all blank - virtualized system.
 [    0.000000] x86/PAT: Configuration [0-7]: WB  WT  UC- UC  WB  WT  UC- UC  
-[    0.000000] found SMP MP-table at [mem 0x0009fff0-0x0009ffff] mapped at [        (ptrval)]
+[    0.000000] found SMP MP-table at [mem 0x0009ffff0-0x0009ffff] mapped at [        (ptrval)]
 [    0.000000] Scanning 1 areas for low memory corruption
 [    0.000000] RAMDISK: [mem 0x35987000-0x36cbafff]
 [    0.000000] ACPI: Early table checksum verification disabled
 [    0.000000] ACPI: RSDP 0x00000000000E0000 000024 (v02 VBOX  )
 [    0.000000] ACPI: XSDT 0x000000003FFF0030 00003C (v01 VBOX   VBOXXSDT 00000001 ASL  00000061)
 [    0.000000] ACPI: FACP 0x000000003FFF00F0 0000F4 (v04 VBOX   VBOXFACP 00000001 ASL  00000061)
-[    0.000000] ACPI: DSDT 0x000000003FFF0470 0022EA (v02 VBOX   VBOXBIOS 00000002 INTL 20100528)
-[    0.000000] ACPI: FACS 0x000000003FFF0200 000040
+[    0.000000] ACPI: DSDT 0x000000003FFF0470 0021FF (v02 VBOX   VBOXBIOS 00000002 INTL 20100528)
+[    0.000000] ACPI: FACS 0x00000003FFF0200 000040
 [    0.000000] ACPI: FACS 0x000000003FFF0200 000040
 [    0.000000] ACPI: APIC 0x000000003FFF0240 00005C (v02 VBOX   VBOXAPIC 00000001 ASL  00000061)
 [    0.000000] ACPI: SSDT 0x000000003FFF02A0 0001CC (v01 VBOX   VBOXCPUT 00000002 INTL 20100528)
@@ -47,11 +48,11 @@
 [    0.000000] kvm-clock: using sched offset of 4284770501 cycles
 [    0.000000] clocksource: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
 [    0.000000] Zone ranges:
-[    0.000000]   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+   00000]   DMA      [mem 0x000000000001000-0x0000000000ffffff]
 [    0.000000]   DMA32    [mem 0x0000000001000000-0x000000003ffeffff]
 [    0.000000]   Normal   empty
 [    0.000000]   Device   empty
-[    0.000000] Movable zone start for each node
+[    0.00000] Movable zone start for each node
 [    0.000000] Early memory node ranges
 [    0.000000]   node   0: [mem 0x0000000000001000-0x000000000009efff]
 [    0.000000]   node   0: [mem 0x0000000000100000-0x000000003ffeffff]
@@ -67,9 +68,9 @@
 [    0.000000] PM: Registered nosave memory: [mem 0x0009f000-0x0009ffff]
 [    0.000000] PM: Registered nosave memory: [mem 0x000a0000-0x000effff]
 [    0.000000] PM: Registered nosave memory: [mem 0x000f0000-0x000fffff]
-[    0.000000] e820: [mem 0x40000000-0xfebfffff] available for PCI devices
-[    0.000000] Booting paravirtualized kernel on KVM
-[    0.000000] clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645519600211568 ns
+[    0.000000] e820: [mem 0x400000000xfebffff] aailae or PCI devices
+[   0.0000]Booting ravirtualized kernl on KVM
+    0.000000] clocksource refined-jiffie: mak:xfffffffmax_cycles: 0xffffffff, maidle_ns: 7645519600211568 ns
 [    0.000000] random: get_random_bytes called from start_kernel+0x99/0x4fd with crng_init=0
 [    0.000000] setup_percpu: NR_CPUS:8192 nr_cpumask_bits:2 nr_cpu_ids:2 nr_node_ids:1
 [    0.000000] percpu: Embedded 46 pages/cpu @        (ptrval) s151552 r8192 d28672 u1048576
@@ -358,7 +359,8 @@ Begin: Loading essential drivers ... [    4.044253] raid6: sse2x1   gen() 10223 
 [    4.593464] xor: automatically using best checksumming function   avx       
 [    4.596666] async_tx: api initialized (async)
 done.
-Begin: Running /scripts/init-premount ... done.
+Begin: Running /scripts/init-pre[   10.862091] Btrfs loaded, crc32c=crc32c-intel
+mount ... done.
 Begin: Mounting root file system ... Begin: Running /scripts/local-top ... done.
 Begin: Running /scripts/local-premount ... [    4.643489] Btrfs loaded, crc32c=crc32c-intel
 Scanning for Btrfs filesystems
@@ -457,13 +459,11 @@ Welcome to [1mUbuntu 18.04.2 LTS[0m!
          Starting Update UTMP about System Boot/Shutdown...
 [[0;32m  OK  [0m] Started Update UTMP about System Boot/Shutdown.
 [[0;32m  OK  [0m] Started ebtables ruleset management.
->>>>>>> 7e0677715fc357ad65561c1625c6cc22ee73e57f
 [[0;32m  OK  [0m] Reached target Network (Pre).
          Starting Network Service...
 [[0;32m  OK  [0m] Started Network Service.
          Starting Network Name Resolution...
          Starting Wait for Network to be Configured...
-[[0;32m  OK  [0m] Found device /dev/ttyS0.
 [[0;32m  OK  [0m] Started Network Name Resolution.
 [[0;32m  OK  [0m] Reached target Host and Network Name Lookups.
 [[0;32m  OK  [0m] Reached target Network.
@@ -479,6 +479,7 @@ Welcome to [1mUbuntu 18.04.2 LTS[0m!
 [[0;32m  OK  [0m] Listening on ACPID Listen Socket.
 [[0;32m  OK  [0m] Started Daily Cleanup of Temporary Directories.
 [[0;32m  OK  [0m] Started ACPI Events Check.
+         Starting Socket activation for snappy daemon.
 [[0;32m  OK  [0m] Reached target Paths.
 [[0;32m  OK  [0m] Listening on Open-iSCSI iscsid Socket.
 [[0;32m  OK  [0m] Started Message of the Day.
@@ -513,12 +514,12 @@ Welcome to [1mUbuntu 18.04.2 LTS[0m!
 [[0;32m  OK  [0m] Reached target Remote File Systems (Pre).
 [[0;32m  OK  [0m] Reached target Remote File Systems.
          Starting Permit User Sessions...
-         Starting OpenBSD Secure Shell server...
-[[0;32m  OK  [0m] Started Availability of block devices.
+         Starting Snappy daemon...
+[[0;32m  OK  [0m] Started System Logging Service.
 [[0;32m  OK  [0m] Started Permit User Sessions.
->>>>>>> 7e0677715fc357ad65561c1625c6cc22ee73e57f
          Starting Hold until boot process finishes up...
          Starting Terminate Plymouth Boot Screen...
+         Starting Hold until boot process finishes up...
 [[0;32m  OK  [0m] Started Hold until boot process finishes up.
          Starting Set console scheme...
 [[0;32m  OK  [0m] Started Serial Getty on ttyS0.
@@ -532,8 +533,8 @@ Welcome to [1mUbuntu 18.04.2 LTS[0m!
 [[0;32m  OK  [0m] Started Dispatcher daemon for systemd-networkd.
 [[0;32m  OK  [0m] Started vboxadd.service.
          Starting vboxadd-service.service...
+[[0;32m  OK  [0m] Created slice User Slice of vagrant.
 [[0;32m  OK  [0m] Started vboxadd-service.service.
->>>>>>> 7e0677715fc357ad65561c1625c6cc22ee73e57f
 [[0;32m  OK  [0m] Reached target Multi-User System.
 [[0;32m  OK  [0m] Reached target Graphical Interface.
          Starting Update UTMP about System Runlevel Changes...
