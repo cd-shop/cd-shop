@@ -4,12 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-  	resources :orders, only: [:index, :create]
+  resources :orders, only: [:index, :create]
   end
 
   resources :users, only: [:index, :show, :edit, :update, :destroy]
-
-
+  resources :cart_products 
   namespace :admin do
     resources :users
     resources :products

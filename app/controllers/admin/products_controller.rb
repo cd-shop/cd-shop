@@ -4,11 +4,7 @@ class Admin::ProductsController < ApplicationController
     end
 
     def create
-
-        @genre = Genre.create(genrename: params[:genrename])
-        @label = Label.create(labelname: params[:labelname])
         @product = Product.new(product_params)
-
         @product.save
         redirect_to admin_products_path
     end
@@ -18,6 +14,7 @@ class Admin::ProductsController < ApplicationController
     end
 
     def show
+        @product = Product.find(params[:id])
     end
 
     def edit

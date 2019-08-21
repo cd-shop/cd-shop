@@ -122,9 +122,9 @@ ActiveRecord::Schema.define(version: 2019_08_21_060315) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.time "deleted_at"
-    t.integer "user_status"
     t.string "lastname"
     t.string "lastname_kana"
+    t.integer "user_status"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
