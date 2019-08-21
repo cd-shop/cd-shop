@@ -27,7 +27,11 @@
                   <li><%= link_to '管理者ログアウト',destroy_user_session_path,class: 'glyphicon glyphicon-fire', method: :delete,data: {confirm: "管理者のログアウトをしますか？"} %></li>
                 <% else %>
                   <li><%= link_to 'ユーザー ',user_path(current_user.id), class: 'glyphicon glyphicon-user' %></li>
+
+                  <li><%= link_to 'カート ', user_orders_path(current_user.id), class: 'glyphicon glyphicon-shopping-cart' %></li>
+
                   <li><%= link_to "ログアウト", destroy_user_session_path,class: 'glyphicon glyphicon-fire', method: :delete %></li>
+
                 <% end %>
 
             <% else %>

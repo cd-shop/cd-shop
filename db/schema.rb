@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2019_08_21_060315) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+    t.integer "purchase_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cds", force: :cascade do |t|
     t.integer "song_id"
     t.string "product_id"
@@ -44,6 +52,32 @@ ActiveRecord::Schema.define(version: 2019_08_21_060315) do
 
   create_table "labels", force: :cascade do |t|
     t.string "labelname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_histories", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.string "productname"
+    t.string "artistname"
+    t.string "labelname"
+    t.string "genrename"
+    t.text "image_ig"
+    t.integer "total_amount"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "subtotal"
+    t.integer "postage"
+    t.integer "shipment_status"
+    t.string "address_number"
+    t.string "municipality"
+    t.string "building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
