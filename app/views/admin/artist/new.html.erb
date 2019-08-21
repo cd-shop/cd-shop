@@ -1,0 +1,5 @@
+<%= form_for @artist, :url => { :controller => :artist, :action => :create }  do |g| %>
+    <%= g.text_field :artistname, :placeholder => "アーティスト名" %>
+
+    <%= g.submit "アーティスト名を追加する" %>
+<% end %>    

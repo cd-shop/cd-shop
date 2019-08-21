@@ -77,3 +77,9 @@ end
 gem 'paranoia'
 
 gem 'cocoon'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+gem 'nested_form'
+gem 'kaminari'

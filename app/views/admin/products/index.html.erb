@@ -1,1 +1,29 @@
-<li><%= link_to 'ユーザーの一覧',admin_users_path, class:'glyphicon glyphicon-user' %></li>
+<table>
+    <thead>
+        <tr>
+            <th>商品名</th>
+            <th>価格</th>
+            <th>ジャケット画像</th>
+            <th>アーティスト名</th>
+            <th>ジャンル名</th>
+            <th>レーベル名</th>
+            <th>在庫数</th>
+            <th>購入ステータス</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+        <tr>
+
+            <td><%= product.productname %></td>
+            <td><%= product.price %></td>
+            <td><%= attachment_image_tag product, :image, fallback:"no_image.png", size:"50x50" %></td>
+            <td><%= product.artist.artistname %></td>
+            <td><%= product.genre.genrename %></td>
+            <td><%= product.label.labelname %></td>
+            <td></td>
+            <td><%= product.sale_status %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

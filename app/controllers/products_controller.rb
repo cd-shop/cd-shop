@@ -1,27 +1,12 @@
 class ProductsController < ApplicationController
 
 	def index
-		@products = Product.all
+		@products = Product.all.order(created_at: :desc).page(params[:page]).per(10)
+		@songs = Song.all.order(created_at: :desc).page(params[:page]).per(10)
+		@artists= Artist.all.order(created_at: :desc).page(params[:page]).per(10)
 	end
 
 	def show
-		@product = Product.find(params[:id])
-	end
-
-	def new
-	end
-
-	def edit
-	end
-
-	def update
-	end
-
-	def destroy
-	end
-
-	private
-	def products_params
-		params.require(:products).permit(:genre_id, :artist_id, :label_id, :productname, :sale_status, :price, :stocknumber)
+		@product = Product.page(params[:page])
 	end
 end

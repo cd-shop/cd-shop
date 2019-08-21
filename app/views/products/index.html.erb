@@ -1,3 +1,111 @@
-products 
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+
+    <h1>CD一覧</h1>
+    <section class="product-box">
+    <section class="left">
+        <div class="product">
+        <% @products.each do |p| %>
+        <% @songs.each do |s| %>
+        <% @artists.each do |a| %>
+            <div class="image">
+                <%= attachment_image_tag p, :image, fallback:"no_image.png", size:"50x50" %>
+            </div>
+            <div class="text">
+                <p class="song"><%= s.songname %></p>
+                <p class="artist"><%= a.artistname %></p>
+                <p class="status"><%= p.sale_status %></p>
+                <p class="price"><%= p.price %></p>
+            </div>
+        </div>
+        <div class="product"></div>
+        <div class="product"></div>
+        <div class="product"></div>
+        <div class="product"></div>
+    <% end %>
+    <% end %>
+    <% end %>
+    </section>
+    <section class="right">
+        <div class="product"></div>
+        <div class="product"></div>
+        <div class="product"></div>
+        <div class="product"></div>
+        <div class="product"></div>
+    
+    </section>
+    </section>
+    <%= paginate @products %>
+</body>
+</html>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    h1{
+        text-align:center;
+    }
+
+    .product-box{
+        margin-top:40px;
+    }
+
+    .left{
+        width:50%;
+        float:left;
+        border-right:2px solid #222;
+    }
+
+    .right{
+        width:50%;
+        float:right;
+    }
+
+    .product{
+        width:50%;
+        height:180px;
+    }
+
+
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>商品名</th>
+            <th>価格</th>
+            <th>ジャケット画像</th>
+            <th>アーティスト名</th>
+            <th>ジャンル名</th>
+            <th>レーベル名</th>
+            <th>在庫数</th>
+            <th>購入ステータス</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+        <tr>
+
+            <td><%= product.productname %></td>
+            <td><%= product.price %></td>
+            <td><%= attachment_image_tag product, :image, fallback:"no_image.png", size:"50x50" %></td>
+            <td><%= product.artist.artistname %></td>
+            <td><%= product.genre.genrename %></td>
+            <td><%= product.label.labelname %></td>
+            <td></td>
+            <td><%= product.sale_status %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
 

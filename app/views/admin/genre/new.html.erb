@@ -1,0 +1,5 @@
+<%= form_for @genre, :url => { :controller => :genre, :action => :create } do |g| %>
+    <%= g.text_field :genrename, :placeholder => "ジャンル名" %>
+
+    <%= g.submit "ジャンルを追加する" %>
+<% end %>

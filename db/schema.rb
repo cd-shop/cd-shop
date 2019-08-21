@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_122454) do
 
+ActiveRecord::Schema.define(version: 2019_08_18_063639) do
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
     t.string "prefecture"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_122454) do
   end
 
   create_table "cds", force: :cascade do |t|
-    t.string "song_id"
+    t.integer "song_id"
     t.string "product_id"
     t.string "cdname"
     t.datetime "created_at", null: false
@@ -83,9 +83,9 @@ ActiveRecord::Schema.define(version: 2019_08_17_122454) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "genre_id"
-    t.string "artist_id"
-    t.string "label_id"
+    t.integer "genre_id"
+    t.integer "artist_id"
+    t.integer "label_id"
     t.string "productname"
     t.integer "price"
     t.string "update_date"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_122454) do
     t.integer "sale_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image_id"
   end
 
   create_table "songs", force: :cascade do |t|
