@@ -1,5 +1,5 @@
-<%= form_for @label, url:admin_label_index_path do |g| %>
+<%= form_for @label, :url => { :controller => :label, :action => :create } do |g| %>
     <%= g.text_field :labelname, :placeholder => "レーベル名" %>
 
-    <%= g.submit "商品を追加する" %>
-<% end %>    
+    <%= g.submit "レーベル追加する" %>
+<% end %>
