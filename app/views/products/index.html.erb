@@ -8,39 +8,24 @@
 
     <h1>CD一覧</h1>
     <section class="product-box">
+    <% @products.each do |product| %>
     <section class="left">
-        <div class="product">
-        <% @products.each do |p| %>
-        <% @songs.each do |s| %>
-        <% @artists.each do |a| %>
-            <div class="image">
-                <%= attachment_image_tag p, :image, fallback:"no_image.png", size:"50x50" %>
-            </div>
-            <div class="text">
-                <p class="song"><%= s.songname %></p>
-                <p class="artist"><%= a.artistname %></p>
-                <p class="status"><%= p.sale_status %></p>
-                <p class="price"><%= p.price %></p>
-            </div>
-        </div>
-        <div class="product"></div>
-        <div class="product"></div>
-        <div class="product"></div>
-        <div class="product"></div>
-    <% end %>
-    <% end %>
+        <span class="product">
+            <span class="image">
+                <%= attachment_image_tag product, :image, fallback:"no_image.png", size:"50x50" %>
+            </span>
+            <span class="text">
+                <p class="song"><%= product.productname %></p>
+                <p class="artist"><%= product.artist.artistname %></p>
+                <div class="status-box"><p class="status"><%= product.sale_status %></p></div>
+                <p class="price">¥<%= product.price %></p>
+                
+            </span>
+        </span>
+    </section>
     <% end %>
     </section>
-    <section class="right">
-        <div class="product"></div>
-        <div class="product"></div>
-        <div class="product"></div>
-        <div class="product"></div>
-        <div class="product"></div>
     
-    </section>
-    </section>
-    <%= paginate @products %>
 </body>
 </html>
 
@@ -63,47 +48,64 @@
         width:50%;
         float:left;
         border-right:2px solid #222;
+        display:flex;
     }
 
     .right{
-        width:50%;
+        width:auto;
         float:right;
     }
 
     .product{
-        width:50%;
-        height:180px;
+        width:80%;
+        height:190px;
+        display:inline-block;
+        margin-left:20%;
     }
+
+    .image{
+        height:160px;
+        width:160px;
+        margin-top:2%;
+        display:inline-block;
+    }
+
+    .text{
+        float:right;
+        width:60%;
+    }
+
+    .song{
+        font-size:25px;
+        text-align:center;
+    }
+
+    .artist{
+        font-size:18px;
+        text-align:center;
+    }
+
+    .status{
+        font-size:16px;
+        text-align:center;
+    }
+
+    .price{
+        font-size:20px;
+        margin-top:10px;
+        text-align:center;
+    }
+
+    .status-box{
+        width:40%;
+        margin:0 auto;
+        padding: 0.5em 1em;
+        background: -moz-linear-gradient(#ffb03c, #ff708d);
+        background: -webkit-linear-gradient(#ffb03c, #ff708d);
+        background: linear-gradient(to right, #ffb03c, #ff708d);
+        border-radius:70%;
+        color: #FFF;
+}
 
 
 </style>
-
-<table>
-    <thead>
-        <tr>
-            <th>商品名</th>
-            <th>価格</th>
-            <th>ジャケット画像</th>
-            <th>アーティスト名</th>
-            <th>ジャンル名</th>
-            <th>レーベル名</th>
-            <th>在庫数</th>
-            <th>購入ステータス</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @products.each do |product| %>
-        <tr>
-
-            <td><%= product.productname %></td>
-            <td><%= product.price %></td>
-            <td><%= attachment_image_tag product, :image, fallback:"no_image.png", size:"50x50" %></td>
-            <td><%= product.artist.artistname %></td>
-            <td><%= product.genre.genrename %></td>
-            <td><%= product.label.labelname %></td>
-            <td></td>
-            <td><%= product.sale_status %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
