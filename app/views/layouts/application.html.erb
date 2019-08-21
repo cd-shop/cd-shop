@@ -19,7 +19,7 @@
         </div>
         <nav class="nav navbar-nav navbar-right">
           <ul>
-              <li><%= link_to 'CD一覧 ', admin_products_path, class: 'glyphicon glyphicon-cd' %></li>
+              <li><%= link_to 'CD一覧 ', products_path, class: 'glyphicon glyphicon-cd' %></li>
             <% if user_signed_in? %>
                 <% if current_user.admin?%>
                   <li><%= link_to '商品の追加',new_admin_product_path,class: 'glyphicon glyphicon-leaf' %></li>
