@@ -1,0 +1,7 @@
+<h2>カート</h2>
+<% @cart_products.each do |cart_product| %>
+	<%= cart_product.cd.songname %>
+	<%= cart_product.artist.artistname %>
+	¥<%= cart_product.price %>
+	<%= cart_product.stock_number %>個
+<% end %>
