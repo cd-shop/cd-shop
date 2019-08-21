@@ -8,7 +8,6 @@ class Admin::ProductsController < ApplicationController
     def create
         @genre = Genre.create(genrename: params[:genrename])
         @label = Label.create(labelname: params[:labelname])
-        @artist = Artist.create(artistname: params[:artistname])
         @product = Product.new(product_params)
 
         @product.save
