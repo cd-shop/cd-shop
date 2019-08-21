@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
         has_many :addresses, dependent: :destroy
 
+        has_many :cart_products, dependent: :destroy
+
         accepts_nested_attributes_for :addresses, allow_destroy: true
 
         validates :name, presence: true

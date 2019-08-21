@@ -28,7 +28,7 @@
                 <% else %>
                   <li><%= link_to 'ユーザー ',user_path(current_user.id), class: 'glyphicon glyphicon-user' %></li>
 
-                  <li><%= link_to 'カート ', user_orders_path(current_user.id), class: 'glyphicon glyphicon-shopping-cart' %></li>
+                  <li><%= link_to 'カート ', cart_products_path, class: 'glyphicon glyphicon-shopping-cart' %></li>
 
                   <li><%= link_to "ログアウト", destroy_user_session_path,class: 'glyphicon glyphicon-fire', method: :delete %></li>
 

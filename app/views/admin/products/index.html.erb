@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         <% @products.each do |product| %>
-        <tr>
+        <td>
 
             <td><%= product.productname %></td>
             <td><%= product.price %></td>
@@ -23,6 +23,7 @@
             <td><%= product.label.labelname %></td>
             <td></td>
             <td><%= product.sale_status %></td>
+            <td><%= link_to "商品詳細ページ", admin_product_path(product.id) %></td>
         </tr>
         <% end %>
     </tbody>
