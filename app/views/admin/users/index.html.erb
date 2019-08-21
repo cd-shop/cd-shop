@@ -1,1 +1,35 @@
-aaa
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ユーザ名</th>
+                        <th>メールアドレス</th>
+                        <th>電話番号</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @users.each do |f| %>
+                        <tr>
+
+                            <td><%= f.name %></td>
+                            <td><%= f.email %></td>
+                            <td><%= f.tellnumber %></td>
+                            <td><%= link_to "show", user_path(f) %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+.table {
+    margin: 60px;
+    font-size: 20px;
+}
+</style>

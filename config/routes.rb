@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   	resources :orders, only: [:index, :create]
   end
   resources :products
-
   namespace :admin do
     resources :users
+    resources :products
   end
 end
