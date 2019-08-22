@@ -1,1 +1,101 @@
-aa
+    <h1>どの商品を購入しますか？</h1>
+    <section class="product-box">
+    <% @cart_products.each do |cart| %>
+    <section class="left">
+        <span class="product">
+
+            <span class="image">
+                <%= attachment_image_tag cart.product, :image, fallback:"no_image.png", size:"50x50" %>
+            </span>
+            <span class="text">
+                <p class="song"><%= cart.product.productname %></p>
+                <p class="artist"><%= cart.product.artist.artistname %></p>
+                <p class="price">¥<%= cart.product.price %></p>
+                <%= link_to "カートから削除", cart_product_path(cart.id), method: :delete, data:{confirm: "商品削除しますか？"}%>
+            </span>
+        </span>
+    </section>
+    <% end %>
+    </section>
+
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    h1{
+        text-align:center;
+    }
+
+    .product-box{
+        margin-top:40px;
+    }
+
+    .left{
+        width:50%;
+        float:left;
+        border-right:2px solid #222;
+        display:flex;
+    }
+
+    .right{
+        width:auto;
+        float:right;
+    }
+
+    .product{
+        width:80%;
+        height:190px;
+        display:inline-block;
+        margin-left:20%;
+    }
+
+    .image{
+        height:160px;
+        width:160px;
+        margin-top:2%;
+        display:inline-block;
+    }
+
+    .text{
+        float:right;
+        width:60%;
+    }
+
+    .song{
+        font-size:25px;
+        text-align:center;
+    }
+
+    .artist{
+        font-size:18px;
+        text-align:center;
+    }
+
+    .status{
+        font-size:16px;
+        text-align:center;
+    }
+
+    .price{
+        font-size:20px;
+        margin-top:10px;
+        text-align:center;
+    }
+
+    .status-box{
+        width:40%;
+        margin:0 auto;
+        padding: 0.5em 1em;
+        background: -moz-linear-gradient(#ffb03c, #ff708d);
+        background: -webkit-linear-gradient(#ffb03c, #ff708d);
+        background: linear-gradient(to right, #ffb03c, #ff708d);
+        border-radius:70%;
+        color: #FFF;
+}
+
+
+</style>

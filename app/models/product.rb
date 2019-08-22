@@ -1,8 +1,6 @@
 class Product < ApplicationRecord
 
 	has_many :cds, dependent: :destroy
-
-# dependent: :destroy必要？商品消したらカート消えそう？
 	has_many :cart_products, dependent: :destroy
 
 	belongs_to :artist

@@ -12,7 +12,7 @@
                 <p class="artist"><%= @product.genre.genrename %></p>
                 <p class="artist"> <%= @product.label.labelname %></p>
                 <div class="status-box"><p class="status"><%= @product.sale_status %></p></div>
-                <%# <div class="add_cart"><p class="status"><%= link_to "カートに追加", cart_products_path, method: :post %></p></div> %>
+                <div class="status-box"><p class="status"><%= link_to "カート追加", cart_products_path(@product.id), method: :post %></p></div>
 
             </span>
         </span>
