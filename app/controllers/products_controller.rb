@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		@product = Product.page(params[:page])
+		@product = Product.find(params[:id])
+	end
+
+	def update
 	end
 end

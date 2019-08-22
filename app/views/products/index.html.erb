@@ -1,11 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-    
 
     <h1>CD一覧</h1>
     <section class="product-box">
@@ -18,7 +11,9 @@
             <span class="text">
                 <p class="song"><%= product.productname %></p>
                 <p class="artist"><%= product.artist.artistname %></p>
+            <%= link_to product_path(product.id) do %>
                 <div class="status-box"><p class="status"><%= product.sale_status %></p></div>
+            <% end %>
                 <p class="price">¥<%= product.price %></p>
                 
             </span>
@@ -26,9 +21,7 @@
     </section>
     <% end %>
     </section>
-    
-</body>
-</html>
+
 
 <style>
     *{

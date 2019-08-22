@@ -1,29 +1,102 @@
-<table>
-    <thead>
-        <tr>
-            <th>商品名</th>
-            <th>価格</th>
-            <th>ジャケット画像</th>
-            <th>アーティスト名</th>
-            <th>ジャンル名</th>
-            <th>レーベル名</th>
-            <th>在庫数</th>
-            <th>購入ステータス</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><%= @product.productname %></td>
-            <td><%= @product.price %></td>
-            <td><%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %></td>
-            <td><%= @product.artist.artistname %></td>
-            <td><%= @product.genre.genrename %></td>
-            <td><%= @product.label.labelname %></td>
-            <td></td>
-            <td><%= @product.sale_status %></td>
-            <td><%= link_to "商品の編集ページ", edit_admin_product_path(@product.id) %></td>
-            <td><%= link_to "商品の削除", admin_product_path(@product.id), method: :deleate, data: {confirm: "商品の削除をしますか？"}%></td>
+    <h1>商品詳細</h1>
+    <section class="product-box">
+    <section class="left">
+        <span class="product">
+            <span class="image">
+                <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
+            </span>
+            <span class="text">
+                <p class="song"><%= @product.productname %></p>
+                <p class="artist"><%= @product.artist.artistname %></p>
+                <p class="price">¥<%= @product.price %></p>
+                <p class="artist"><%= @product.genre.genrename %></p>
+                <p class="artist"> <%= @product.label.labelname %></p>
+                <div class="status-box"><p class="status"><%= @product.sale_status %></p></div>
 
-        </tr>
-    </tbody>
-</table>
+                <%= link_to "edit", edit_admin_product_path(@product.id)%>
+                <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"} %>
+            </span>
+        </span>
+    </section>
+    </section>
+
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    h1{
+        text-align:center;
+    }
+
+    .product-box{
+        margin-top:40px;
+    }
+
+    .left{
+        width:50%;
+        float:center;
+        display:flex;
+    }
+
+    .right{
+        width:auto;
+        float:right;
+    }
+
+    .product{
+        width:80%;
+        height:190px;
+        display:inline-block;
+        margin-left:20%;
+    }
+
+    .image{
+        height:160px;
+        width:160px;
+        margin-top:2%;
+        display:inline-block;
+    }
+
+    .text{
+        float:right;
+        width:60%;
+    }
+
+    .song{
+        font-size:25px;
+        text-align:center;
+    }
+
+    .artist{
+        font-size:18px;
+        text-align:center;
+    }
+
+    .status{
+        font-size:16px;
+        text-align:center;
+    }
+
+    .price{
+        font-size:20px;
+        margin-top:10px;
+        text-align:center;
+    }
+
+    .status-box{
+        width:40%;
+        margin:0 auto;
+        padding: 0.5em 1em;
+        background: -moz-linear-gradient(#ffb03c, #ff708d);
+        background: -webkit-linear-gradient(#ffb03c, #ff708d);
+        background: linear-gradient(to right, #ffb03c, #ff708d);
+        border-radius:70%;
+        color: #FFF;
+}
+
+
+</style>
