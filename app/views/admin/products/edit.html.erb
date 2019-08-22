@@ -1,0 +1,116 @@
+<body>
+    <h1>商品の編集</h1>
+    <section class="add-box">
+    <div class="left">
+        <p class="add-text">商品名</p><br>
+        <p class="add-text">価格</p><br>
+        <p class="add-text">画像を追加</p><br>
+        <p class="add-text">販売中・販売中止</p><br>
+        <p class="add-text">アーティスト名</p><br>
+        <p class="add-text">ジャンル名</p><br>
+        <p class="add-text">レーベル名</p>
+    </div>
+    <div class="right">
+    <%= nested_form_for(@product, url: admin_product_path, method: :PUT) do |product| %>
+    <p class="form"><%= product.text_field :productname, :placeholder => "商品名"  %></p> <br class="s">
+    <p class="form"><%= product.number_field :price, :placeholder => "値段" %></p><br>
+    <p class="form"><%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %></p><br>
+    <p class="form"><%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br>
+
+
+
+
+    <p class="form"><%= product.collection_select :artist_id, Artist.all, :id, :artistname %>
+    <%= link_to '⇦にアーティスト名が無い場合はこちら', new_admin_artist_path %></p><br>
+
+    <p class="form"><%= product.collection_select :genre_id, Genre.all, :id, :genrename %>
+    <%= link_to '⇦にジャンルが無い場合はこちら', new_admin_genre_path %></p><br>
+
+    <p class="form"><%= product.collection_select :label_id, Label.all, :id, :labelname %>
+    <%= link_to '⇦にレーベルが無い場合はこちら', new_admin_label_path %></p><br>
+
+    
+    </div>
+    <%= product.submit "商品を更新する", :class=>"btn"%>
+    <% end %>
+    </section>
+</body>
+</html>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    h1{
+        text-align:center;
+    }
+
+    .add-box{
+        margin-top:40px;
+    }
+
+    .left{
+        width:35%;
+        float:left;
+        margin-left:15%;
+    }
+
+    .right{
+        width:50%;
+        float:right;
+    }
+
+    input[type="text"] {
+        width: 300px;
+        height: 40px;
+    }
+
+    input[type="number"] {
+        width: 300px;
+        height: 40px;
+    }
+
+    .add-text{
+        font-size:23px;
+        text-align:center;
+        margin-top:10px;
+    }
+
+    .form{
+        height:40px;
+    }
+
+    .form:nth-child(7){
+        padding-top:16px;
+    }
+
+    .form:nth-child(9){
+        margin-top:20px;
+    }
+
+    .form:nth-child(11){
+        padding-top:5px;
+    }
+
+    .form:nth-child(13){
+        padding-top:5px;
+    }
+
+    .form:nth-child(15){
+        padding-top:8px;
+    }
+
+    .btn {
+        background-color:#ccc;
+        width: 250px;
+        height: 70px;
+        margin-left:40%;
+        font-size:20px;
+        margin-bottom:50px;
+    }
+
+    
+</style>

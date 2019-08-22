@@ -13,17 +13,25 @@ class Admin::ProductsController < ApplicationController
         @products = Product.all
     end
 
+# shoeページにあるリンクからジャンル追加するとリダイレクト先が商品追加画面に行くので要修正
     def show
         @product = Product.find(params[:id])
     end
 
     def edit
+        @product = Product.find(params[:id])
     end
 
     def update
+        @product = Product.find(params[:id])
+        @product.update(product_params)
+        redirect_to admin_product_path(params[:id])
     end
 
     def destroy
+        @product = Product.find(params[:id])
+        @product.destroy
+        redirect_to admin_products_path
     end
 
     private
