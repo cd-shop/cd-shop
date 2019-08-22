@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+    before_action :admin_users
     def new
         @product = Product.new
     end
@@ -13,7 +14,6 @@ class Admin::ProductsController < ApplicationController
         @products = Product.all
     end
 
-# shoeページにあるリンクからジャンル追加するとリダイレクト先が商品追加画面に行くので要修正
     def show
         @product = Product.find(params[:id])
         @cart_product = Product.find(params[:id])
@@ -41,4 +41,7 @@ class Admin::ProductsController < ApplicationController
         params.require(:product).permit(:label_id,:genre_id, :artist_id, :productname, :sale_status, :price, :image, genre_attribute: [:genrename], label_attribute: [:labelname], artist_attribute: [:artistsname])
     end
 
+    def admin_users
+        redirect_to products_path unless current_user.admin?
+    end
 end

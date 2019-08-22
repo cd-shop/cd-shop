@@ -1,15 +1,17 @@
 class CartProductsController < ApplicationController
 
     def index
-        @cart_products = CartProduct.all
+        @cart_products = current_user.cart_products.all
     end
 
     def create
-        @product = params[:format].to_i
-        cart_product = current_user.cart_products.new(product_id: @product)
-        cart_product.product_id = @product.to_i
+
+        @parameter = params[:format].to_i
+        cart_product = current_user.cart_products.new(product_id: @parameter)
+        cart_product.user_id = current_user.id
         cart_product.save
         redirect_to cart_products_path
+
     end
 
     def destroy
@@ -18,8 +20,4 @@ class CartProductsController < ApplicationController
         redirect_to cart_products_path
     end
 
-    private
-    def cart_product_params
-        params.require(:cart_product).permit(:user_id, :product_id, :purcase_number)
-    end
 end

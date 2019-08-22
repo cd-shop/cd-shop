@@ -1,4 +1,4 @@
-<div class="user_edit">
+<div class="user_edit", id="okan">
   <div class="border-edit">
     <%= form_for @user do |f| %>
           <div class= "field">
@@ -22,7 +22,7 @@
           </div>
 
           <div class="links">
-            <%= link_to_add_association '住所を追加', f, :addresses %>
+            <%= link_to_add_association '住所を追加', f, :addresses, id:"address_nest" %>
           </div>
 
           <%= f.fields_for :addresses do |address| %>
@@ -33,7 +33,7 @@
             <%= f.submit "変更する",class:"btn btn-success" %>
           </div>
     <% end %>
-  </div>
+    </div>
 </div>
 
 <style>
@@ -43,6 +43,14 @@
     margin:30px auto;
     width: 700px;
     height: 500px;
+}
+
+.user_edit-ex {
+    text-align: center;
+    border: solid 2px gray;
+    margin:30px auto;
+    width: 700px;
+    height: 800px;
 }
 .border-edit {
     margin:80px auto;
