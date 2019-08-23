@@ -11,6 +11,7 @@
                 <p class="song"><%= cart.product.productname %></p>
                 <p class="artist"><%= cart.product.artist.artistname %></p>
                 <p class="price">¥<%= cart.product.price %></p>
+
                 <%= link_to "カートから削除", cart_product_path(cart.id), method: :delete, data:{confirm: "カートからこの商品を削除しますか？"}%>
 
             </span>
@@ -18,8 +19,6 @@
     </section>
     <% end %>
     </section>
-
-<%# #cartproductに入っている商品のIDをカウントして、表示させればいいのか？ %>
 <style>
     *{
         margin:0;

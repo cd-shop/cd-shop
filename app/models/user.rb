@@ -23,5 +23,5 @@ class User < ApplicationRecord
         acts_as_paranoid
 
         #ユーザーステータス
-        enum user_status: {"---": 0, "アクティブ中": 1, "退会済み": 2}
+        enum user_status: {"会員": 0, "退会済み": 1}
 end

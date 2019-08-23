@@ -6,6 +6,7 @@
         <p class="add-text">価格</p><br>
         <p class="add-text">画像を追加</p><br>
         <p class="add-text">販売中・販売中止</p><br>
+        <p class="add-text">在庫数</p><br>
         <p class="add-text">アーティスト名</p><br>
         <p class="add-text">ジャンル名</p><br>
         <p class="add-text">レーベル名</p>
@@ -15,7 +16,8 @@
     <p class="form"><%= product.text_field :productname, :placeholder => "商品名"  %></p> <br class="s">
     <p class="form"><%= product.number_field :price, :placeholder => "値段" %></p><br>
     <p class="form"><%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %></p><br>
-    <p class="form"><%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br>
+    <p class="form"><%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br><br>
+    <p class="form"><%= product.select :stock_number, options_for_select((0..100).to_a) %></p><br><br>
 
     <p class="form"><%= product.collection_select :artist_id, Artist.all, :id, :artistname %>
     <%= link_to '⇦にアーティスト名が無い場合はこちら', new_admin_artist_path %></p><br>

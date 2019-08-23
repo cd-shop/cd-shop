@@ -10,6 +10,7 @@
                 <p class="song"><%= product.productname %></p>
                 <p class="artist"><%= product.artist.artistname %></p>
                 <p class="price">¥<%= product.price %></p>
+                <p class="artist">在庫数:<%= product.stock_number %>枚</p>
             <%= link_to admin_product_path(product.id) do %>
                 <div class="status-box"><p class="status"><%= product.sale_status %></p></div>
             <% end %>
@@ -50,7 +51,7 @@
 
     .product{
         width:80%;
-        height:190px;
+        height:220px;
         display:inline-block;
         margin-left:20%;
     }

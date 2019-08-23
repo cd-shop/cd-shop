@@ -15,7 +15,7 @@
                 <div class="status-box"><p class="status"><%= product.sale_status %></p></div>
             <% end %>
                 <p class="price">¥<%= product.price %></p>
-                
+                <p class="price">在庫数:<%= product.stock_number %>枚</p>
             </span>
         </span>
     </section>
@@ -52,7 +52,7 @@
 
     .product{
         width:80%;
-        height:190px;
+        height:240px;
         display:inline-block;
         margin-left:20%;
     }
