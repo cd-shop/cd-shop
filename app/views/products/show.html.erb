@@ -11,9 +11,18 @@
                 <p class="price">¥<%= @product.price %></p>
                 <p class="artist"><%= @product.genre.genrename %></p>
                 <p class="artist"> <%= @product.label.labelname %></p>
+                <p class="artist">在庫数:<%= @product.stock_number %>枚</p><br>
                 <div class="status-box"><p class="status"><%= @product.sale_status %></p></div>
-                <div class="status-box"><p class="status"><%= link_to "カート追加", cart_products_path(@product.id), method: :post %></p></div>
 
+                <% if user_signed_in?%>
+                    <% if current_user.admin?%>
+                        <% else %>
+                            <div class="status-box"><p class="status"><%= link_to "カート追加", cart_products_path(@product.id), method: :post %></p></div>
+                    <% end %>
+                <% else %>
+                    <div class="status-box"><p class="status"><%= link_to '会員登録 ', new_user_registration_path %></p></div>
+                    <div class="status-box"><p class="status"><%= link_to 'ログイン ',new_user_session_path %></p></div>
+                <% end %>
             </span>
         </span>
     </section>

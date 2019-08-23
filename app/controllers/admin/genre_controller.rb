@@ -15,4 +15,7 @@ class Admin::GenreController < ApplicationController
         params.require(:genre).permit(:id, :genrename)
     end
 
+    def admin_users
+        redirect_to products_path unless current_user.admin?
+    end
 end

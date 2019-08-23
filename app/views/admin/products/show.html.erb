@@ -12,6 +12,7 @@
                 <p class="artist"><%= @product.genre.genrename %></p>
                 <p class="artist"> <%= @product.label.labelname %></p>
                 <div class="status-box"><p class="status"><%= @product.sale_status %></p></div>
+                <p class="artist">在庫数:<%= @product.stock_number %>枚</p>
 
                 <%= link_to "edit", edit_admin_product_path(@product.id)%>
                 <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"} %>
