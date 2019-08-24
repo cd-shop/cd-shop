@@ -11,10 +11,13 @@
             <p><%= f.name %></p>
             <p><%= f.email %></p>
             <p><%= f.tellnumber %></p>
-        </div>
+        </div> 
         <div class="info-right">
-            <div class="right-top"><p><%= link_to "詳細", user_path(f) %></p></div>
-            <div class="right-bottom"><p>削除</p></div>
+        <%= link_to user_path(f) do %>
+        <div class="info-right2">
+            <p>詳細</p>
+        </div>
+        <% end %>
         </div>
     </div>
 <% end %>
@@ -45,17 +48,37 @@ h1{
     text-align:right;
 }
 
+.info-left>p{
+    margin-top:4%;
+}
+
+.info-center>p{
+    margin-top:4%;
+}
+
 .info-center{
     width:50%;
     height:150px;
-    margin:0 10% 0 40%;
     padding-left:10%;
 }
 
 .info-right{
     width:10%;
-    height:150px:
-    float:right;
+    height:150px;
+    background:#777;
+    text-align:center;
+    text-decoration:none;
+}
+
+.info-right2{
+    height:150px;
+    padding-top:65%;
+    background:#777;
+}
+
+.info-right2 > p{
+    text-decoration:none;
+    color:#fff;
 }
 
 .right-top{

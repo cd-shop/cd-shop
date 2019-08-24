@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
 
 
+  get "admin/index" => "admin#index"
+
+
   namespace :admin do
     resources :users
     resources :products
