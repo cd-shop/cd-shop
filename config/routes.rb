@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :cart_products, only: [:create, :index, :destroy]
 
   resources :products, only:[:index, :show]
-
+  get "admin/index" => "admin#index"
 
   namespace :admin do
     resources :users
