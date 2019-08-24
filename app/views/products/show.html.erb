@@ -13,7 +13,6 @@
                 <p class="artist"> <%= @product.label.labelname %></p>
                 <p class="artist">在庫数:<%= @product.stock_number %>枚</p><br>
                 <div class="status-box"><p class="status"><%= @product.sale_status %></p></div>
-
                 <% if user_signed_in?%>
                     <% if current_user.admin?%>
                         <% else %>

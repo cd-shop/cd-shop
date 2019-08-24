@@ -25,3 +25,4 @@ class User < ApplicationRecord
         #ユーザーステータス
         enum user_status: {"会員": 0, "退会済み": 1}
 end
+
