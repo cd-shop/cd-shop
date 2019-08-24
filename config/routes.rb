@@ -2,7 +2,14 @@ Rails.application.routes.draw do
 
   root 'products#index'
   devise_for :users
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+
+  resources :users do
+    resources :orders, only: [:index, :create]
+  end
+  resources :cart_products, only: [:create, :index, :destroy]
+
+  resources :products, only:[:index, :show]
+
 
   namespace :admin do
     resources :users
@@ -11,8 +18,4 @@ Rails.application.routes.draw do
     resources :genre, only: [:new, :create]
     resources :label, only: [:new, :create]
   end
-
-  resources :products, only:[:index, :show]
-  
-
 end

@@ -1,3 +1,6 @@
+管理者 ID1, email => bb@bb, pass=> pppppp
+user1 i@i pppppp
+user2 p@p pppppp
 <div class="sign_in_form">
     <div class="sign_in_content">
     <h2>Log in</h2><br><br>
@@ -12,11 +15,6 @@
         <%= f.label :パスワード %><br />
         <%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワードを入力してください" %>
       </div>
-
-        <div class="field">
-          <%= f.label :パスワード再入力 %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "パスワードを再入力してください" %>
-        </div>
 
       <% if devise_mapping.rememberable? %>
         <div class="field">

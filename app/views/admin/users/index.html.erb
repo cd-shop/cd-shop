@@ -1,35 +1,69 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-6">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ユーザ名</th>
-                        <th>メールアドレス</th>
-                        <th>電話番号</th>
-                        <th></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% @users.each do |f| %>
-                        <tr>
-
-                            <td><%= f.name %></td>
-                            <td><%= f.email %></td>
-                            <td><%= f.tellnumber %></td>
-                            <td><%= link_to "show", user_path(f) %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
+<h1>ユーザー一覧</h1>
+<div class="users">
+<% @users.each do |f| %>
+    <div class="user-box">
+        <div class="info-left">
+            <p>ユーザ名：</p>
+            <p>メールアドレス：</p>
+            <p>電話番号：</p>
+        </div>
+        <div class="info-center">
+            <p><%= f.name %></p>
+            <p><%= f.email %></p>
+            <p><%= f.tellnumber %></p>
+        </div>
+        <div class="info-right">
+            <div class="right-top"><p><%= link_to "詳細", user_path(f) %></p></div>
+            <div class="right-bottom"><p>削除</p></div>
         </div>
     </div>
+<% end %>
 </div>
 
 <style>
-.table {
-    margin: 60px;
-    font-size: 20px;
+
+h1{
+    text-align:center;
 }
+
+.users{
+    margin-top:5%;
+}
+
+.user-box{
+    width:70%;
+    height:150px;
+    margin:5% auto;
+    background:#ddd;
+    font-size:20px;
+    display:flex;
+}
+
+.info-left{
+    width:40%;
+    height:150px;
+    text-align:right;
+}
+
+.info-center{
+    width:50%;
+    height:150px;
+    margin:0 10% 0 40%;
+    padding-left:10%;
+}
+
+.info-right{
+    width:10%;
+    height:150px:
+    float:right;
+}
+
+.right-top{
+    height:75px;
+}
+
+.right-bottom{
+    height:75%;
+}
+
 </style>

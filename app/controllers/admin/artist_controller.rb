@@ -14,4 +14,8 @@ class Admin::ArtistController < ApplicationController
     def artist_params
         params.require(:artist).permit(:id, :artistname)
     end
+
+    def admin_users
+        redirect_to products_path unless current_user.admin?
+    end
 end

@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
 
 	has_many :cds, dependent: :destroy
+	has_many :cart_products, dependent: :destroy
 
 	belongs_to :artist
 	belongs_to :genre

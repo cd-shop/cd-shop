@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
         has_many :addresses, dependent: :destroy
 
+        has_many :cart_products, dependent: :destroy
+
         accepts_nested_attributes_for :addresses, allow_destroy: true
 
         validates :name, presence: true
@@ -21,5 +23,5 @@ class User < ApplicationRecord
         acts_as_paranoid
 
         #ユーザーステータス
-        enum user_status: {"---": 0, "アクティブ中": 1, "退会済み": 2}
+        enum user_status: {"会員": 0, "退会済み": 1}
 end

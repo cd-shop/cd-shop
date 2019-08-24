@@ -1,36 +1,31 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-    
-
     <h1>CD一覧</h1>
     <section class="product-box">
     <% @products.each do |product| %>
     <section class="left">
         <span class="product">
+            <%= link_to product_path(product.id) do %>
             <span class="image">
                 <%= attachment_image_tag product, :image, fallback:"no_image.png", size:"50x50" %>
             </span>
+            <% end %>
             <span class="text">
                 <p class="song"><%= product.productname %></p>
                 <p class="artist"><%= product.artist.artistname %></p>
+            <%= link_to product_path(product.id) do %>
                 <div class="status-box"><p class="status"><%= product.sale_status %></p></div>
+            <% end %>
                 <p class="price">¥<%= product.price %></p>
-                
+                <p class="price">在庫数:<%= product.stock_number %>枚</p>
             </span>
         </span>
     </section>
-    
+    <% end %>
     </section>
     
-    <% end %>
+    
     <div class="paging"><%= paginate @products %></div>
 </body>
 </html>
-
 <style>
     *{
         margin:0;
@@ -42,9 +37,16 @@
         text-align:center;
     }
 
+    p{
+        margin:0;
+    }
+
     .product-box{
         margin-top:40px;
-        text-align:justify;
+        height:auto;
+        overflow: hidden;
+        position:rerative;
+        zoom:1;
     }
 
     .left{
@@ -62,6 +64,8 @@
         display:flex;
         justify-content: space-around;
         text-align:justify;
+        margin-left:13%;
+        clear:both;
     }
 
     .image{
@@ -93,7 +97,6 @@
 
     .price{
         font-size:20px;
-        margin-top:10px;
         text-align:center;
     }
 
@@ -110,6 +113,7 @@
 
     .paging{
         text-align:center;
+        height: 60px;
     }
 
 

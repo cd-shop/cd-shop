@@ -14,4 +14,8 @@ class Admin::LabelController < ApplicationController
     def label_params
         params.require(:label).permit(:id, :labelname)
     end
+
+    def admin_users
+        redirect_to products_path unless current_user.admin?
+    end
 end
