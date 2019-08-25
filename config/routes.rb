@@ -18,6 +18,13 @@ Rails.application.routes.draw do
     resources :cart_products, only: [:create, :destroy]
   end
 
+  resources :cart_products, only: [:index]
+
+  resources :products, only:[:index, :show] do
+    resources :cart_products, only: [:create, :destroy]
+  end
+
+  get "admin/index" => "admin#index"
 
   namespace :admin do
     get "top" => "products#top"
