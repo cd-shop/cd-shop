@@ -29,8 +29,9 @@
             <% if user_signed_in?%>
                 <% if current_user.admin?%>
                     <% else %>
-                        <div class="status-box"><p class="status"><%= link_to "カートに追加", cart_products_path(@product.id), method: :post,class: '
-glyphicon glyphicon-shopping-cart' %></p></div>
+                        <div class="status-box"><p class="status">
+                        <%= link_to "カートに追加", product_cart_products_path(@product.id), method: :post, class: 'glyphicon glyphicon-shopping-cart' %>
+                        </p></div>
                 <% end %>
             <% else %>
                 <div class="log-box"><p class="status"><%= link_to '会員登録 ', new_user_registration_path %></p></div>

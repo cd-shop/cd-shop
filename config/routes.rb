@@ -6,10 +6,16 @@ Rails.application.routes.draw do
   resources :users do
     resources :orders, only: [:index, :create]
   end
-  resources :cart_products, only: [:create, :index, :destroy]
 
-  resources :products, only:[:index, :show]
+  resources :cart_products, only: [:index]
+
+  resources :products, only:[:index, :show] do
+    resources :cart_products, only: [:create, :destroy]
+  end
+
+
   get "admin/index" => "admin#index"
+
 
   namespace :admin do
     resources :users
