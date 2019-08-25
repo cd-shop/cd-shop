@@ -20,6 +20,11 @@
         <% end %>
         </div>
     </div>
+    <% if f.deleted_at? %>
+        退会済み
+    <% else %>
+        アクティブユーザー
+    <% end %>
 <% end %>
 </div>
 

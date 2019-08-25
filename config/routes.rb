@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:index]
   end
 
-
   resources :cart_products, only: [:index, :show] do
     resources :orders, only: [:create, :destroy]
   end
@@ -23,8 +22,6 @@ Rails.application.routes.draw do
   resources :products, only:[:index, :show] do
     resources :cart_products, only: [:create, :destroy]
   end
-
-  get "admin/index" => "admin#index"
 
   namespace :admin do
     get "top" => "products#top"
