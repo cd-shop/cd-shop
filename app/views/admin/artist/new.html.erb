@@ -1,5 +1,29 @@
+<h1>アーティストの追加</h1>
+<div class="form-box">
 <%= form_for @artist, :url => { :controller => :artist, :action => :create }  do |g| %>
-    <%= g.text_field :artistname, :placeholder => "アーティスト名" %>
-
-    <%= g.submit "アーティスト名を追加する" %>
+    <p class="form"><%= g.text_field :artistname, :placeholder => "アーティスト名" %></p>
+    <br>
+    <p class="add"><%= g.submit "アーティスト名を追加する" %></p>
 <% end %>    
+</div>
+
+<style>
+    h1{
+        text-align:center;
+    }
+
+    .form-box{
+        width:40%;
+        height:10%;
+        margin:0 auto;
+    }
+
+    .form{
+        margin-top:5%;
+        margin-left:30%;
+    }
+
+    .add{
+        margin-left:33%;
+    }
+</style>
