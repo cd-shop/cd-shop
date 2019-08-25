@@ -1,5 +1,9 @@
 class Admin::ProductsController < ApplicationController
     before_action :admin_users
+
+    def top
+    end
+
     def new
         @product = Product.new
     end

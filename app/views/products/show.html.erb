@@ -23,8 +23,8 @@
             <p class="artist"><%= @product.artist.artistname %></p>
             <p class="price">¥<%= @product.price %></p>
             <p class="artist"><%= @product.genre.genrename %></p>
-            <p class="artist"> <%= @product.label.labelname %></p>
-        </div>
+            <p class="artist"> <%= @product.label.labelname %></p><br><br>
+        </div><br>
         </div>
             <% if user_signed_in?%>
                 <% if current_user.admin?%>
