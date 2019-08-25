@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
 
+  get 'orders/index'
+  get 'orders/create'
   root 'products#index'
   devise_for :users
 
   resources :users do
-    resources :orders, only: [:index, :create]
+    resources :orders, only: [:index]
+  end
+
+  resources :cart_products, only: [:index, :show] do
+    resources :orders, only: [:create, :destroy]
+  end
+
+  resources :products, only:[:index, :show] do
+    resources :cart_products, only: [:create, :destroy]
   end
 
   resources :cart_products, only: [:index]
@@ -13,11 +23,8 @@ Rails.application.routes.draw do
     resources :cart_products, only: [:create, :destroy]
   end
 
-
-  get "admin/index" => "admin#index"
-
-
   namespace :admin do
+    get "top" => "products#top"
     resources :users
     resources :products
     resources :artist, only: [:new, :create]
