@@ -15,10 +15,12 @@
 
     <div class="right">
     <%= nested_form_for(@product, url:"/admin/products") do |product| %>
-        <p class="form"><%= product.text_field :productname, :placeholder => "商品名"  %></p> <br class="s">
-        <p class="form"><%= product.number_field :price, :placeholder => "値段" %></p><br>
-        <p class="form"><%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %></p><br>
-        <p class="form"><%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br>
+
+    <p class="form"><%= product.text_field :productname, :placeholder => "商品名"  %></p> <br>
+    <p class="form"><%= product.number_field :price, :placeholder => "値段" %></p><br>
+    <p class="form"><%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %></p><br>
+    <p class="form"><%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br>
+
 
         <%= product.select :stock_number, options_for_select((0..100).to_a) %><br><br>
 
