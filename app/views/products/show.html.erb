@@ -23,14 +23,16 @@
             <p class="artist"><%= @product.artist.artistname %></p>
             <p class="price">¥<%= @product.price %></p>
             <p class="artist"><%= @product.genre.genrename %></p>
-            <p class="artist"> <%= @product.label.labelname %></p>
-        </div>
+            <p class="artist"> <%= @product.label.labelname %></p><br><br>
+        </div><br>
         </div>
             <% if user_signed_in?%>
                 <% if current_user.admin?%>
                     <% else %>
-                        <div class="status-box"><p class="status"><%= link_to "カートに追加", cart_products_path(@product.id), method: :post,class: '
-glyphicon glyphicon-shopping-cart' %></p></div>
+                        <div class="status-box"><p class="status">
+                        <%= link_to "カートに追加", product_cart_products_path(@product.id), method: :post, class: 'glyphicon glyphicon-shopping-cart' %>
+                        </p></div>
+
                 <% end %>
             <% else %>
                 <div class="log-box"><p class="status"><%= link_to '会員登録 ', new_user_registration_path %></p></div>
@@ -125,7 +127,7 @@ glyphicon glyphicon-shopping-cart' %></p></div>
     }
 
     .status{
-        font-size:20px;
+        font-size:16px;
         text-align:center;
     }
 
@@ -172,7 +174,18 @@ glyphicon glyphicon-shopping-cart' %></p></div>
     }
 
     .return{
-        margin-top:8%;
+        margin-top:0.5%;
+        width:20%;
+        margin-left:39%;
+        fot-size:15px;
+        padding: 0.5em 1em;
+        background: #ccc;
+        border-radius:10%;
+        color: #FFF;
+    }
+
+    .log-box{
+        margin-top:0.5%;
         width:20%;
         margin-left:39%;
         fot-size:15px;

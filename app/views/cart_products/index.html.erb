@@ -11,14 +11,13 @@
                 <p class="song"><%= cart.product.productname %></p>
                 <p class="artist"><%= cart.product.artist.artistname %></p>
                 <p class="price">¥<%= cart.product.price %></p>
-
-                <%= link_to "カートから削除", cart_product_path(cart.id), method: :delete, data:{confirm: "カートからこの商品を削除しますか？"}%>
-
+                <p class="delete"><%= link_to "カートから削除", product_cart_product_path(@cart_product.product_id,@cart_product.id), method: :delete, data:{confirm: "カートからこの商品を削除しますか？"}%></p>
             </span>
         </span>
     </section>
     <% end %>
-    </section>
+    </section> 
+    <p class="buy"><%= link_to "注文に進む",cart_product_orders_path(@cart_product.id),method: :post %></p>
 <style>
     *{
         margin:0;
@@ -32,6 +31,9 @@
 
     .product-box{
         margin-top:40px;
+        overflow: hidden;
+        position:rerative;
+        zoom:1;
     }
 
     .left{
@@ -41,16 +43,14 @@
         display:flex;
     }
 
-    .right{
-        width:auto;
-        float:right;
-    }
-
     .product{
         width:80%;
         height:190px;
         display:inline-block;
         margin-left:20%;
+        justify-content: space-around;
+        text-align:justify;
+        clear:both;
     }
 
     .image{
@@ -86,16 +86,31 @@
         text-align:center;
     }
 
-    .status-box{
-        width:40%;
+    .delete{
+        width:43%;
         margin:0 auto;
+        text-align:center;
         padding: 0.5em 1em;
-        background: -moz-linear-gradient(#ffb03c, #ff708d);
-        background: -webkit-linear-gradient(#ffb03c, #ff708d);
-        background: linear-gradient(to right, #ffb03c, #ff708d);
-        border-radius:70%;
-        color: #FFF;
-}
+        background:#ee9999;
+        border-radius:10%;
+    }
+
+    .delete>a{
+        color:#fff;
+    }
+
+    .buy{
+        margin:40px auto;
+        text-align:center;
+        width:20%;
+        padding: 0.5em 1em;
+        background:#88cd68;
+        border-radius:10%;
+    }
+
+    .buy>a{
+        color:#fff;
+    }
 
 
 </style>

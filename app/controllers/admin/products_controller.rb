@@ -1,16 +1,26 @@
 class Admin::ProductsController < ApplicationController
     before_action :admin_users
+
+    def top
+    end
+
     def new
         @product = Product.new
     end
 
     def create
+
         @product = Product.new(product_params)
+
+        # 子のCDの情報がとれない（23日14時）
+        # @product.cd = Cd.find_by(params[:cdname])
         @product.save
+
         redirect_to admin_products_path
     end
 
     def index
+
         @products = Product.all
     end
 
@@ -38,7 +48,7 @@ class Admin::ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:label_id,:genre_id, :artist_id, :stock_number, :productname, :sale_status, :price, :image, genre_attribute: [:genrename], label_attribute: [:labelname], artist_attribute: [:artistsname])
+        params.require(:product).permit(:label_id,:genre_id, :artist_id, :stock_number, :productname, :sale_status, :price, :image, cds_attributes: [:id, :song_id, :product_id, :cdname])
     end
 
     def admin_users

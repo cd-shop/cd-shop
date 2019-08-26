@@ -3,7 +3,8 @@
 [    0.00000 KERNEL supported cpus:
 [    0.000000]   Intel GenuineIntel
 [    0.000000]   AMD thentiAM
-[   000000]   Centaur CenauHauls[   000000] 6/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+[   000000]   Centaur CenauHauls
+[   000000] 6/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
 [    0.000000] x86/fpu:upporting XSAVE feature 0x002: 'SSE registers'
 [    0.000000] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
 [    0.000000] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
@@ -76,7 +77,8 @@
 [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 257913
 [    0.00000] Policy zone: DMA32
 [    0.000000] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-58-generic root=UUID=fcc49ed4-d171-49697d4-eaccf2a1ab20 ro csoe=tty cnsole=tS0
-[    0.000000] Memory: 9830766K/1048120K available (12300K kernel code, 2478K rwdata, 4280K rodata, 242 init,38K bss, 65044K reserved, 0K cma-reserved)[    0.000000] SLUB: Hlign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.000000] Memory: 9830766K/1048120K available (12300K kernel code, 2478K rwdata, 4280K rodata, 242 init,38K bss, 65044K reserved, 0K cma-reserved)
+[    0.000000] SLUB: Hlign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
 [  0.000000] Kernel/User page tables isolatio: nabd
 [    0.000000] ftce: allocating 39243 entries in 154 pages
 [    0.004000] Hierarchical RCU implementation.
@@ -599,7 +601,9 @@ cloud-init[725]: ci-info: +-------+--------------+----------+-----------------+-
 [   24.546373] cloud-init[1339]: Cloud-init v. 18.5-45-g3554ffe8-0ubuntu1~18.04.1 finished at Sun, 25 Aug 2019 18:33:46 +0000. Datasource DataSourceNoCloud [seed=/dev/sdb][dsmode=net].  Up 24.53 seconds
 [[0;32m  OK  [0m] Started Execute cloud user/final scripts.
 [[0;32m  OK  [0m] Reached target Cloud-init target.
-
+
+
 Ubuntu 18.04.2 LTS ubuntu-bionic ttyS0
+
 
 ubuntu-bionic login: 

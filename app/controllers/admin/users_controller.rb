@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
     before_action :admin_users
     def index
-        @users = User.all
+        @users = User.with_deleted
     end
 
     def show

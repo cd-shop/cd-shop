@@ -2,6 +2,13 @@
 <div class="users">
 <% @users.each do |f| %>
     <div class="user-box">
+        <div class="left-top">
+        <% if f.deleted_at? %>
+            退会済み
+        <% else %>
+            アクティブユーザー
+        <% end %>
+        </div>
         <div class="info-left">
             <p>ユーザ名：</p>
             <p>メールアドレス：</p>
@@ -87,6 +94,15 @@ h1{
 
 .right-bottom{
     height:75%;
+}
+
+.left-top{
+    position:absolute;
+    width:15%;
+    background: #6787cd;
+    border-radius:5%;
+    text-align:center;
+    color:white;
 }
 
 </style>
