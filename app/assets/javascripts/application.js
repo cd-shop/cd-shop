@@ -19,10 +19,4 @@
 //= require_tree .
 
 
-$(function(){
-    $('.add_fields').on('click', function(){
-        $('#okan').removeClass('user_edit')
-        $('#okan').addClass('user_edit-ex')
-    })
-})
 

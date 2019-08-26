@@ -7,9 +7,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @users = User.all
-        if @user.id == 6
-            redirect_to products_path
-        end
+
     end
 
     def edit
