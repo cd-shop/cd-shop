@@ -1,0 +1,5 @@
+<p class="nested-fields">
+	<%= f.text_field :songname %>
+	<%= f.select :song_number, options_for_select((0..30).to_a) %><br>
+	<%= link_to_remove_association '曲を削除', f %>
+</p>
