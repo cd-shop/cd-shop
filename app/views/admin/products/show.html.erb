@@ -1,24 +1,42 @@
     <h1>商品詳細</h1>
     <section class="product-box">
-    <section class="left">
+        <span class="image">
+            <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
+        </span>
+        <p class="artist">在庫数:<%= @product.stock_number %>枚</p>
+        <div class="status-box">
+            <p class="status"><%= @product.sale_status %></p>
+        </div>
+    <section class="col-xs-4">
+        <p class="product-item">商品名：</p><br>
+        <p class="product-item">CD名：</p><br>
+        <p class="product-item">アーティスト名：</p><br>
+        <p class="product-item">レーベル名：</p><br>
+        <p class="product-item">ジャンル：</p><br>
+        <p class="product-item">価格：</p>
+    </section>
+    <% @product.cds.each do |cd| %>
+    <section class="col-xs-4">
         <span class="product">
-            <span class="image">
-                <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
-            </span>
             <span class="text">
-                <p class="song"><%= @product.productname %></p>
-                <p class="artist"><%= @product.artist.artistname %></p>
-                <p class="price">¥<%= @product.price %></p>
-                <p class="artist"><%= @product.genre.genrename %></p>
-                <p class="artist"> <%= @product.label.labelname %></p>
-                <div class="status-box"><p class="status"><%= @product.sale_status %></p></div>
-                <p class="artist">在庫数:<%= @product.stock_number %>枚</p>
-
-                <%= link_to "edit", edit_admin_product_path(@product.id)%>
-                <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"} %>
+                <p class="productname"><%= cd.product.productname %></p>
+                <p class="cdname"><%= cd.cdname %></p>
+                <p class="artist"><%= cd.product.artist.artistname %></p>
+                <p class="label"><%= cd.product.label.labelname %></p>
+                <p class="genre"><%= cd.product.genre.genrename %></p>
+                <p class="price">¥<%= cd.product.price %></p>
             </span>
         </span>
     </section>
+
+    <section class="col-xs-4">
+        <% cd.songs.each do |song| %>
+            <p class="song"><%= song.songname %></p>
+        <% end %>
+    </section>
+        <%= link_to "edit", edit_admin_product_path(@product.id)%>
+        <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"} %>
+    <% end %>
     </section>
 
 
@@ -38,13 +56,17 @@
     }
 
     .left{
-        width:50%;
+        width:30%;
         float:center;
         display:flex;
     }
 
+    .center{
+        width: 30%;
+    }
+
     .right{
-        width:auto;
+        width:40%;
         float:right;
     }
 

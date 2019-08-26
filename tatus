@@ -1,0 +1,552 @@
+[33mcommit f078c8114887ffe9f2622d1b655a80002063643b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 6ce3c4f a20117c
+Author: ashitani0803 <49311338+ashitani0803@users.noreply.github.com>
+Date:   Wed Aug 21 14:21:14 2019 +0900
+
+    Merge pull request #23 from cd-shop/kaoru
+    
+    商品追加ができるぞーーー！
+
+[33mcommit a20117c3a432b72f6eed67a371d4eeaf72a5ef3e[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Wed Aug 21 05:18:07 2019 +0000
+
+    商品追加ができるぞーーー！
+
+[33mcommit 6ce3c4f688e78efd126846c2fe3078a1d51d8752[m
+Merge: d17d772 e01903b
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Wed Aug 21 13:10:38 2019 +0900
+
+    Merge pull request #22 from cd-shop/YUTARO
+    
+    addddd
+
+[33mcommit e01903bebf8fccf3643ec7f77938d36191ab23d8[m
+Merge: 585c72c d17d772
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Wed Aug 21 13:05:01 2019 +0900
+
+    Merge branch 'master' into YUTARO
+
+[33mcommit d17d7721aa91de5b92969ce35d6dcebbdb927782[m
+Merge: d6ff6fd b77d82a
+Author: yutaro04 <48993765+yutaro04@users.noreply.github.com>
+Date:   Wed Aug 21 12:41:54 2019 +0900
+
+    Merge pull request #21 from cd-shop/feature/no_enough_product
+    
+    Feature/no enough product
+
+[33mcommit b77d82a5d96ac3ce81b00463de5801c932fa4edc[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Wed Aug 21 03:38:32 2019 +0000
+
+    create
+
+[33mcommit b21ecba16dde8aeaeb503b615914560a657fad33[m
+Merge: 183b900 d6ff6fd
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Wed Aug 21 03:33:48 2019 +0000
+
+    create products
+
+[33mcommit 585c72c22edf75bdea4e610e0cde4a6edd1fad05[m
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Wed Aug 21 03:11:57 2019 +0000
+
+    addddd
+
+[33mcommit d6ff6fd5025d32c1711ab0cf66d264ae1311b998[m
+Merge: 29ca19b 17f1464
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Mon Aug 19 18:36:59 2019 +0900
+
+    Merge pull request #20 from cd-shop/kaoru
+    
+    Kaoru
+
+[33mcommit 17f14649f30135dc08a694e08e39ca82a11c1208[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 19 09:18:11 2019 +0000
+
+    asdf
+
+[33mcommit 28d1dd2b3610443dc54a2cbf0298e963b086c250[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 19 09:14:52 2019 +0000
+
+    confrict
+
+[33mcommit 183b900f685784d528315f6bae80b97e7a2cfed0[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 19 09:02:26 2019 +0000
+
+    conflict
+
+[33mcommit 29ca19bb62c814f60fa29842219151e56ca6a229[m
+Merge: 5c2bf09 489b5d3
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Mon Aug 19 17:56:15 2019 +0900
+
+    Merge pull request #19 from cd-shop/YUTARO
+    
+    Yutaro
+
+[33mcommit 489b5d3a775ef3372d65df9ab30ec94451a3eb17[m
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Mon Aug 19 08:36:12 2019 +0000
+
+    セレクトボックスの追加
+
+[33mcommit c6a22ddb2fd8645a5231a1add76aec96fb5a63fc[m
+Merge: e4ee45a 5c2bf09
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Mon Aug 19 07:16:26 2019 +0000
+
+    Merge branch 'master' of https://github.com/cd-shop/cd-shop into YUTARO
+
+[33mcommit 5c2bf09db0d578d43ea809bcfa083d1b80115d45[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 19 07:05:32 2019 +0000
+
+    商品一覧を表示
+
+[33mcommit e4ee45aac83e421769126a8f65dfcdae0b106779[m
+Merge: 03911a0 9e5c092
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Mon Aug 19 06:40:42 2019 +0000
+
+    kkk
+
+[33mcommit 9e5c092ca88224f6f55432fcd0ec46e013c10e06[m
+Merge: c6ba1dd f58e6ab
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Mon Aug 19 06:08:39 2019 +0000
+
+    ごめんください
+
+[33mcommit 03911a081c485cd04d01a7af3ec92441fc7c9963[m
+Merge: 8b0439f aba8eb5
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Mon Aug 19 05:57:40 2019 +0000
+
+    hcaicyukvacukdvkuavcukavukcawkvvekuafyakuyabkycvkuwa
+
+[33mcommit f58e6abd9fb80697b8e454ce092ca628291cd942[m
+Merge: a7a4b66 61011c5
+Author: yutaro04 <48993765+yutaro04@users.noreply.github.com>
+Date:   Mon Aug 19 14:54:13 2019 +0900
+
+    Merge pull request #18 from cd-shop/kaoru
+    
+    migration,商品の追加
+
+[33mcommit 61011c51457771db371ac06758e4476a23d9d9fb[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 19 05:45:17 2019 +0000
+
+    migration,商品の追加
+
+[33mcommit a7a4b668d7e05c91aceee89765202f046bb478c0[m
+Merge: bb8cedd 8ea8a41
+Author: yutaro04 <48993765+yutaro04@users.noreply.github.com>
+Date:   Sat Aug 17 20:38:42 2019 +0900
+
+    Merge pull request #17 from cd-shop/riku
+    
+    [finish] 住所追加
+
+[33mcommit 8ea8a4123e8d22da8374d38ac8fe7d6a9044efbe[m
+Merge: cb3cefe bb8cedd
+Author: yutaro04 <48993765+yutaro04@users.noreply.github.com>
+Date:   Sat Aug 17 20:38:35 2019 +0900
+
+    Merge branch 'master' into riku
+
+[33mcommit bb8cedd9bca7a721584e272369463a349c2d5425[m
+Merge: aba8eb5 b703dda
+Author: ashitani0803 <49311338+ashitani0803@users.noreply.github.com>
+Date:   Sat Aug 17 20:33:38 2019 +0900
+
+    Merge pull request #16 from cd-shop/kaoru
+    
+    adminコントローラーを追加したよ.
+
+[33mcommit cb3cefe9af73ea6ebb0f7f41748518f661c565d3[m
+Author: ashitani0803 <ashitani0803@gmail.com>
+Date:   Sat Aug 17 11:22:12 2019 +0000
+
+    [finish] 住所追加
+
+[33mcommit b703dda0aba9c1d10d03599db8471591ee2bb19b[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sat Aug 17 10:48:38 2019 +0000
+
+    adminコントローラーを追加したよ.
+    namespaceが便利d
+
+[33mcommit c6ba1dd14c06c8cf8f71cd7515c39a055241b312[m
+Merge: 9b6e3df aba8eb5
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Sat Aug 17 09:54:29 2019 +0000
+
+    Merge branch 'master' of https://github.com/cd-shop/cd-shop
+
+[33mcommit 9b6e3df2a49c5acbef0e1a714a1e937e87787fc2[m
+Merge: 46c41a7 7e06777
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Sat Aug 17 09:54:20 2019 +0000
+
+    fix2
+
+[33mcommit aba8eb5376fa69260f7da1d16517d2b7d212c8e0[m
+Merge: 7e06777 897d22f
+Author: yutaro04 <48993765+yutaro04@users.noreply.github.com>
+Date:   Sat Aug 17 18:53:17 2019 +0900
+
+    Merge pull request #15 from cd-shop/riku
+    
+    [create] gem cocoon
+
+[33mcommit 897d22f4adbdf45d9d995a745db98421c035c28a[m
+Merge: cb051b3 7e06777
+Author: yutaro04 <48993765+yutaro04@users.noreply.github.com>
+Date:   Sat Aug 17 18:53:07 2019 +0900
+
+    Merge branch 'master' into riku
+
+[33mcommit cb051b3b80b42b74ec1858f9ead395bdd75b774f[m
+Author: ashitani0803 <ashitani0803@gmail.com>
+Date:   Sat Aug 17 09:49:18 2019 +0000
+
+    [create] gem cocoon
+
+[33mcommit 8b0439f2c5954511e119c31b1035cd275774b72e[m
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Sat Aug 17 09:16:54 2019 +0000
+
+    fix
+
+[33mcommit 7e0677715fc357ad65561c1625c6cc22ee73e57f[m
+Merge: 91e1fc0 e7e02eb
+Author: yutaro04 <48993765+yutaro04@users.noreply.github.com>
+Date:   Sat Aug 17 17:29:55 2019 +0900
+
+    Merge pull request #14 from cd-shop/kaoru
+    
+    adminコントローラーの追加!
+
+[33mcommit e7e02eb0c1054bbe2b087c116f9ddf71231482c5[m
+Merge: 2817942 91e1fc0
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Sat Aug 17 17:29:28 2019 +0900
+
+    Merge branch 'master' into kaoru
+
+[33mcommit 91e1fc014061494bcb856ba5f4e3207848f433f9[m
+Merge: 6bd774e dd06ba5
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Sat Aug 17 17:27:22 2019 +0900
+
+    Merge pull request #13 from cd-shop/YUTARO
+    
+    Yutaro
+
+[33mcommit dd06ba5b8741bcb8a8a3fd2adc77e81ac06f803c[m
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Sat Aug 17 08:25:18 2019 +0000
+
+    change image
+
+[33mcommit 2817942814714d0de1595369c6de9aaaecb21652[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sat Aug 17 08:24:01 2019 +0000
+
+    adminコントローラーの追加!
+
+[33mcommit 898dcd1c12ea815abf073724b76f74ec24c0f04f[m
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Sat Aug 17 06:56:48 2019 +0000
+
+    cahange of HTML CSS and add columm of sign_in
+
+[33mcommit 46c41a768c45ecc13d90f426ae604675983d3775[m
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Sat Aug 17 06:20:11 2019 +0000
+
+    バグ解決のため
+
+[33mcommit 6bd774e3d73528f95df03e579fc6639b821f6b8b[m
+Merge: 87c0940 c5e79da
+Author: ashitani0803 <49311338+ashitani0803@users.noreply.github.com>
+Date:   Tue Aug 6 22:21:04 2019 +0900
+
+    Merge pull request #12 from cd-shop/kaoru
+    
+    管理者の完成。管理者がユーザの削除を行えるように調整,headerも調整
+
+[33mcommit c5e79da0625893851ae0df49536a441ecee53132[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Tue Aug 6 11:53:28 2019 +0000
+
+    住所テーブルの追加、分ける必要ある？
+
+[33mcommit 0c3322ab27908a66e333c3cfa7f11e6c825a951c[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Tue Aug 6 06:46:58 2019 +0000
+
+    管理者の完成。管理者がユーザの削除を行えるように調整,headerも調整
+
+[33mcommit 87c09405a7780a51f938960a3cf678c9f35d7829[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Tue Aug 6 01:42:34 2019 +0000
+
+    管理者昨日の追加(
+    ユーザテーブルの中にカラム追加。seeds.rbに管理者情報追加してるから見てね)
+
+[33mcommit 08113cc1fcfb675a0dc871749b3f0365ee0c9706[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 5 12:42:17 2019 +0000
+
+    微調整
+
+[33mcommit 6fc28169e3fcebc1af25872daabfc9602b096894[m
+Merge: b9b14a8 eb42b12
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 5 12:05:14 2019 +0000
+
+    showのborderを変えた
+
+[33mcommit eb42b12034930e025f52763c419110c4fa07946c[m
+Merge: a0289b8 0da047b
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Mon Aug 5 20:38:23 2019 +0900
+
+    Merge pull request #11 from cd-shop/kaoru
+    
+    仮アイコンの設置、微調整。gitいじりすぎた！バグったらごめん＾＾
+
+[33mcommit b9b14a8df0a8b19a0a129cd07ea3d17db03d8dba[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 5 10:45:54 2019 +0000
+
+    微調整
+
+[33mcommit 0da047b717dd5a63afb3e45f095e65e4e32e4ff0[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Aug 5 07:40:47 2019 +0000
+
+    仮アイコン設置
+
+[33mcommit f0d812f035fdda483606b10c3519e8a417d4cdf4[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sun Aug 4 14:05:30 2019 +0000
+
+    いい感じに調整した。アイコンは仮です、管理者が未完了
+
+[33mcommit a0289b8c7217c0db13596f4e5d9fd70678078356[m
+Merge: d35e299 a0d6dcd
+Author: ashitani0803 <49311338+ashitani0803@users.noreply.github.com>
+Date:   Sun Aug 4 18:30:29 2019 +0900
+
+    Merge pull request #10 from cd-shop/kaoru
+    
+    ヘツダー作成。店舗のゴロはまだ。ユーザーの編集機能、詳細ページのデザイン完了
+
+[33mcommit a0d6dcdc960cce391995517686b01f07d4ef1c62[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sun Aug 4 09:10:34 2019 +0000
+
+    ヘツダー作成。店舗のゴロはまだ。ユーザーの編集機能、詳細ページのデザイン完了
+
+[33mcommit d35e299147605e51a3ecf508c76a3374c05d08ab[m
+Merge: 9b49155 e1db529
+Author: ashitani0803 <49311338+ashitani0803@users.noreply.github.com>
+Date:   Sun Aug 4 16:27:32 2019 +0900
+
+    Merge pull request #9 from cd-shop/kaoru
+    
+    Kaoru
+
+[33mcommit e1db529e5fde268e39d3f21839a69536b892162f[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sun Aug 4 07:15:14 2019 +0000
+
+    ユーザーコントローターの導入、編集機能付き、gemはbootstrap,prybyebug,入れた
+
+[33mcommit c0d71a2fb42323cfd9ab3f2943a364e3683e4451[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sun Aug 4 06:43:38 2019 +0000
+
+    少し調整、バグった気がするから試しにpush
+
+[33mcommit 9b4915524bf6aa5617ab1a5b0d163911d60e6f30[m
+Merge: 583c4b7 19ed186
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Sun Aug 4 15:11:17 2019 +0900
+
+    Merge pull request #8 from cd-shop/riku
+    
+    [create] header
+
+[33mcommit 19ed186b5a5e65ae0064d5682cfa6cc54de1609a[m
+Author: ashitani0803 <ashitani0803@gmail.com>
+Date:   Sun Aug 4 05:58:18 2019 +0000
+
+    [create] header
+
+[33mcommit 583c4b7ccf1c06f34581bd8083a8050a46bca4cd[m
+Merge: 581c01d 6b60ef0
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Sun Aug 4 13:01:27 2019 +0900
+
+    Merge pull request #7 from cd-shop/riku
+    
+    genreとlabelモデル&商品詳細ページ作成
+
+[33mcommit 6b60ef01f59b96e0b7ecc4854719f2eaa29b89cc[m
+Author: ashitani0803 <ashitani0803@gmail.com>
+Date:   Sat Aug 3 16:54:11 2019 +0000
+
+    [create]genreとlabelモデル&商品詳細ページ
+
+[33mcommit 581c01d23afd258ccc04f7730fb4cf8df9a528f3[m
+Merge: f3116ad 2838c00
+Author: yutaro04 <48993765+yutaro04@users.noreply.github.com>
+Date:   Sat Aug 3 18:07:36 2019 +0900
+
+    Merge pull request #6 from cd-shop/kaoru
+    
+    Kaoru
+
+[33mcommit 2838c00e309328dd0e8a6d5c010ba2c2fa6e1119[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sat Aug 3 03:54:30 2019 +0000
+
+    微調整.とりあえずプッシュ
+
+[33mcommit 8b1f500f0f94fad772735b6d82d82ee5042b561b[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Jul 29 11:56:10 2019 +0000
+
+    ログイン画面の微調整
+
+[33mcommit c8bb3c2deb533cd09017c0b11d500f9250a65948[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Mon Jul 29 07:02:32 2019 +0000
+
+    ログイン後の遷移先を陸のproducts indexに指定
+
+[33mcommit f3116ad4429fd87f9e8775ac591004ed8f7cf0e1[m
+Merge: ab80c33 594cc51
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Mon Jul 29 15:56:30 2019 +0900
+
+    Merge pull request #5 from cd-shop/riku
+    
+    ナイスぅ
+
+[33mcommit 594cc518c8a7cc700b44c59e21a2d7c25c555e19[m
+Merge: d4e63d4 ab80c33
+Author: ashitani0803 <49311338+ashitani0803@users.noreply.github.com>
+Date:   Mon Jul 29 15:50:24 2019 +0900
+
+    Merge branch 'master' into riku
+
+[33mcommit d4e63d4084f94209c35f67c66633667cefe0369b[m
+Author: ashitani0803 <ashitani0803@gmail.com>
+Date:   Sun Jul 28 19:30:06 2019 +0000
+
+    [Create] cd&song&artist controller&model
+
+[33mcommit ab80c3341a540cbc3225a2cb321c48027fc42c12[m
+Merge: 6d9b072 4f10f90
+Author: ashitani0803 <49311338+ashitani0803@users.noreply.github.com>
+Date:   Mon Jul 29 03:38:57 2019 +0900
+
+    Merge pull request #4 from cd-shop/kaoru
+    
+    ログインとログアウトと新規登録の機能完成。ログイン。ログアウト時のルーティング完了。カタカナだけvalidation完了。
+
+[33mcommit 4f10f90123c7149a1441c4af3a250d73ad1ab8bf[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sun Jul 28 18:06:26 2019 +0000
+
+    ログインとログアウトと新規登録の機能完成。ログイン。ログアウト時のルーティング完了。カタカナだけvalidation完了。１、validation　２、ログイン後のページをりくと合わせること
+
+[33mcommit 6d9b072b246b0f79b8a68317a01215c04eb152c4[m
+Merge: eb11aba edc9b84
+Author: ashitani0803 <49311338+ashitani0803@users.noreply.github.com>
+Date:   Sat Jul 27 20:12:21 2019 +0900
+
+    Merge pull request #3 from cd-shop/kaoru
+    
+    deiviseのカラム追加終了、フォームの作成終了
+
+[33mcommit edc9b84e600471c5b0b76340dbf99e97b67bd6dc[m
+Merge: f2f14cb eb11aba
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Sat Jul 27 20:12:10 2019 +0900
+
+    Merge branch 'master' into kaoru
+
+[33mcommit eb11aba994dc4a3c23aa279b1286ccb8bcba4e2d[m
+Merge: 94fc679 3efc929
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Sat Jul 27 20:06:11 2019 +0900
+
+    Merge pull request #2 from cd-shop/YUTARO
+    
+    Create admin's devise
+
+[33mcommit 94fc679db90b6f80a01e5f44060cb1defeb9567c[m
+Merge: 7b89213 c22cba2
+Author: kaoru_k <49483118+19980410@users.noreply.github.com>
+Date:   Sat Jul 27 20:06:03 2019 +0900
+
+    Merge pull request #1 from cd-shop/riku
+    
+    create product controller&model
+
+[33mcommit f2f14cb29a5f37e4190291c05bb95a95778b119a[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sat Jul 27 11:03:12 2019 +0000
+
+    devise機能を追加。フォームを変更しただけで、制御はまだできていない!
+
+[33mcommit 3efc929e9ad57ac71895aca7eb3633a95bc21eec[m
+Author: yutaro04 <matsuo.yutaro.infratop@gmail.com>
+Date:   Sat Jul 27 20:01:14 2019 +0900
+
+    create admin's devise
+
+[33mcommit c22cba26585b2644f492ed2d0b9589861b15b296[m
+Author: ashitani0803 <ashitani0803@gmail.com>
+Date:   Sat Jul 27 10:57:28 2019 +0000
+
+    [Create] product controller&model
+
+[33mcommit d700331e9912ccd56413f9346b1dbd6fbe15afbd[m
+Author: yutaro04 <tezaki0410@icloud.com>
+Date:   Sat Jul 27 07:26:00 2019 +0000
+
+    first
+
+[33mcommit e1f75bc27caccdd360780f126c3e21c7e8d07783[m
+Author: ashitani0803 <ashitani0803@gmail.com>
+Date:   Sat Jul 27 07:20:40 2019 +0000
+
+    first commit
+
+[33mcommit d60bcb67acfe600d83a55998421e16931a45c8ab[m
+Author: 19980410 <kkaoru1998@gmail.com>
+Date:   Sat Jul 27 07:09:17 2019 +0000
+
+    first commitkaoru!
+
+[33mcommit 7b892138d0a5e946e375b7aa97c4285392a67000[m
+Author: ashitani0803 <ashitani0803@gmail.com>
+Date:   Sat Jul 27 06:58:55 2019 +0000
+
+    first commit

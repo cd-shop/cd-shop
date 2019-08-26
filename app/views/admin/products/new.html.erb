@@ -2,44 +2,50 @@
 <body>
     <h1>商品の追加</h1>
     <section class="add-box">
-    <div class="left">
-        <p class="add-text">商品名</p><br>
-        <p class="add-text">価格</p><br>
-        <p class="add-text">画像を追加</p><br>
-        <p class="add-text">販売中・販売中止</p><br>
-        <p class="add-text">在庫数</p>
-        <p class="add-text">アーティスト名</p><br>
-        <p class="add-text">ジャンル名</p><br>
-        <p class="add-text">レーベル名</p>
-    </div>
+    <%= form_for(@product, url:"/admin/products") do |f| %>
 
-    <div class="right">
-    <%= nested_form_for(@product, url:"/admin/products") do |product| %>
-
-    <p class="form"><%= product.text_field :productname, :placeholder => "商品名"  %></p> <br>
-    <p class="form"><%= product.number_field :price, :placeholder => "値段" %></p><br>
-    <p class="form"><%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %></p><br>
-    <p class="form"><%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br>
-
-
-        <%= product.select :stock_number, options_for_select((0..100).to_a) %><br><br>
-
-
-        <p class="form"><%= product.collection_select :artist_id, Artist.all, :id, :artistname %>
-        <%= link_to '⇦にアーティスト名が無い場合はこちら', new_admin_artist_path %></p><br>
-
-        <p class="form"><%= product.collection_select :genre_id, Genre.all, :id, :genrename %>
-        <%= link_to '⇦にジャンルが無い場合はこちら', new_admin_genre_path %></p><br>
-
-        <p class="form"><%= product.collection_select :label_id, Label.all, :id, :labelname %>
-        <%= link_to '⇦にレーベルが無い場合はこちら', new_admin_label_path %></p><br>
+        <div class="left">
+            <p class="add-text">商品名</p><br>
+            <p class="add-text">価格</p><br>
+            <p class="add-text">画像を追加</p><br>
+            <p class="add-text">販売中・販売中止</p><br>
+            <p class="add-text">在庫数</p>
+            <p class="add-text">アーティスト名</p><br>
+            <p class="add-text">ジャンル名</p><br>
+            <p class="add-text">レーベル名</p>
+            <p class="add-text">CDを追加</p>
         </div>
 
-        <%# cdの情報 %>
-        <%= product.fields_for :cd do |cd| %>
-            cdの名前<%= cd.text_field :cdname %>
-        <% end %>
-    <%= product.submit "商品を追加する", :class=>"btn"%>
+        <div class="right">
+        <p class="form"><%= f.text_field :productname, :placeholder => "商品名"  %></p><br>
+        <p class="form"><%= f.number_field :price, :placeholder => "値段" %></p><br>
+        <p class="form"><%= f.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %></p><br>
+        <p class="form"><%= f.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br>
+
+
+            <%= f.select :stock_number, options_for_select((0..100).to_a) %><br><br>
+
+
+            <p class="form"><%= f.collection_select :artist_id, Artist.all, :id, :artistname %>
+            <%= link_to '⇦にアーティスト名が無い場合はこちら', new_admin_artist_path %></p><br>
+
+            <p class="form"><%= f.collection_select :genre_id, Genre.all, :id, :genrename %>
+            <%= link_to '⇦にジャンルが無い場合はこちら', new_admin_genre_path %></p><br>
+
+            <p class="form"><%= f.collection_select :label_id, Label.all, :id, :labelname %>
+            <%= link_to '⇦にレーベルが無い場合はこちら', new_admin_label_path %></p><br>
+
+            <%# cdの情報 %>
+            <p class="form">
+                <%= link_to_add_association 'CDを追加', f, :cds %>
+                <%= f.fields_for :cds do |cd| %>
+                    <%= render 'cd_fields', f: cd %>
+                <% end %>
+            </p>
+        </div>
+
+        <%= f.submit "商品を追加する", :class=>"btn"%>
+
     <% end %>
     </section>
 
