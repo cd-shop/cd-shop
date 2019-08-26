@@ -1,4 +1,4 @@
-    <h1>どの商品を購入しますか？</h1>
+    <h1>商品を購入しますか？</h1>
     <section class="product-box">
     <% @cart_products.each do |cart| %>
     <section class="left">
@@ -11,13 +11,17 @@
                 <p class="song"><%= cart.product.productname %></p>
                 <p class="artist"><%= cart.product.artist.artistname %></p>
                 <p class="price">¥<%= cart.product.price %></p>
+                <p class="price"><%= cart.purchase_number %>枚</p>
                 <p class="delete"><%= link_to "カートから削除", product_cart_product_path(@cart_product.product_id,@cart_product.id), method: :delete, data:{confirm: "カートからこの商品を削除しますか？"}%></p>
+                <p class="price"><%= cart.purchase_number %>枚</p>
+                <%= link_to "カートから削除", product_cart_product_path(cart.product_id, cart.id), method: :delete, data:{confirm: "カートからこの商品を削除しますか？"}%>
             </span>
         </span>
     </section>
     <% end %>
     </section> 
     <p class="buy"><%= link_to "注文に進む",cart_product_orders_path(@cart_product.id),method: :post %></p>
+    <p class="buy"><%= link_to "商品一覧に戻る",products_path %></p>
 <style>
     *{
         margin:0;

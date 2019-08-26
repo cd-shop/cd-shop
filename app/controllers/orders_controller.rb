@@ -1,23 +1,20 @@
 class OrdersController < ApplicationController
-
 #注文画面で商品情報(曲名、アーティスト名、ジャケ画)の表示の仕方がわからない
 	def index
 		@all_products = current_user.cart_products.all
 		@order = Order.find_by(params[:user_id])
-#住所の定義
 		# これで取れないのはアソシエーションがされてないから？
-		# @order.address_number = current_user.addresses.address_number
-		@order.prefecture = "岡山県"
-		@order.municipality = "岡山市"
-		@order.building = "3-3-1"
+		@order.address_number = current_user.addresses.first.address_number
+		@order.prefecture = current_user.addresses.first.prefecture
+		@order.municipality = current_user.addresses.first.municipality
+		@order.building = current_user.addresses.first.building
+		@order.postage = 500
+		@order.subtotal = 30000000000
 	end
 
 	def create
 		order = Order.new
 		order.user_id = current_user.id
-		order.shipment_status = 4
-		order.postage = 500
-		order.subtotal = 1500
 		@all_products = current_user.cart_products.all
 		# order.product_id = current_user.cart_product.product_id
 		order.save

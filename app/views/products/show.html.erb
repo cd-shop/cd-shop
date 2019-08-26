@@ -5,8 +5,16 @@
                 <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
             </span>
             <div class="status3">
-            <p">在庫残り<%= @product.stock_number %>枚</p">
-            <p class="status2"><%= @product.sale_status %></p>
+            <p>
+            <% if @product.stock_number > 0 %>
+                在庫残り<%= @product.stock_number %> 枚
+            <p class="status2">販売中</p>
+            <% else %>
+                在庫残り0枚
+            <p class="status2">品切</p>
+
+            <% end %>
+            </p>
             </div>
         </div>
         <div class="text",>
@@ -28,11 +36,16 @@
         </div>
             <% if user_signed_in?%>
                 <% if current_user.admin?%>
+                <% else %>
+                    <% if @product.stock_number > 0 %>
+                        <%= form_for @cart_product,url:product_cart_products_path(@product) do |f| %>
+    <%# これだとcreateした時に購入数が入っていないようだ 08/26/10時 %>
+                        <%= f.select :purchase_number, [1,2,3,4,5] %><br>
+                        <%= f.submit "追加" %>
+                        <% end %>
                     <% else %>
-                        <div class="status-box"><p class="status">
-                        <%= link_to "カートに追加", product_cart_products_path(@product.id), method: :post, class: 'glyphicon glyphicon-shopping-cart' %>
-                        </p></div>
-
+                    <p>申し訳ございません、品切れです。</p>
+                    <% end %>
                 <% end %>
             <% else %>
                 <div class="log-box"><p class="status"><%= link_to '会員登録 ', new_user_registration_path %></p></div>
