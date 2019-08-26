@@ -12,11 +12,20 @@
                 <p class="song"><%= product.productname %></p>
                 <p class="artist"><%= product.artist.artistname %></p>
             <%= link_to product_path(product.id) do %>
-                <div class="status-box"><p class="status"><%= product.sale_status %></p></div>
+                <div class="status-box">
+                    <p class="status">
+                        <% if product.stock_number > 0 %>
+                            販売中
+                        <% else %>
+                            品切
+                        <% end %>
+                    </p>
+                </div>
             <% end %>
                 <p class="price">¥<%= product.price %></p>
                 <p class="price">在庫数:<%= product.stock_number %>枚</p>
             </span>
+
         </span>
     </section>
     <% end %>
