@@ -14,9 +14,22 @@
                 <p class="price">¥<%= product.price %></p>
                 <p class="artist">在庫数:<%= product.stock_number %>枚</p>
                 <%= link_to admin_product_path(product.id) do %>
-                    <div class="status-box"><p class="status"><%= product.sale_status %></p></div>
+                        <% if product.stock_number > 0 %>
+                            <div class="status-box">
+                                <p class="status">
+                                    販売中
+                                </p>
+                            </div>
+                                <% else %>
+                            <div class="status-box1">
+                                <p class="status">
+                                    品切
+                                </p>
+                        <% end %>
+                    </div>
+                    </div>
                 <% end %>
-
+            
             </span>
         </span>
     </section>
@@ -105,6 +118,14 @@
         background: -moz-linear-gradient(#ffb03c, #ff708d);
         background: -webkit-linear-gradient(#ffb03c, #ff708d);
         background: linear-gradient(to right, #ffb03c, #ff708d);
+        border-radius:70%;
+        color: #FFF;
+    }
+    .status-box1{
+        width:40%;
+        margin:0 auto;
+        padding: 0.5em 1em;
+        background: red;
         border-radius:70%;
         color: #FFF;
     }

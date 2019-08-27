@@ -1,17 +1,18 @@
-    <h1>以下の商品を購入します</h1>
+    <h1>価格と住所が正しければ購入ボタンを押してください</h1>
     <section class="product-box">
-    <% @all_products.each do |product| %>
+    <% @all_products.each do |order| %>
 	<section class="left">
         <span class="product">
-            <%= link_to product_path(product.id) do %>
+            <%= link_to product_path(order.product.id) do %>
             <span class="image">
-                <%= attachment_image_tag product.product, :image, fallback:"no_image.png", size:"50x50" %>
+                <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
             </span>
             <% end %>
             <span class="text">
-                <p class="song"><%= product.product.productname %></p><br>
-                <p class="artist"><%= product.product.artist.artistname %></p><br>
-                <p class="price">¥<%= product.product.price %></p>
+                <p class="song"><%= order.product.productname %></p><br>
+                <p class="artist"><%= order.product.artist.artistname %></p><br>
+                <p class="price">¥<%= order.product.price %></p>
+                <p class="price">購入枚数：<%= order.purchase_number %>枚</p>
             </span>
         </span>
     </section>
@@ -21,7 +22,7 @@
 		<p class="price">配送先住所:<%= @order.prefecture %><%= @order.municipality %><%= @order.building %></p>
 		<p class="price">送料:<%= @order.postage %></p>
 		<p class="price">小計:<%= @order.subtotal %></p><br>
-		<%# <p class="price"><%= link_to "購入に進むボタン", product_cart_product_order_index_path(@product, @cart_product), method: :post %></p> %>
+		<p class="price"><%= link_to "購入に進むボタン0827/11:00- orderの１番が常に入るから要修正", order_order_histories_path(@order.id), method: :post%></p> 
 		<%= link_to "カートに戻るボタン", cart_products_path %>
 
 <style>
