@@ -40,8 +40,8 @@
                     <% if @product.stock_number > 0 %>
                         <%= form_for @cart_product,url:product_cart_products_path(@product) do |f| %>
     <%# これだとcreateした時に購入数が入っていないようだ 08/26/10時 %>
-                        <%= f.select :purchase_number, [1,2,3,4,5] %><br>
-                        <%= f.submit "追加" %>
+                                    <p class="texts">購入枚数:</p><%= f.select :purchase_number, [1,2,3,4,5] %><br>
+                        <%= f.submit "カートに追加" %>
                         <% end %>
                     <% else %>
                     <p>申し訳ございません、品切れです。</p>
