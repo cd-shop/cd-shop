@@ -6,8 +6,15 @@
             </span>
             <div class="status3">
             <p>在庫残り<%= @product.stock_number %>枚</p>
-            <p class="status2"><%= @product.sale_status %></p>
-            </div>
+                        <% if @product.stock_number > 0 %>
+                            <div class="status-box1">
+                                販売中
+                            </div>
+                                <% else %>
+                            <div class="status-box1">
+                                    品切
+                            </div>
+                        <% end %>
         </div>
         <div class="text",>
         <div class="text-box2 cf">
