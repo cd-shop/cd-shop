@@ -19,7 +19,7 @@
     <% end %>
     </section> 
     <p class="buy"><%= link_to "注文に進む",cart_product_orders_path(@cart_products),method: :post %></p>
-    <p class="buy"><%= link_to "商品一覧に戻る",products_path %></p>
+    <p class="back_product"><%= link_to "商品一覧に戻る",products_path %></p>
 <style>
     *{
         margin:0;
@@ -106,7 +106,7 @@
         text-align:center;
         width:20%;
         padding: 0.5em 1em;
-        background:#88cd68;
+        background: skyblue;
         border-radius:10%;
     }
 
@@ -114,5 +114,16 @@
         color:#fff;
     }
 
+    .back_product{
+        margin:40px auto;
+        text-align:center;
+        width:20%;
+        padding: 0.5em 1em;
+        background: purple;
+        border-radius:10%;
+    }
+    .back_product>a{
+        color:#fff;
+    }
 
 </style>

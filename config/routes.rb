@@ -1,29 +1,30 @@
 Rails.application.routes.draw do
 
-  get 'orders/index'
-  get 'orders/create'
   root 'products#index'
   devise_for :users
 
+  #userの注文、履歴が分かりやすいようにネスト
   resources :users do
     resources :orders, only: [:index]
+    resources :order_histories, only: [:show]
   end
 
+  #productの情報を取るためにcreateだけネスト
+  resources :products, only:[:index, :show] do
+    resources :cart_products, only: [:create, :destroy]
+  end
+
+  #cartproductの情報を取るためにcreateだけネスト
   resources :cart_products, only: [:index, :show] do
     resources :orders, only: [:create, :destroy]
   end
 
-  resources :products, only:[:index, :show] do
-    resources :cart_products, only: [:create, :destroy] do
-      resources :order, only: [:create, :destroy]
-    end
+  #orderの情報を取るためにcreateだけネスト
+  resources :orders, only: [:index] do
+    resources :order_histories, only: [:create]
   end
 
-  resources :cart_products, only: [:index]
 
-  resources :products, only:[:index, :show] do
-    resources :cart_products, only: [:create, :destroy]
-  end
 
   namespace :admin do
     get "top" => "products#top"
