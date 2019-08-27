@@ -3,10 +3,15 @@ class OrdersController < ApplicationController
 	def index
 		@all_products = current_user.cart_products.all
 		@order = Order.find_by(params[:user_id])
-		@order.address_number = current_user.addresses.first.address_number
-		@order.prefecture = current_user.addresses.first.prefecture
-		@order.municipality = current_user.addresses.first.municipality
-		@order.building = current_user.addresses.first.building
+		if current_user.addresses.blank?
+
+		else
+			@order.address_number = current_user.addresses.first.address_number
+			@order.prefecture = current_user.addresses.first.prefecture
+			@order.municipality = current_user.addresses.first.municipality
+			@order.building = current_user.addresses.first.building
+		end
+
 		@order.postage = 500
 		@order.subtotal = 0
 
@@ -21,10 +26,12 @@ class OrdersController < ApplicationController
 		order = Order.new
 		order.user_id = current_user.id
 		@all_products = current_user.cart_products.all
-		order.address_number = current_user.addresses.first.address_number
-		order.prefecture = current_user.addresses.first.prefecture
-		order.municipality = current_user.addresses.first.municipality
-		order.building = current_user.addresses.first.building
+
+
+		# order.address_number = current_user.addresses.first.address_number
+		# order.prefecture = current_user.addresses.first.prefecture
+		# order.municipality = current_user.addresses.first.municipality
+		# order.building = current_user.addresses.first.building
 		order.postage = 500
 		order.subtotal = 0
 		@all_products.each do |cp|
