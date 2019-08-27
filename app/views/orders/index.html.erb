@@ -18,10 +18,10 @@
     </section>
     <% end %>
 	</section>
-		<p class="price">郵便番号:<%= @order.address_number %></p>
+		<p class="price">郵便番号：<%= @order.address_number %></p>
 		<p class="price">配送先住所:<%= @order.prefecture %><%= @order.municipality %><%= @order.building %></p>
-		<p class="price">送料:<%= @order.postage %></p>
-		<p class="price">小計:<%= @order.subtotal %></p><br>
+		<p class="price">送料：¥<%= @order.postage %></p>
+		<p class="price">小計：¥<%= @order.subtotal %></p><br>
 		<p class="price"><%= link_to "購入に進むボタン0827/11:00- orderの１番が常に入るから要修正", order_order_histories_path(@order.id), method: :post%></p> 
 		<%= link_to "カートに戻るボタン", cart_products_path %>
 
