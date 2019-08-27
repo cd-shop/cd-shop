@@ -1,3 +1,18 @@
-<%= link_to "商品", admin_products_path %>
-
-<%= link_to "ユーザー", admin_users_path %>
+<div class="to_s">
+    <p class="product"><%= link_to "商品", admin_products_path %></p>
+</div>
+<div class="to_u">
+    <p class="user"><%= link_to "ユーザー", admin_users_path %></p>
+</div>
+<style>
+    .to_s{
+        margin-top:0.5%;
+        width:20%;
+        margin-left:39%;
+        fot-size:15px;
+        padding: 0.5em 1em;
+        background: #ccc;
+        border-radius:10%;
+        color: #FFF;
+    }
+</style>
