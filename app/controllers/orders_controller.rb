@@ -2,8 +2,9 @@ class OrdersController < ApplicationController
 #注文画面で商品情報(曲名、アーティスト名、ジャケ画)の表示の仕方がわからない
 	def index
 		@all_products = current_user.cart_products.all
+		
 		@order = Order.find_by(params[:user_id])
-		# これで取れないのはアソシエーションがされてないから？
+
 		@order.address_number = current_user.addresses.first.address_number
 		@order.prefecture = current_user.addresses.first.prefecture
 		@order.municipality = current_user.addresses.first.municipality
