@@ -12,15 +12,19 @@
                 <p class="song"><%= product.productname %></p>
                 <p class="artist"><%= product.artist.artistname %></p>
             <%= link_to product_path(product.id) do %>
-                <div class="status-box">
-                    <p class="status">
                         <% if product.stock_number > 0 %>
-                            販売中
-                        <% else %>
-                            品切
+                            <div class="status-box">
+                                <p class="status">
+                                    販売中
+                                </p>
+                            </div>
+                                <% else %>
+                            <div class="status-box1">
+                                <p class="status">
+                                    品切
+                                </p>
+                            </div>
                         <% end %>
-                    </p>
-                </div>
             <% end %>
                 <p class="price">¥<%= product.price %></p>
                 <p class="price">在庫数:<%= product.stock_number %>枚</p>
@@ -30,8 +34,7 @@
     </section>
     <% end %>
     </section>
-    
-    
+
     <div class="paging"><%= paginate @products %></div>
 </body>
 </html>
@@ -116,6 +119,14 @@
         background: -moz-linear-gradient(#ffb03c, #ff708d);
         background: -webkit-linear-gradient(#ffb03c, #ff708d);
         background: linear-gradient(to right, #ffb03c, #ff708d);
+        border-radius:70%;
+        color: #FFF;
+    }
+        .status-box1{
+        width:40%;
+        margin:0 auto;
+        padding: 0.5em 1em;
+        background: red;
         border-radius:70%;
         color: #FFF;
     }

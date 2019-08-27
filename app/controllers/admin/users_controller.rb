@@ -5,6 +5,7 @@ class Admin::UsersController < ApplicationController
     end
 
     def show
+        @user = User.with_deleted.find(params[:id])
     end
 
     def  edit
