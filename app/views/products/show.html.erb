@@ -50,7 +50,8 @@
 
                         <% if @product.stock_number > 0 %>
                         <%= form_for @cart,url:product_cart_products_path(@product) do |f| %>
-                            <p class="texts">購入枚数:</p><%= f.select :purchase_number, [1,2,3,4,5] %><br>
+                            <p class="texts">購入枚数:</p>
+                            <%= f.select :purchase_number, @product.quantity %><br>
                         <%= f.submit "カートに追加",class:"btn btn-success" %>
                         <% end %>
                         <% end %>
