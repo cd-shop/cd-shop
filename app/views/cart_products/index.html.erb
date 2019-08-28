@@ -17,9 +17,16 @@
         </span>
     </section>
     <% end %>
-    </section> 
-    <p class="buy"><%= link_to "注文に進む",cart_product_orders_path(@cart_products),method: :post %></p>
-    <p class="back_product"><%= link_to "商品一覧に戻る",products_path %></p>
+    </section>
+<%# カート内商品があるかどうかで分岐 %>
+    <% if @cart_products.blank?  %>
+        <p class="no_buy"><%= link_to "カートに商品を追加してください",products_path %></p>
+        <% else %>
+            <p class="buy"><%= link_to "注文に進む",cart_product_orders_path(@cart_products),method: :post %></p>
+            <p class="back_product"><%= link_to "商品一覧に戻る",products_path %></p>
+        <% end %>
+
+
 <style>
     *{
         margin:0;
@@ -111,6 +118,17 @@
     }
 
     .buy>a{
+        color:#fff;
+    }
+    .no_buy{
+        margin:40px auto;
+        text-align:center;
+        width:25%;
+        padding: 0.5em 1em;
+        background: red;
+        border-radius:20%;
+    }
+    .no_buy>a {
         color:#fff;
     }
 
