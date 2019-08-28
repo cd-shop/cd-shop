@@ -6,7 +6,15 @@ class Product < ApplicationRecord
 		end
             return cart_quantity
         
-    end
+	end
+	
+	def self.search(search) #self.はUser.を意味する
+		if search
+		  where(['productname LIKE ?', "%#{search}%"]) #検索とuseanameの部分一致を表示。
+		else
+		  Product.all #全て表示させる
+	   end
+	end
 
 	has_many :cds, dependent: :destroy
 	has_many :cart_products, dependent: :destroy

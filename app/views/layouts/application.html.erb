@@ -17,6 +17,7 @@
         <%= link_to image_tag("cd_logo.png", class:"header_icon", :size => '181x66'), products_path %>
         <h4 class="header_greet">こんにちは<%= @header_name %>さん</h4>
       </div>
+      
         <nav class="nav navbar-nav navbar-right">
           <ul>
             <% if user_signed_in? %>

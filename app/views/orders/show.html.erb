@@ -24,7 +24,7 @@
 		<p class="price">小計：¥<%= @order.subtotal %></p><br>
 		<p class="price">総計：¥<%= @order.postage + @order.subtotal %></p><br>
 
-		<p class="price"><%= link_to "購入に進むボタン", order_order_histories_path(@order.id), method: :post%></p> 
+		<p class="price"><%= link_to "購入に進むボタン", order_order_histories_path(@order.id), method: :post　%></p> 
 		<p class="back_product"><%= link_to "カートに戻るボタン", cart_products_path %>
 
 <style>
