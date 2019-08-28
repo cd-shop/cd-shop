@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
 		@order.building = current_user.addresses.first.building
 		@order.postage = 500
 		@order.subtotal = 30000000000
-		binding.pry
 	end
 
 	def create
@@ -24,8 +23,6 @@ class OrdersController < ApplicationController
 		order.subtotal = 30000000000
 		# order.product_id = current_user.cart_product_id.product_id
 		order.save
-		
-		binding.pry
 		
 		redirect_to user_orders_path(current_user.id)
 	end
