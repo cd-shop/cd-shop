@@ -1,4 +1,4 @@
-    <h1>価格と住所が正しければ購入ボタンを押してください</h1>
+<h1>価格と住所が正しければ購入ボタンを押してください</h1>
     <section class="product-box">
     <% @all_products.each do |order| %>
 	<section class="left">
@@ -24,7 +24,7 @@
 		<p class="price">小計：¥<%= @order.subtotal %></p><br>
 		<p class="price">総計：¥<%= @order.postage + @order.subtotal %></p><br>
 
-		<p class="price"><%= link_to "購入に進むボタン0827/11:00- orderの１番が常に入るから要修正", order_order_histories_path(@order.id), method: :post%></p> 
+		<p class="price"><%= link_to "購入に進むボタン", order_order_histories_path(@order.id), method: :post%></p> 
 		<p class="back_product"><%= link_to "カートに戻るボタン", cart_products_path %>
 
 <style>
