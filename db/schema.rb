@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_044037) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "shipment_status"
-    t.integer "pay_select"
+    t.integer "pay_select", default: 0
     t.integer "user_id"
   end
 
