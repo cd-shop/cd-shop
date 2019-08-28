@@ -1,52 +1,56 @@
-    <h1>商品詳細</h1>
-        <section class="product">
-        <div top-box>
-            <span class="image">
-                <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
-            </span>
-            <div class="status3">
-            <p>在庫残り<%= @product.stock_number %>枚</p>
-                        <% if @product.stock_number > 0 %>
-                            <div class="status-box1">
-                                販売中
-                            </div>
-                                <% else %>
-                            <div class="status-box1">
-                                    品切
-                            </div>
-                        <% end %>
+<h1>商品詳細</h1>
+    <div class="top-box">
+        
+        
+    </div>
+    <section class="col-xs-5 left">
+        <div class="status-box">
+            <div class="status">在庫残り<%= @product.stock_number %>枚</div>
+            <% if @product.stock_number > 0 %>
+                <div class="status">
+                    販売中
+                </div>
+            <% else %>
+                <div class="status">
+                    品切
+                </div>
+            <% end %>
         </div>
-        <div class="text">
-       
-        </div>
-    <section class="col-xs-4 left">
         <p class="product-item">商品名：</p><br>
         <p class="product-item">CD名：</p><br>
         <p class="product-item">アーティスト名：</p><br>
         <p class="product-item">レーベル名：</p><br>
         <p class="product-item">ジャンル：</p><br>
         <p class="product-item">価格：</p>
+        <div class="edit">
+            <%= link_to "edit", edit_admin_product_path(@product.id), class: 'btn btn-primary'%>
+        </div>
     </section>
-    <% @product.cds.each do |cd| %>
-    <section class="col-xs-4 center">
-        <p class="productname"><%= cd.product.productname %></p>
-        <p class="cdname"><%= cd.cdname %></p>
-        <p class="artist"><%= cd.product.artist.artistname %></p>
-        <p class="label"><%= cd.product.label.labelname %></p>
-        <p class="genre"><%= cd.product.genre.genrename %></p>
-        <p class="price">¥<%= cd.product.price %></p>
+    <section class="col-xs-2 center">
+        <span class="image">
+            <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
+        </span>
+        <% @product.cds.each do |cd| %>
+        <p class="product-item"><%= cd.product.productname %></p><br>
+        <p class="product-item"><%= cd.cdname %></p><br>
+        <p class="product-item"><%= cd.product.artist.artistname %></p><br>
+        <p class="product-item"><%= cd.product.label.labelname %></p><br>
+        <p class="product-item"><%= cd.product.genre.genrename %></p><br>
+        <p class="product-item">¥<%= cd.product.price %></p>
+        <div class="destroy">
+            <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"}, class: 'btn btn-danger' %>
+        </div>
     </section>
 
     <section class="col-xs-4 right">
+        <h2>収録曲</h2>
         <% cd.songs.each do |song| %>
-            <p class="song"><%= song.songname %></p>
+            <p class="product-item song"><%= song.song_number %>. <%= song.songname %></p><br>
         <% end %>
     </section>
     <% end %>
-    </section>
-    <%= link_to "edit", edit_admin_product_path(@product.id)%>
-    <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"} %>
-
+    
+    
 
 <style>
     *{
@@ -57,43 +61,59 @@
     h1{
         text-align:center;
     }
-    .product-box{
-        margin-top:40px;
+    .top-box{
+        position: relative;
+        left: 330px;
+        margin-bottom: 40px;
+    }
+    .image{
+        height:160px;
+        width:160px;
+        margin: 0 auto 50px;
+        display:inline-block;
     }
     .left{
         text-align: right;
-        font-size: 20px;
+        padding-right: 40px;
+        margin-bottom: 70px;
+    }
+    .edit{
+        margin-top: 50px;
+    }
+    .destroy{
+        margin-top: 50px;
+    }
+    .btn-primary{
+        height: 40px;
+        width: 100px;
+        font-size: 21px;
+        line-height: 21px;
+    }
+    .btn-danger{
+        height: 40px;
+        width: 100px;
+        font-size: 21px;
+        line-height: 21px;
+    }
+    .product-item{
+        font-size: 30px;
     }
     .center{
         text-align: left;
+        border-right: 1px solid #000000;
+        margin-bottom: 70px;
+    }
+    .image{
+        border-radius: 5%;
     }
     .right{
         width:40%;
         float:right;
     }
-    .image{
-        height:160px;
-        width:160px;
-        margin-top:2%;
-        display:inline-block;
-    }
-    .song{
-        font-size:25px;
-        text-align:center;
-    }
-    .artist{
-        font-size:18px;
-        text-align:center;
-    }
-    .label{
-        font-size: 18px;
-        text-align: center;
-        color: #333333;
-        font-weight: normal;
-    }
     .status{
         font-size:16px;
-        text-align:center;
+        text-align: center;
+        line-height:43px;
     }
     .price{
         font-size:20px;
@@ -101,13 +121,22 @@
         text-align:center;
     }
     .status-box{
-        width:40%;
-        margin:0 auto;
+        position: relative;
+        top: 60px;
+        left: 40px;
+        height: 100px;
+        display: inline-block;
+        width:200px;
+        margin-bottom: 110px;
         padding: 0.5em 1em;
         background: -moz-linear-gradient(#ffb03c, #ff708d);
         background: -webkit-linear-gradient(#ffb03c, #ff708d);
         background: linear-gradient(to right, #ffb03c, #ff708d);
         border-radius:70%;
         color: #FFF;
-}
+    }
+    .right h2{
+        margin-bottom: 50px;
+    }
+
 </style>
