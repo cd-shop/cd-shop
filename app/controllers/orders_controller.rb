@@ -41,11 +41,7 @@ class OrdersController < ApplicationController
 		end
 		# order.product_id = current_user.cart_product_id.product_id
 		order.save
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> 8945e8503b37e51651783e749c02d2e8138eeafc
 		redirect_to user_orders_path(current_user.id)
 	end
 
