@@ -1,5 +1,12 @@
 class Product < ApplicationRecord
-
+	def quantity
+        cart_quantity = []
+		self.stock_number.times do |i|
+			cart_quantity += [i+1]
+		end
+            return cart_quantity
+        
+    end
 
 	has_many :cds, dependent: :destroy
 	has_many :cart_products, dependent: :destroy
