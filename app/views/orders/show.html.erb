@@ -25,7 +25,7 @@
 		<p class="price">総計：¥<%= @order.postage + @order.subtotal %></p><br>
 
 		<p class="price"><%= link_to "購入に進むボタン0827/11:00- orderの１番が常に入るから要修正", order_order_histories_path(@order.id), method: :post%></p> 
-		<%= link_to "カートに戻るボタン", cart_products_path %>
+		<p class="back_product"><%= link_to "カートに戻るボタン", cart_products_path %>
 
 <style>
     *{
@@ -116,6 +116,16 @@
         text-align:center;
         height: 60px;
     }
-
+    .back_product{
+        margin:40px auto;
+        text-align:center;
+        width:20%;
+        padding: 0.5em 1em;
+        background: purple;
+        border-radius:10%;
+    }
+    .back_product>a{
+        color:#fff;
+    }
 
 </style>

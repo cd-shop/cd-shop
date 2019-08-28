@@ -1,5 +1,17 @@
 class Product < ApplicationRecord
-
+	def quantity
+        cart_quantity = []
+		self.stock_number.times do |i|
+			cart_quantity += [i+1]
+		end
+            return cart_quantity
+        
+	end
+	
+	def self.search(search)
+		return Product.all unless search
+		Product.where(['content LIKE ?', "%#{search}%"])
+	end
 
 	has_many :cds, dependent: :destroy
 	has_many :cart_products, dependent: :destroy

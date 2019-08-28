@@ -14,4 +14,9 @@ class ProductsController < ApplicationController
 		end
 	end
 
+	def search
+		#Viewのformで取得したパラメータをモデルに渡す
+		@product = Product.search(params[:search])
+	end
+
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   #userの注文、履歴が分かりやすいようにネスト
   resources :users do
-    resources :orders, only: [:index]
+    resources :orders, only: [:show]
     resources :order_histories, only: [:show]
   end
 
