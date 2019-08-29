@@ -14,7 +14,9 @@
         <div>都道府県：　<%= address.prefecture %></div>
         <div>市区町村：　<%= address.municipality %></div>
         <div>建物：　<%= address.building %></div>
-    <% end %>
+        <%= link_to '住所を編集', edit_user_address_path(address) %>
+        <%= link_to '住所を削除', user_address_path(address) , method: :delete, data: {confirm: 'この住所を削除しますか？'} %><br>
+    <% end %><br>
 
     <%= link_to "ユーザー情報の変更", edit_user_path(@user), class:"btn btn-success" %><br><br>
 
@@ -22,7 +24,9 @@
         <%= link_to "ユーザーの削除",user_path(@user),method: :delete, class:"btn btn-danger",data: {confirm: "ユーザーを削除しますか？"}  %>
     <% else %>
         <%= link_to "退会",user_path(@user),method: :delete, class:"btn btn-danger",data: {confirm: "退会しますか？"} %>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-        <%= link_to "log out",destroy_user_session_path,class:"btn btn-primary", data: {confirm: "ログアウトしますか？"}, method: :delete %>
+        <%= link_to "log out",destroy_user_session_path,class:"btn btn-primary", data: {confirm: "ログアウトしますか？"}, method: :delete %>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <%= link_to "購入履歴",user_order_histories_path(current_user.id),class:"btn btn-danger" %>
+
     <% end %>
 </div>
 <div class="border"></div>

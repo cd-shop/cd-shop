@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+	def new
+	end
 #注文画面で商品情報(曲名、アーティスト名、ジャケ画)の表示の仕方がわからない
 	def index
 		@all_products = current_user.cart_products.all
@@ -20,7 +22,6 @@ class OrdersController < ApplicationController
 			total = cp.product.price * cp.purchase_number
 			@order.subtotal += total
 		end
-
 	end
 
 	# def create
@@ -51,7 +52,7 @@ class OrdersController < ApplicationController
 		@all_products = current_user.cart_products.all
 
 		if current_user.addresses.empty?
-#もし住所がないならどこかに飛ばしてあげよう,住所選択がめんとか？
+#もし住所がないならどこかに飛ばしてあげよう,住所選択画面とか？
 			redirect_to admin_products_path
 		else
 			order.address_number = current_user.addresses.first.address_number
@@ -86,7 +87,6 @@ class OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
-		
 	end
 end
 

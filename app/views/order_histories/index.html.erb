@@ -1,0 +1,42 @@
+    <% @all_products.each do |order| %>
+        <p><%= order.id%>:
+        郵便番号<%= order.address_number %>
+        都道府県<%= order.prefecture %>
+        市町村<%= order.municipality %>
+        建物<%= order.building %>
+        小計<%= order.subtotal %>
+        送料<%= order.postage %>
+
+        総計<%= order.subtotal + order.postage %>
+
+        </p>
+    <% end %>
+
+        <section class="product-box">
+        <% @order_histories.each do |order| %>
+        <% if current_user.admin? || current_user.id == order.user_id %>
+
+        <section class="left">
+            <span class="product">
+                <%= link_to product_path(order.product.id) do %>
+                <span class="image">
+                    <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
+                </span>
+                <% end %>
+                <span class="text">
+                    <p class="song"><%= order.product.productname %></p>
+                    <p class="artist"><%= order.product.artist.artistname %></p>
+                    <p class="price">商品の値段：¥<%= order.product.price %></p>
+                    <p class="price">合計金額<%= order.total_amount %></p>
+
+                </span>
+            </span>
+        </section>
+<% end %>
+        <% end %>
+        </section>
+        <%# <p class="price">購入日時：<%= @order_histories.first.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
+
+
+
+
