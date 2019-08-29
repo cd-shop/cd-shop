@@ -26,8 +26,8 @@
             <%= link_to_add_association '住所を追加', f, :addresses, id:"address_nest" %>
           </div>
 
-          <%= f.fields_for :addresses do |address| %>
-            <%= render 'address_fields', f: address %>
+          <%= f.fields_for :addresses, @user.addresses do |a| %>
+            <%= render 'address_fields', f: a %>
           <% end %>
 
           <div class="actions">
