@@ -1,9 +1,9 @@
-<h1>商品詳細</h1>
-    <section class="product-box">
-        <span class="image">
-            <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
-        </span>
-        <div class="status-box">
+    <h1>商品詳細</h1>
+        <section class="product">
+        <div top-box>
+            <span class="image">
+                <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
+            </span>
             <div class="status3">
             <p>
             <% if @product.stock_number > 0 %>
@@ -15,48 +15,47 @@
 
             <% end %>
             </p>
-            </div>        </div>
-    <section class="col-xs-4">
-        <p class="product-item">商品名：</p><br>
-        <p class="product-item">CD名：</p><br>
-        <p class="product-item">アーティスト名：</p><br>
-        <p class="product-item">レーベル名：</p><br>
-        <p class="product-item">ジャンル：</p><br>
-        <p class="product-item">価格：</p>
-    </section>
-    <% @product.cds.each do |cd| %>
-    <section class="col-xs-4">
-        <span class="product">
-            <span class="text">
-                <p class="productname"><%= cd.product.productname %></p>
-                <p class="cdname"><%= cd.cdname %></p>
-                <p class="artist"><%= cd.product.artist.artistname %></p>
-                <p class="label"><%= cd.product.label.labelname %></p>
-                <p class="genre"><%= cd.product.genre.genrename %></p>
-                <p class="price">¥<%= cd.product.price %></p>
-            </span>
-        </span>
-    </section>
 
-    <section class="col-xs-4">
-        <% cd.songs.each do |song| %>
-            <p class="song"><%= song.songname %></p>
-        <% end %>
-    </section>
-        <%= link_to "edit", edit_admin_product_path(@product.id)%>
-        <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"} %>
-    <% end %>
-    </section>
-        <% if user_signed_in? %>
-                <% if @product.stock_number > 0 %>
-                    <%= form_for @cart,url:product_cart_products_path(@product) do |f| %>
-                        <p class="texts">購入枚数:</p>
-                        <%= f.select :purchase_number, @product.quantity %><br>
-                        <%= f.submit "カートに追加",class:"btn btn-success" %>
+            </div>
+        </div>
+        <div class="text",>
+        <div class="text-box2 cf">
+        <div class="text-left">
+            <p class="texts">商品名:</p>
+            <p class="texts">アーティスト名:</p>
+            <p class="texts">価格:</p>
+            <p class="texts">ジャンル名:</p>
+            <p class="texts">レーベル名:</p>
+            <p class="texts">購入枚数:</p>
+        </div>
+        <div class="text-right">
+            <p class="song"><%= @product.productname %></p>
+            <p class="artist"><%= @product.artist.artistname %></p>
+            <p class="price">¥<%= @product.price %></p>
+            <p class="artist"><%= @product.genre.genrename %></p>
+            <p class="artist"><%= @product.label.labelname %></p><br><br>
+        </div><br>
+        </div>
+            <% if user_signed_in?%>
+                <% if current_user.admin?%>
+                <% else %>
+                    <% if @product.stock_number > 0 %>
+                        <%= form_for @cart,url:product_cart_products_path(@product) do |f| %>
+                            <div class="select"><%= f.select :purchase_number, [1,2,3,4,5] %></div><br>
+                            <%= f.submit "カートに追加",class:"btn btn-success" %></div>
+                        <% end %>
+                    <% else %>
+                    <p>申し訳ございません、品切れです。</p>
                     <% end %>
                 <% end %>
             <% else %>
-        <% end %>
+                <div class="log-box"><p class="status"><%= link_to '会員登録 ', new_user_registration_path %></p></div>
+                <div class="log-box"><p class="status"><%= link_to 'ログイン ',new_user_session_path %></p></div>
+            <% end %>
+            <p class="return"><%= link_to '戻る', products_path %></p>
+        </div>
+        </section>
+
 
 
 <style>
@@ -65,55 +64,80 @@
         padding:0;
         box-sizing:border-box;
     }
+
     h1{
         text-align:center;
     }
-    .product-box{
-        margin-top:40px;
+
+    .cf::after {
+        content: "";
+        display: block;
+        clear: both;
     }
-    .left{
-        width:30%;
-        float:center;
-        display:flex;
+
+    .top-box{
+        width:80%;
+        height:230px;
+        margin:0 10%;
+        overflow: hidden;
+        position:rerative;
+        zoom:1;
     }
-    .center{
-        width: 30%;
-    }
+
     .right{
-        width:40%;
+        width:auto;
         float:right;
     }
+
     .product{
         width:80%;
-        height:190px;
-        display:inline-block;
-        margin-left:20%;
+        height:700px;
+        margin:0 10%;
     }
+
     .image{
-        height:160px;
-        width:160px;
+        height:230px;
+        width:230px;
         margin-top:2%;
+        margin-left:31.5%;
         display:inline-block;
     }
+
     .text{
-        float:right;
-        width:60%;
+        text-align:center;
+        height:320px;
+        margin-top:5%;
+        overflow: hidden;
+        position:rerative;
+        zoom:1;
     }
+
+    .texts{
+        margin-top:2.8%;
+    }
+
+    .text-left{
+        width:40%;
+        height:190px;
+        font-size:17px;
+        text-align:right;
+        float:left;
+    }
+
+    .text-right{
+        width:60%;
+        padding-right:20%;
+        float:right;
+        height:190px;
+    }
+
     .song{
         font-size:25px;
         text-align:center;
     }
+
     .artist{
         font-size:18px;
-        text-align:center;
-    }
-    .status{
-        font-size:16px;
-        text-align:center;
-    }
-    .price{
-        font-size:20px;
-        margin-top:10px;
         text-align:center;
     }
 
@@ -137,5 +161,48 @@
         margin-top:16%;
         margin-right:17%;
     }
+
+    .price{
+        font-size:20px;
+        margin-top:10px;
+        text-align:center;
+    }
+
+    .status-box{
+        width:30%;
+        height:50px;
+        margin:0 auto;
+        padding: 0.5em 1em;
+        background: #aada39;
+        border-radius:10%;
+        color: #FFF;
+}
+
+    .return{
+        margin-top:3%;
+        width:20%;
+        margin-left:39%;
+        fot-size:15px;
+        padding: 0.5em 1em;
+        background: #ccc;
+        border-radius:10%;
+        color: #FFF;
+    }
+
+    .log-box{
+        margin-top:0.5%;
+        width:20%;
+        margin-left:39%;
+        fot-size:15px;
+        padding: 0.5em 1em;
+        background: #ccc;
+        border-radius:10%;
+        color: #FFF;
+    }
+
+    .select{
+        margin-left:20%;
+    }
+
 
 </style>
