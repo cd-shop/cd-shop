@@ -41,11 +41,19 @@ class OrderHistoriesController < ApplicationController
             order_history.quantity = cart.purchase_number
             order_history.save
         end
+        
         @all_products.destroy_all
+        if @all_products.destroy_all
+            @products = current_user.cart_products.all
+                @products.each do |z|
+                z.product.stock_number -= z.purchase_number
+                z.product.stock_number.save
+                binding.pry
+            end
+        end
+        
         redirect_to user_order_path(current_user.id, order.id)
     end
-
-
 
     private
     def order_history_params

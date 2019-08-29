@@ -29,6 +29,7 @@ class Product < ApplicationRecord
 	paginates_per 10
 
 	accepts_nested_attributes_for :cds, allow_destroy: true
+	accepts_nested_attributes_for :cart_products
 
 	#enum
 	enum sale_status: {販売中: 0, 品切: 1}

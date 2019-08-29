@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   #cartproductの情報を取るためにcreateだけネスト
-  resources :cart_products, only: [:index, :show, :destroy] do
+  resources :cart_products, only: [:index, :show, :destroy, :update] do
     resources :orders, only: [:create, :destroy]
   end
 
