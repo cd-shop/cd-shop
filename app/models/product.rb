@@ -8,9 +8,9 @@ class Product < ApplicationRecord
  #ここにendいるかも？
 	end
 	
-	def self.search(search) #self.はUser.を意味する
+	def self.search(search) #self.はProduct.を意味する
 		if search
-		  where(['productname LIKE ?', "%#{search}%"]) #検索とuseanameの部分一致を表示。
+		  where(['productname LIKE ?', "%#{search}%"]) #検索とproductnameの部分一致を表示。
 		else
 		  Product.all #全て表示させる
 	   end
@@ -29,6 +29,7 @@ class Product < ApplicationRecord
 	paginates_per 10
 
 	accepts_nested_attributes_for :cds, allow_destroy: true
+	accepts_nested_attributes_for :cart_products
 
 	#enum
 	enum sale_status: {販売中: 0, 品切: 1}

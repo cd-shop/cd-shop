@@ -44,6 +44,7 @@ class OrderHistoriesController < ApplicationController
             order_history.save
         
         end
+
 #save出来なかった時にif回す？
 
         @all_products.destroy_all

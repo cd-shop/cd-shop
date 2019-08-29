@@ -1,18 +1,37 @@
-<div class="to_s">
-    <p class="product"><%= link_to "商品", admin_products_path %></p>
-</div>
-<div class="to_u">
-    <p class="user"><%= link_to "ユーザー", admin_users_path %></p>
-</div>
+
+    <div class="to_s"><%= link_to "商品一覧", admin_products_path %></div>
+    <div class="to_u"><%= link_to "ユーザー一覧", admin_users_path %></div>
 <style>
     .to_s{
-        margin-top:0.5%;
-        width:20%;
-        margin-left:39%;
-        fot-size:15px;
-        padding: 0.5em 1em;
-        background: #ccc;
-        border-radius:10%;
-        color: #FFF;
+        margin-top:5%;
+        width:70%;
+        height:120px;
+        margin-left:15%;
+        font-size:40px;
+        padding: 0.7em 1em;
+        background: #008080;
+        border-radius:15px;
+        text-align:center;
     }
+
+    .to_s>a{
+        color:#fff;
+    }
+
+    .to_u{
+        margin-top:5%;
+        width:70%;
+        height:120px;
+        margin-left:15%;
+        font-size:40px;
+        padding: 0.7em 1em;
+        background: #8b0000;
+        border-radius:15px;
+        text-align:center;
+    }
+
+    .to_u>a{
+        color:#fff;
+    }
+
 </style>

@@ -1,8 +1,10 @@
     <h1>CD一覧</h1>
+    <div class="search-box">
     <%= form_tag(products_path, :method => "get") do %>
-    <%= text_field_tag :search, params[:search] %> 
-    <%= submit_tag "Search" ,:productname => nil %> 
+    <%= text_field_tag :search, params[:search],class:"search_field" %> 
+    <%= submit_tag "商品名検索" ,:productname => nil ,class:"submit"%> 
     <% end %> 
+    </div>
 
     <section class="product-box">
         <% @products.each do |product| %>
@@ -137,6 +139,27 @@
     .paging{
         text-align:center;
         height: 60px;
+    }
+
+    .search-box{
+        margin:0 auto;
+        width:80%;
+        height:90px;
+        padding:2%;
+    }
+
+    input[type="text"]{
+        width:75%;
+        height:40px;
+        border:1px #999 solid;
+        border-radius:10px;
+        margin-left:10%;
+    }
+
+    .submit{
+        width:10%;
+        height:30px;
+        border-radius:10px;
     }
 
 

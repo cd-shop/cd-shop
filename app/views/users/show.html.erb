@@ -6,7 +6,7 @@
 
 <div class= "user_information">
     <h2>ユーザー情報</h2>
-    <div class="user_name">ユーザー名：　<%= @user.name %></div><br>
+    <div class="user_name">ユーザー名：<%= @user.name %><%= @user.lastname %></div><br>
     <div class="user_email">E-mail：　<%= @user.email %></div><br>
     <% @user.addresses.each_with_index do |address, i| %>
         <h3>住所<%= i + 1 %></h3>
