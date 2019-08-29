@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :order_histories, only: [:index, :create]
 
   end
+  # get 'users/:user_id/order_histories/detail', to: "order_histories#detail"
+
 
 
   #productの情報を取るためにcreateだけネスト
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
 
   #orderの情報を取るためにcreateだけネスト
   resources :orders, only: [:index] 
+
+  
 
 
 
