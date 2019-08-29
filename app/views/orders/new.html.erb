@@ -1,0 +1,139 @@
+<h1>価格と住所が正しければ購入ボタンを押してください</h1>
+    <section class="product-box">
+    <% @all_products.each do |order| %>
+	<section class="left">
+        <span class="product">
+            <%= link_to product_path(order.product.id) do %>
+            <span class="image">
+                <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
+            </span>
+            <% end %>
+            <span class="text">
+                <p class="song"><%= order.product.productname %></p><br>
+                <p class="artist"><%= order.product.artist.artistname %></p><br>
+                <p class="price">¥<%= order.product.price %></p>
+                <p class="price">購入枚数：<%= order.purchase_number %>枚</p>
+            </span>
+        </span>
+    </section>
+    <% end %>
+	</section>
+		<p class="price">郵便番号：<%= @address_number %></p>
+		<p class="price">配送先住所:<%= @prefecture %><%= @municipality %><%= @building %></p>
+		<p class="price">送料：¥<%= @postage %></p>
+		<p class="price">小計：¥<%= @subtotal %></p><br>
+		<p class="price">総計：¥<%= @postage + @subtotal %></p><br>
+
+
+        <%= form_for(OrderHistory.new, url:user_order_histories_path, method: :post) do |form| %>
+            <%= form.radio_button :pay_select, "クレジットカード" %>クレジットカード
+            <%= form.radio_button :pay_select, "着払い" %>着払い
+            <%= form.radio_button :pay_select, "コンビニ払い" %>コンビニ払い
+
+            <%= form.submit "購入に進むボタン", data: {confirm: "本当に購入しますか？"} %>
+        <% end %>
+
+		<p class="back_product"><%= link_to "カートに戻るボタン", cart_products_path %>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    h1{
+        text-align:center;
+    }
+
+    p{
+        margin:0;
+    }
+
+    .product-box{
+        margin-top:40px;
+        height:auto;
+        overflow: hidden;
+        position:rerative;
+        zoom:1;
+    }
+
+    .left{
+        width:50%;
+        float:left;
+        border-right:2px solid #222;
+        display:flex;
+    }
+
+    
+
+    .product{
+        width:80%;
+        height:190px;
+        display:flex;
+        justify-content: space-around;
+        text-align:justify;
+        margin-left:13%;
+        clear:both;
+    }
+
+    .image{
+        height:160px;
+        width:160px;
+        margin-top:2%;
+        display:inline-block;
+    }
+
+    .text{
+        float:right;
+        width:60%;
+    }
+
+    .song{
+        font-size:25px;
+        text-align:center;
+    }
+
+    .artist{
+        font-size:18px;
+        text-align:center;
+    }
+
+    .status{
+        font-size:16px;
+        text-align:center;
+    }
+
+    .price{
+        font-size:20px;
+        text-align:center;
+    }
+
+    .status-box{
+        width:40%;
+        margin:0 auto;
+        padding: 0.5em 1em;
+        background: -moz-linear-gradient(#ffb03c, #ff708d);
+        background: -webkit-linear-gradient(#ffb03c, #ff708d);
+        background: linear-gradient(to right, #ffb03c, #ff708d);
+        border-radius:70%;
+        color: #FFF;
+    }
+
+    .paging{
+        text-align:center;
+        height: 60px;
+    }
+    .back_product{
+        margin:40px auto;
+        text-align:center;
+        width:20%;
+        padding: 0.5em 1em;
+        background: purple;
+        border-radius:10%;
+    }
+    .back_product>a{
+        color:#fff;
+    }
+
+</style>

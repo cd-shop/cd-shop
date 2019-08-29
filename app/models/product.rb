@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 			cart_quantity += [i+1]
 		end
             return cart_quantity
-   #ここにendいるかも？
+ #ここにendいるかも？
 	end
 	
 	def self.search(search) #self.はUser.を意味する

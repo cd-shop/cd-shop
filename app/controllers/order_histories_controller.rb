@@ -1,6 +1,10 @@
 class OrderHistoriesController < ApplicationController
     def index
-        @order_histories = current_user.order_history.all
+        @all_products = current_user.orders.all
+        @order_histories = OrderHistory.all
+        
+
+
     end
 
     def create
@@ -41,11 +45,11 @@ class OrderHistoriesController < ApplicationController
             order_history.quantity = cart.purchase_number
             order_history.save
         end
+#save出来なかった時にif回す？
         @all_products.destroy_all
+
         redirect_to user_order_path(current_user.id, order.id)
     end
-
-
 
     private
     def order_history_params
