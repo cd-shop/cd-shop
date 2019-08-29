@@ -1,43 +1,46 @@
     <h1>CD一覧</h1>
+    <%= form_tag(products_path, :method => "get") do %>
+    <%= text_field_tag :search, params[:search] %> 
+    <%= submit_tag "Search" ,:productname => nil %> 
+    <% end %> 
+
     <section class="product-box">
-    <% @products.each do |product| %>
-    <section class="left">
-        <span class="product">
-            <%= link_to product_path(product.id) do %>
-            <span class="image">
-                <%= attachment_image_tag product, :image, fallback:"no_image.png", size:"50x50" %>
-            </span>
-            <% end %>
-            <span class="text">
-                <p class="song"><%= product.productname %></p>
-                <p class="artist"><%= product.artist.artistname %></p>
-            <%= link_to product_path(product.id) do %>
-                        <% if product.stock_number > 0 %>
-                            <div class="status-box">
-                                <p class="status">
-                                    販売中
-                                </p>
-                            </div>
+        <% @products.each do |product| %>
+            <section class="left">
+                <span class="product">
+                    <%= link_to product_path(product.id) do %>
+                        <span class="image">
+                            <%= attachment_image_tag product, :image, fallback:"no_image.png", size:"50x50" %>
+                         </span>
+                    <% end %>
+                    <span class="text">
+                        <p class="song"><%= product.productname %></p>
+                        <p class="artist"><%= product.artist.artistname %></p>
+                            <%= link_to product_path(product.id) do %>
+                                <% if product.stock_number > 0 %>
+                                    <div class="status-box">
+                                        <p class="status">
+                                            販売中
+                                        </p>
+                                    </div>
                                 <% else %>
-                            <div class="status-box1">
-                                <p class="status">
-                                    品切
-                                </p>
-                            </div>
-                        <% end %>
-            <% end %>
-                <p class="price">¥<%= product.price %></p>
-                <p class="price">在庫数:<%= product.stock_number %>枚</p>
-            </span>
-
-        </span>
+                                    <div class="status-box1">
+                                        <p class="status">
+                                            品切
+                                        </p>
+                                    </div>
+                                <% end %>
+                             <% end %>
+                        <p class="price">¥<%= product.price %></p>
+                        <p class="price">在庫数:<%= product.stock_number %>枚</p>
+                    </span>
+                </span>
+            </section>
+        <% end %>
     </section>
-    <% end %>
-    </section>
+    <div class="paging"><%= paginate @products %>  
+    </div>
 
-    <div class="paging"><%= paginate @products %></div>
-</body>
-</html>
 <style>
     *{
         margin:0;

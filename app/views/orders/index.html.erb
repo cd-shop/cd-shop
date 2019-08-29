@@ -1,8 +1,6 @@
-
-<h2>購入履歴詳細</h2>
-<h3>購入ありがとうございました。</h3>
+<h1>価格と住所が正しければ購入ボタンを押してください</h1>
     <section class="product-box">
-    <% @order_histories.each do |order| %>
+    <% @all_products.each do |order| %>
 	<section class="left">
         <span class="product">
             <%= link_to product_path(order.product.id) do %>
@@ -14,20 +12,28 @@
                 <p class="song"><%= order.product.productname %></p><br>
                 <p class="artist"><%= order.product.artist.artistname %></p><br>
                 <p class="price">¥<%= order.product.price %></p>
-                <p class="price">購入枚数：<%= order.quantity %>枚</p>
+                <p class="price">購入枚数：<%= order.purchase_number %>枚</p>
             </span>
         </span>
     </section>
     <% end %>
 	</section>
-    <p class="price">購入日時：<%= @order_histories.first.created_at.strftime('%Y/%m/%d/%H:%M') %></p><br>
+		<p class="price">郵便番号：<%= @address_number %></p>
+		<p class="price">配送先住所:<%= @prefecture %><%= @municipality %><%= @building %></p>
+		<p class="price">送料：¥<%= @postage %></p>
+		<p class="price">小計：¥<%= @subtotal %></p><br>
+		<p class="price">総計：¥<%= @postage + @subtotal %></p><br>
 
-		<p class="price">郵便番号：<%= @order.address_number %></p>
-		<p class="price">配送先住所:<%= @order.prefecture %><%= @order.municipality %><%= @order.building %></p>
-		<p class="price">送料：¥<%= @order.postage %></p>
-		<p class="price">小計：¥<%= @order.subtotal %></p><br>
 
-    <p class="price">合計金額<%= @order_histories.first.total_amount %>円</p>
+        <%= form_for(OrderHistory.new, url:user_order_histories_path, method: :post) do |form| %>
+            <%= form.radio_button :pay_select, "クレジットカード" %>クレジットカード
+            <%= form.radio_button :pay_select, "着払い" %>着払い
+            <%= form.radio_button :pay_select, "コンビニ払い" %>コンビニ払い
+
+            <%= form.submit "購入に進むボタン", data: {confirm: "本当に購入しますか？"} %>
+        <% end %>
+
+		<p class="back_product"><%= link_to "カートに戻るボタン", cart_products_path %>
 
 <style>
     *{
