@@ -11,7 +11,6 @@ class Admin::ProductsController < ApplicationController
     def create
         @product = Product.new(product_params)
         @product.save
-
         redirect_to admin_products_path
     end
 
@@ -22,8 +21,6 @@ class Admin::ProductsController < ApplicationController
     def show
         @product = Product.find(params[:id])
         @cart_product = Product.find(params[:id])
-        @current_stock_array = []
-
     end
 
     def edit
