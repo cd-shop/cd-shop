@@ -29,11 +29,12 @@
 
     <% else %>
         <%= form_for(OrderHistory.new, url:user_order_histories_path, method: :post) do |form| %>
+        <div class="radio-button">
             <%= form.radio_button :pay_select, "0", checked: true %>クレジットカード
             <%= form.radio_button :pay_select, "1" %>着払い
             <%= form.radio_button :pay_select, "2" %>コンビニ払い
-
-            <%= form.submit "購入に進むボタン", data: {confirm: "本当に購入しますか？"} %>
+            <br><%= form.submit "購入に進むボタン", data: {confirm: "本当に購入しますか？"} %>
+        </div>
         <% end %>
     <% end %>
 
@@ -138,6 +139,9 @@
     }
     .back_product>a{
         color:#fff;
+    }
+    .radio-button{
+        text-align: center;
     }
 
 </style>

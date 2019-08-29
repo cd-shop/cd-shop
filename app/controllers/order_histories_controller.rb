@@ -1,6 +1,6 @@
 class OrderHistoriesController < ApplicationController
     def index
-        @all_products = current_user.orders.all
+        @all_products = orders.all
         @order_histories = OrderHistory.all
     end
 
