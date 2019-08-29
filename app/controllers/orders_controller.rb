@@ -87,7 +87,6 @@ class OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
-		
 	end
 end
 

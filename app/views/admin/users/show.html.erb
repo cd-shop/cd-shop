@@ -23,6 +23,8 @@
         <%= link_to "ユーザー情報の変更", edit_user_path(@user), class:"btn btn-success" %><br><br>
         <%= link_to "ユーザーの削除",user_path(@user),method: :delete, class:"btn btn-danger",data: {confirm: "ユーザーを削除しますか？"}  %>
     <% end %>
+        <%= link_to "購入履歴",user_order_histories_path(@user.id),class:"btn btn-danger" %>
+
 
 </div>
 <div class="border"></div>
