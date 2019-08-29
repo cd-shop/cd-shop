@@ -21,7 +21,9 @@
     </section>
     <% end %>
 	</section>
-    <br><p class="price">購入日時：<%= @order_histories.first.created_at.strftime('%Y/%m/%d/%H:%M') %></p><br>
+    <section class="address-box">
+    <p class="price pri">購入日時：<%= @order_histories.first.created_at.strftime('%Y/%m/%d/%H:%M') %></p><br>
+
 		<p class="price">郵便番号：<%= @order.address_number %></p>
 		<p class="price">配送先住所:<%= @order.prefecture %><%= @order.municipality %><%= @order.building %></p>
 		<p class="price">送料：¥<%= @order.postage %></p>
@@ -38,6 +40,10 @@
                 no
                 <% end %>
 
+    <p class="price pri2">合計金額<%= @order_histories.first.total_amount %>円</p>
+
+    <p class="back_product"><%= link_to "ショッピングを続ける", products_path %>
+    </section>
 
 <style>
     *{
@@ -129,15 +135,49 @@
         height: 60px;
     }
     .back_product{
-        margin:40px auto;
+        margin:60px auto;
+        height:50px;
         text-align:center;
-        width:20%;
+        width:30%;
         padding: 0.5em 1em;
-        background: purple;
-        border-radius:10%;
+        background: #00bfff;
+        border-radius:5px;
+        font-size:22px;
     }
     .back_product>a{
         color:#fff;
+    }
+
+    .thank_you{
+        margin:0 auto;
+        width:50%;
+        height:90px;
+        padding:8px 0 0 0;
+        background:#ffdab9;
+        border-radius:20px;
+    }
+
+    .address-box{
+        height:420px;
+        width:80%;
+        background:#fffff0;
+        border-radius:20px;
+        border:2px #aaa solid;
+        margin:50px auto 0 auto;
+    }
+
+    .price{
+        font-size:23px;
+    }
+
+     .pri{
+        font-size:25px;
+        text-align:center;
+        margin-top:2px;
+    }
+
+    .pri2{
+        font-size:30px;
     }
 
 </style>

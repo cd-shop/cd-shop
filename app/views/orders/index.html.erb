@@ -18,26 +18,35 @@
     </section>
     <% end %>
 	</section>
-		<p class="price">郵便番号：<%= @address_number %></p>
-		<p class="price">配送先住所:<%= @prefecture %><%= @municipality %><%= @building %></p>
-		<p class="price">送料：¥<%= @postage %></p>
-		<p class="price">小計：¥<%= @subtotal %></p><br>
-		<p class="price">総計：¥<%= @postage + @subtotal %></p><br>
+    <section class="address-box">
+		<p class="pri pri2">郵便番号：<%= @address_number %></p>
+		<p class="pri">配送先住所:<%= @prefecture %><%= @municipality %><%= @building %></p>
+		<p class="pri">小計：¥<%= @subtotal %></p>
+        <p class="pri">送料：¥<%= @postage %></p><br>
+		<p class="pri fin">総計：¥<%= @postage + @subtotal %></p><br>
 
-    <% if @all_products.blank?  %>
-		<p class="price">商品をカートに入れてください</p><br>
-
-    <% else %>
+        <p class="how">お支払い方法</p>
         <%= form_for(OrderHistory.new, url:user_order_histories_path, method: :post) do |form| %>
-            <%= form.radio_button :pay_select, "0", checked: true %>クレジットカード
-            <%= form.radio_button :pay_select, "1" %>着払い
-            <%= form.radio_button :pay_select, "2" %>コンビニ払い
-
-            <%= form.submit "購入に進むボタン", data: {confirm: "本当に購入しますか？"} %>
+        <div class="select-pay">
+            <%= form.radio_button :pay_select, "クレジットカード",class: "label" %>
+            <%= form.label(:pay_select, "クレジットカード", value: "クレジットカード",class: "label la" )  %>
+            <%= form.radio_button :pay_select, "着払い",class: "label"%>
+            <%= form.label(:pay_select, "着払い", value: "着払い",class: "label")  %>
+            <%= form.radio_button :pay_select, "コンビニ払い",class: "label" %>
+            <%= form.label(:pay_select, "コンビニ払い", value: "コンビニ払い",class: "label")  %>
+            <br>
+            <%= form.submit "購入", data: {confirm: "本当に購入しますか？"},class: "btn" %>
+            
+        </div>
         <% end %>
-    <% end %>
+            
+            
 
-		<p class="back_product"><%= link_to "カートに戻るボタン", cart_products_path %>
+           
+        
+    </section>
+
+		<p class="back_product"><%= link_to "カートに戻る", cart_products_path %>
 
 <style>
     *{
@@ -134,10 +143,92 @@
         width:20%;
         padding: 0.5em 1em;
         background: purple;
-        border-radius:10%;
+        border-radius:10px;
     }
     .back_product>a{
         color:#fff;
     }
+
+    .address-box{
+        height:500px;
+        width:80%;
+        background:#fffff0;
+        border-radius:20px;
+        border:2px #aaa solid;
+        margin:50px auto 0 auto;
+    }
+
+    .price{
+        font-size:23px;
+    }
+
+    .pri{
+        font-size:25px;
+        text-align:center;
+        margin-top:2px;
+    }
+
+    .pri2{
+        margin-top:15px;
+    }
+
+    .fin{
+        font-size:32px;
+    }
+
+    .how{
+        margin-top:40px;
+        font-size:23px;
+        text-align:center;
+    }
+
+    .select-pay{
+        margin-top:10px;
+        height:135px;
+        padding:0 auto;
+    }
+
+    input[type=radio] {
+        display: none;     /* ラジオボタンを非表示にする */
+    }
+
+    input[type="radio"]:checked + label {
+        color: #3275bc;
+        border: 2px solid #3275bc;
+        background-color: #d0e6fd;  /* マウス選択時のフォント色を指定する */
+    }
+
+    .label {
+        color: #aaa;
+        border: 2px solid #aaa;
+        text-align: center;
+        display: inline-block;
+        padding: 12px 0px;
+        width: 200px;
+        height:45px;
+        font-size:17px;
+        margin-left:2%;
+    }
+
+    .la{
+        margin-left:18%;
+    }
+
+    .label:hover {
+        color: #aaa;
+        border: 2px solid #aaa;
+        cursor: pointer;
+    }
+
+    .btn{
+        height:60px;
+        width:200px;
+        background:#fa8072;
+        border-radius:20px;
+        color:#fff;
+        font-size:24px;
+        margin:30px auto 0 40%;
+    }
+
 
 </style>
