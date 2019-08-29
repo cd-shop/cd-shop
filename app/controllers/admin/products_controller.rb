@@ -22,15 +22,8 @@ class Admin::ProductsController < ApplicationController
     def show
         @product = Product.find(params[:id])
         @cart_product = Product.find(params[:id])
-        @stock = Product.find(params[:id], select: "stock_number")
         @current_stock_array = []
-        @stocks.current_stock.times do |quantity|
-            if quantity < 100
-                @current_stock_array += quantity + 1
-            else
-                break
-            end
-        end
+
     end
 
     def edit

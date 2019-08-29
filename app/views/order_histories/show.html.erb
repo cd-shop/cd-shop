@@ -1,7 +1,10 @@
+<h1>購入が確定しました</h1>
 
-    <%= @order_history.total_amount %>
-    <%= @order_history.created_at.strftime('%Y/%m/%d/%H:%M') %>
 
+    <p><%= @order_history.total_amount %>円</p>
+    <p>購入日時：<%= @order_history.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
+   
+    <%= @order_history.pay_select %>
 
     <%= form_for(@order_history, url: user_order_history_path(current_user.id, @order_history)) do |f|  %>
         <%= f.select :shipment_status, OrderHistory.shipment_statuses.keys, :selected => OrderHistory.shipment_statuses[@order_history.shipment_status]  %>

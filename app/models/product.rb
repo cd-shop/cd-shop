@@ -5,11 +5,11 @@ class Product < ApplicationRecord
 			cart_quantity += [i+1]
 		end
             return cart_quantity
-        
     end
 
 	has_many :cds, dependent: :destroy
 	has_many :cart_products, dependent: :destroy
+	has_many :order_histories
 
 	belongs_to :artist
 	belongs_to :genre
