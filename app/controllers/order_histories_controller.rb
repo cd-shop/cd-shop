@@ -41,6 +41,7 @@ class OrderHistoriesController < ApplicationController
             order_history.quantity = cart.purchase_number
             order_history.save
         end
+        @all_products.destroy_all
         redirect_to user_order_path(current_user.id, order.id)
     end
 
