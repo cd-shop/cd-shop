@@ -20,11 +20,14 @@
     </section>
     <% end %>
 	</section>
+    <p class="price">購入日時：<%= @order_histories.first.created_at.strftime('%Y/%m/%d/%H:%M') %></p><br>
+
 		<p class="price">郵便番号：<%= @order.address_number %></p>
 		<p class="price">配送先住所:<%= @order.prefecture %><%= @order.municipality %><%= @order.building %></p>
 		<p class="price">送料：¥<%= @order.postage %></p>
 		<p class="price">小計：¥<%= @order.subtotal %></p><br>
-		<%# <p class="price">総計：¥<%= @postage + @subtotal %></p><br> 
+
+    <p class="price">合計金額<%= @order_histories.first.total_amount %>円</p>
 
 <style>
     *{
