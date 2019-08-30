@@ -52,8 +52,8 @@ class OrdersController < ApplicationController
 		@all_products = current_user.cart_products.all
 
 		if current_user.addresses.empty?
-#もし住所がないならどこかに飛ばしてあげよう,住所選択画面とか？
-			redirect_to admin_products_path
+			flash[:address] = "住所を追加してください"
+			redirect_to edit_user_path(current_user.id)
 		else
 			order.address_number = current_user.addresses.first.address_number
 			order.prefecture = current_user.addresses.first.prefecture
