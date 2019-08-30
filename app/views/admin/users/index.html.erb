@@ -5,7 +5,11 @@
         <% if f.deleted_at? %>
             <div class="left-top">退会済み</div>
         <% else %>
+            <% if f.admin? %>
+            <div class="left-top1">管理者</div>
+            <% else %>
             <div class="left-top2">アクティブユーザー</div>
+            <% end %>
         <% end %>
         <div class="info-left">
             <p>ユーザ名：</p>
@@ -13,7 +17,7 @@
             <p>電話番号：</p>
         </div>
         <div class="info-center">
-            <p><%= f.name %></p>
+            <p><%= f.name %><%= f.lastname %></p>
             <p><%= f.email %></p>
             <p><%= f.tellnumber %></p>
         </div> 
@@ -98,6 +102,14 @@ h1{
     position:absolute;
     width:15%;
     background: red;
+    border-radius:5%;
+    text-align:center;
+    color:white;
+}
+.left-top1{
+    position:absolute;
+    width:15%;
+    background: green;
     border-radius:5%;
     text-align:center;
     color:white;

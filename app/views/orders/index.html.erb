@@ -34,22 +34,20 @@
 
 
         <div class="select-pay">
-            <%= form.radio_button :pay_select, "クレジットカード",class: "label" %>
-            <%= form.label(:pay_select, "クレジットカード", value: "クレジットカード",class: "label la" )  %>
-            <%= form.radio_button :pay_select, "着払い",class: "label"%>
-            <%= form.label(:pay_select, "着払い", value: "着払い",class: "label")  %>
-            <%= form.radio_button :pay_select, "コンビニ払い",class: "label" %>
-            <%= form.label(:pay_select, "コンビニ払い", value: "コンビニ払い",class: "label")  %>
+            <%= form.radio_button :pay_select, "0",class: "label", checked: true %>
+            <%= form.label(:pay_select, "クレジットカード", value: "0",class: "label la" )  %>
+
+            <%= form.radio_button :pay_select, "1",class: "label"%>
+            <%= form.label(:pay_select, "着払い", value: "1",class: "label")  %>
+
+            <%= form.radio_button :pay_select, "2",class: "label" %>
+            <%= form.label(:pay_select, "コンビニ払い", value: "2",class: "label")  %>
             <br>
             <%= form.submit "購入", data: {confirm: "本当に購入しますか？"},class: "btn" %>
-            
+
         </div>
         <% end %>
-            
-            
 
-           
-        
     </section>
 
 		<p class="back_product"><%= link_to "カートに戻る", cart_products_path %>

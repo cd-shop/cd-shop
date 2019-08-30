@@ -1,7 +1,9 @@
 class OrderHistoriesController < ApplicationController
     def index
-        @all_products = orders.all
-        @order_histories = OrderHistory.all
+        @user = User.with_deleted.find(params[:user_id])
+        @all_products = Order.all
+        @order_histories = OrderHistory.where(user_id: params[:user_id])
+
     end
 
     def create
