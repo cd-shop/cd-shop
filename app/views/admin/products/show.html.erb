@@ -15,12 +15,12 @@
                 </div>
             <% end %>
         </div>
-        <p class="product-item">商品名：<%= @product.productname %> </p><br>
-        <p class="product-item">CD名：ここが抜けてる</p><br>
-        <p class="product-item">アーティスト名：<%= @product.artist.artistname %> </p><br>
-        <p class="product-item">レーベル名：<%= @product.label.labelname %> </p><br>
-        <p class="product-item">ジャンル：<%= @product.genre.genrename %> </p><br>
-        <p class="product-item">価格：<%= @product.productname %> </p>
+        <p class="product-item">商品名： </p><br>
+        <p class="product-item">CD名：</p><br>
+        <p class="product-item">アーティスト名： </p><br>
+        <p class="product-item">レーベル名： </p><br>
+        <p class="product-item">ジャンル：</p><br>
+        <p class="product-item">価格： </p>
         <div class="edit">
             <%= link_to "edit", edit_admin_product_path(@product.id), class: 'btn btn-primary'%>
         </div>

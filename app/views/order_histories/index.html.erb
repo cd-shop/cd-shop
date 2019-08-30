@@ -1,22 +1,25 @@
 購入履歴一覧
 <section class="product-box">
         <% @order_histories.each do |order| %>
-            <% if current_user.admin? || current_user.id == order.user_id %>
-            <section class="left">
-                <span class="product">
-                    <%= link_to product_path(order.product.id) do %>
-                    <span class="image">
-                        <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
-                    </span>
-                    <% end %>
-                    <span class="text">
-                        <p class="song"><%= order.product.productname %></p>
-                        <p class="artist"><%= order.product.artist.artistname %></p>
-                        <p class="price">購入日時<%= order.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
-                    </span>
-                </span>
-            </section>
-            <% end %>
+                    <section class="left">
+                        <span class="product">
+                            <%= link_to product_path(order.product.id) do %>
+                            <span class="image">
+                                <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
+                            </span>
+                            <% end %>
+                            <span class="text">
+                                <p class="song">購入者:<%= order.order.user.name %>様</p>
+
+                                <p class="song"><%= order.product.productname %></p>
+                                <p class="artist"><%= order.product.artist.artistname %></p>
+                                <p class="price">購入日時<%= order.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
+                                <p class="price"><%= link_to "詳細はこちら", user_order_path(order.user_id, order.order.id)  %></p>
+
+                            </span>
+                        </span>
+                    </section>
+
         <% end %>
     </section>
 </div>
