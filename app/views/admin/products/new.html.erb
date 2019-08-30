@@ -1,5 +1,6 @@
+<h3 class="flash_product"><%= flash.now[:product] %></h3>
 
-<body>
+<div class="product_content">
     <h1>商品の追加</h1>
     <section class="add-box">
     <%= form_for(@product, url:"/admin/products") do |f| %>
@@ -48,6 +49,7 @@
 
     <% end %>
     </section>
+</div>
 
 <style>
     *{
@@ -123,6 +125,12 @@
         font-size:20px;
         margin-bottom:50px;
     }
-
-    
+    .flash_product{
+        text-align: center;
+        color:red;
+        font-size: 25px;
+    }
+    .product_content{
+        margin-top:70px;
+    }
 </style>

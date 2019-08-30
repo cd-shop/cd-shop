@@ -28,7 +28,8 @@
 		<p class="price">配送先住所:<%= @order.prefecture %><%= @order.municipality %><%= @order.building %></p>
 		<p class="price">送料：¥<%= @order.postage %></p>
 		<p class="price">小計：¥<%= @order.subtotal %></p><br>
-        
+        <p class="price pri2">合計金額: <%= @order_histories.first.total_amount %>円</p>
+
                 <% if @order_histories.first.pay_select == 0 %>
                             <p class="price">お支払い方法：クレジットカード</p>
                 <% elsif @order_histories.first.pay_select == 1 %>
@@ -40,9 +41,11 @@
                 <% end %>
         </p>
         <br>
-    <p class="price pri2">合計金額<%= @order_histories.first.total_amount %>円</p>
 
-    <p class="back_product"><%= link_to "ショッピングを続ける", products_path %>
+    <% if current_user.admin?%>
+        <% else %>
+        <p class="back_product"><%= link_to "ショッピングを続ける", products_path %>
+    <% end %>
     </section>
 
 <style>
