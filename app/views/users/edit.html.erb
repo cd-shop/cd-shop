@@ -1,4 +1,5 @@
-<div class="user_edit", id="okan">
+<h2 class="address_message"><%= flash[:address]%></h2>
+<div class="user_edit">
   <div class="border-edit">
     <%= form_for @user do |f| %>
           <div class= "field">
@@ -33,7 +34,7 @@
             <%= f.submit "変更する",class:"btn btn-success" %>
 
           <div class="links">
-            <%= link_to_add_association '住所を追加', f, :addresses, id:"address_nest" %>
+            <%= link_to_add_association '住所を追加', f, :addresses, id:"address_nest",class:"btn btn-danger" %>
           </div>
 
           <%= f.fields_for :addresses, @user.addresses do |a| %>
@@ -63,7 +64,10 @@
 }
 .border-edit {
     margin:80px auto;
-
+}
+.address_message{
+  text-align:center;
+  color:red;
 }
 
 </style>

@@ -18,37 +18,36 @@
     </section>
     <% end %>
 	</section>
+    <% if @all_products.blank? %>
+		<p class="back_product1"><%= link_to "商品を追加してください",products_path %></p>
+    <% else %>
     <section class="address-box">
 		<p class="pri pri2">郵便番号：<%= @address_number %></p>
 		<p class="pri">配送先住所:<%= @prefecture %><%= @municipality %><%= @building %></p>
 		<p class="pri">小計：¥<%= @subtotal %></p>
         <p class="pri">送料：¥<%= @postage %></p><br>
 		<p class="pri fin">総計：¥<%= @postage + @subtotal %></p><br>
-
         <p class="how">お支払い方法</p>
+
         <%= form_for(OrderHistory.new, url:user_order_histories_path, method: :post) do |form| %>
+            <div class="select-pay">
+                <%= form.radio_button :pay_select, "0",class: "label", checked: true %>
+                <%= form.label(:pay_select, "クレジットカード", value: "0",class: "label la" )  %>
 
-<!--             <%= form.radio_button :pay_select, "0", checked: true %>クレジットカード -->
-<!--             <%= form.radio_button :pay_select, "1" %>着払い -->
-<!--             <%= form.radio_button :pay_select, "2" %>コンビニ払い -->
+                <%= form.radio_button :pay_select, "1",class: "label"%>
+                <%= form.label(:pay_select, "着払い", value: "1",class: "label")  %>
 
-
-        <div class="select-pay">
-            <%= form.radio_button :pay_select, "0",class: "label", checked: true %>
-            <%= form.label(:pay_select, "クレジットカード", value: "0",class: "label la" )  %>
-
-            <%= form.radio_button :pay_select, "1",class: "label"%>
-            <%= form.label(:pay_select, "着払い", value: "1",class: "label")  %>
-
-            <%= form.radio_button :pay_select, "2",class: "label" %>
-            <%= form.label(:pay_select, "コンビニ払い", value: "2",class: "label")  %>
-            <br>
-            <%= form.submit "購入", data: {confirm: "本当に購入しますか？"},class: "btn" %>
-
-        </div>
+                <%= form.radio_button :pay_select, "2",class: "label" %>
+                <%= form.label(:pay_select, "コンビニ払い", value: "2",class: "label")  %>
+                <br>
+                <%= form.submit "購入", data: {confirm: "本当に購入しますか？"},class: "btn" %>
+            </div>
         <% end %>
-
     </section>
+
+    <% end %>
+
+
 
 		<p class="back_product"><%= link_to "カートに戻る", cart_products_path %>
 
@@ -150,6 +149,17 @@
         border-radius:10px;
     }
     .back_product>a{
+        color:#fff;
+    }
+    .back_product1{
+        margin:40px auto;
+        text-align:center;
+        width:20%;
+        padding: 0.5em 1em;
+        background: red;
+        border-radius:10px;
+    }
+    .back_product1>a{
         color:#fff;
     }
     .radio-button{

@@ -44,10 +44,10 @@
             <% if current_user.admin?%>
                 <% else %>
                 <% if @product.stock_number > 0 %>
-                   　 <%= form_for @cart,url:product_cart_products_path(@product) do |f| %>
-                     <p class="buy_quantity">購入数</p>
-                     <%= f.select :purchase_number, @product.quantity%><br>
-                     <%= f.submit "カートに追加",class:"btn2" %></div>
+                    <%= form_for @cart,url:product_cart_products_path(@product) do |f| %>
+                    <p class="buy_quantity">購入数</p>
+                    <%= f.select :purchase_number, @product.quantity%><br>
+                    <%= f.submit "カートに追加",class:"btn2" %></div>
                 <% end %>
                 <% else %>
                     <p class="sorry">申し訳ございません、品切れです。</p>

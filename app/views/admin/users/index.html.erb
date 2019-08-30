@@ -20,12 +20,15 @@
             <p><%= f.name %><%= f.lastname %></p>
             <p><%= f.email %></p>
             <p><%= f.tellnumber %></p>
-        </div> 
-        <div class="info-right">
-        <%= link_to admin_user_path(f) do %>
-        <div class="info-right2">
-            <p>詳細</p>
         </div>
+            <% if f.admin? %>
+            <% else %>
+                <div class="info-right">
+                <%= link_to admin_user_path(f) do %>
+                <div class="info-right2">
+                    <p>詳細</p>
+                </div>
+            <% end %>
         <% end %>
         </div>
     </div>
