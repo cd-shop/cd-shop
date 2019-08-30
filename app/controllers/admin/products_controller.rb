@@ -10,8 +10,12 @@ class Admin::ProductsController < ApplicationController
 
     def create
         @product = Product.new(product_params)
-        @product.save
-        redirect_to admin_products_path
+        if @product.save
+            redirect_to admin_products_path
+        else
+            flash.now[:product] = "商品の保存に失敗しました。正しい入力を行なってください"
+            render "new"
+        end
     end
 
     def index

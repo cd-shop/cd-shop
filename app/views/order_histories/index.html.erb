@@ -1,4 +1,6 @@
-購入履歴一覧
+<h2>購入履歴一覧</h2>
+<p class="song">購入者:<%= @user.name %><%= @user.lastname %>様</p>
+
 <section class="product-box">
         <% @order_histories.each do |order| %>
                     <section class="left">
@@ -7,7 +9,6 @@
                                 <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
                             </span>
                             <span class="text">
-                                <p class="song">購入者:<%= order.order.user.name %>様</p>
 
                                 <p class="song"><%= order.product.productname %></p>
                                 <p class="artist"><%= order.product.artist.artistname %></p>

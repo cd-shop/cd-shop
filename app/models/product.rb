@@ -4,10 +4,9 @@ class Product < ApplicationRecord
 		self.stock_number.times do |i|
 			cart_quantity += [i+1]
 		end
-            return cart_quantity
- #ここにendいるかも？
+        return cart_quantity
 	end
-	
+
 	def self.search(search) #self.はProduct.を意味する
 		if search
 		  where(['productname LIKE ?', "%#{search}%"]) #検索とproductnameの部分一致を表示。
@@ -20,6 +19,9 @@ class Product < ApplicationRecord
 	has_many :cds, dependent: :destroy
 	has_many :cart_products, dependent: :destroy
 	has_many :order_histories
+
+	validates :productname, presence: true
+	validates :price, presence: true
 
 	belongs_to :artist
 	belongs_to :genre
