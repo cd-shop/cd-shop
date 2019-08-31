@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
 
 	def edit
-		@address = Address.find_by(user_id: current_user.id)
+		@address = Address.find_by(id: params[:id])
 	end
 
 	def update
