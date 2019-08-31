@@ -2,6 +2,8 @@ class CartProductsController < ApplicationController
 
     def index
         @cart_products = current_user.cart_products.all
+        @address = current_user.addresses.all
+        @user = current_user.id
     end
 
     def create

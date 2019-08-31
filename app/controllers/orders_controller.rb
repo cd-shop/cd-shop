@@ -55,10 +55,13 @@ class OrdersController < ApplicationController
 			flash[:address] = "住所を追加してください"
 			redirect_to edit_user_path(current_user.id)
 		else
-			order.address_number = current_user.addresses.first.address_number
+			order.address_id = params[:address_id]
 			order.prefecture = current_user.addresses.first.prefecture
 			order.municipality = current_user.addresses.first.municipality
 			order.building = current_user.addresses.first.building
+			
+			binding.pry
+			
 			redirect_to user_orders_path(current_user.id)
 		end
 	end
