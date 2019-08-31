@@ -3,18 +3,24 @@
 
     </div>
     <section class="col-xs-5 left">
-        <div class="status-box">
-            <div class="status">在庫残り<%= @product.stock_number %>枚</div>
             <% if @product.stock_number > 0 %>
-                <div class="status">
-                    販売中
+            <div class="status-box">
+                <div class="status">在庫残り<%= @product.stock_number %>枚</div>
+                    <div class="status">
+                        販売中
+                    </div>
                 </div>
+            </div>
+
             <% else %>
-                <div class="status">
-                    品切
+            <div class="status-box1">
+                <div class="status1">在庫残り<%= @product.stock_number %>枚</div>
+                    <div class="status1">
+                        品切
+                    </div>
                 </div>
+            </div>
             <% end %>
-        </div>
         <p class="product-item">商品名： </p><br>
         <p class="product-item">CD名：</p><br>
         <p class="product-item">アーティスト名： </p><br>
@@ -24,7 +30,12 @@
         <div class="edit">
             <%= link_to "edit", edit_admin_product_path(@product.id), class: 'btn btn-primary'%>
         </div>
+        <div class="edit">
+            <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"}, class: 'btn btn-danger' %>
+        </div>
     </section>
+
+
     <section class="col-xs-2 center">
         <span class="image">
             <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
@@ -36,9 +47,7 @@
         <p class="product-item"><%= cd.product.label.labelname %></p><br>
         <p class="product-item"><%= cd.product.genre.genrename %></p><br>
         <p class="product-item">¥<%= cd.product.price %></p>
-        <div class="destroy">
-            <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"}, class: 'btn btn-danger' %>
-        </div>
+
     </section>
 
     <section class="col-xs-4 right">
@@ -48,7 +57,6 @@
         <% end %>
     </section>
     <% end %>
-    
     
 
 <style>
@@ -114,6 +122,11 @@
         text-align: center;
         line-height:43px;
     }
+    .status1{
+        font-size:16px;
+        text-align: center;
+        line-height:43px;
+    }
     .price{
         font-size:20px;
         margin-top:10px;
@@ -131,6 +144,19 @@
         background: -moz-linear-gradient(#ffb03c, #ff708d);
         background: -webkit-linear-gradient(#ffb03c, #ff708d);
         background: linear-gradient(to right, #ffb03c, #ff708d);
+        border-radius:70%;
+        color: #FFF;
+    }
+    .status-box1{
+        position: relative;
+        top: 60px;
+        left: 40px;
+        height: 100px;
+        display: inline-block;
+        width:200px;
+        margin-bottom: 110px;
+        padding: 0.5em 1em;
+        background: red;
         border-radius:70%;
         color: #FFF;
     }

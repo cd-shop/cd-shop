@@ -2,6 +2,8 @@ class CartProductsController < ApplicationController
 
     def index
         @cart_products = current_user.cart_products.all
+        @address = current_user.addresses.all
+        @user = current_user.id
     end
 
     def create
@@ -14,7 +16,6 @@ class CartProductsController < ApplicationController
 
     def destroy
         cart_product = CartProduct.find_by(product_id: params[:product_id])
-        binding.pry
         cart_product.destroy
         redirect_to cart_products_path
     end

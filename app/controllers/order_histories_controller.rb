@@ -10,7 +10,12 @@ class OrderHistoriesController < ApplicationController
 		@all_products = current_user.cart_products.all
 #ここで注文の保存
         order= Order.new
-		order.user_id = current_user.id
+        order.user_id = current_user.id
+#ラジオボタンで選択した住所のIDを受け取る
+        order.address_id = params[:address_id]
+        
+        binding.pry
+        
         order.address_number = current_user.addresses.first.address_number
         order.prefecture = current_user.addresses.first.prefecture
         order.municipality = current_user.addresses.first.municipality
