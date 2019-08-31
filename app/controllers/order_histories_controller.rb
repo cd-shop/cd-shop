@@ -48,9 +48,6 @@ class OrderHistoriesController < ApplicationController
                 cart.product.save
             end
         end
-        
-        binding.pry
-        
 
         #save出来なかった時にif回す？
         redirect_to user_order_path(current_user.id, order.id)

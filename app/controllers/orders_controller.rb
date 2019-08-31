@@ -4,9 +4,6 @@ class OrdersController < ApplicationController
 		@all_products = current_user.cart_products.all
 		@order = Order.find_by(params[:user_id])
 
-		@address = params[:format].to_i
-		@order.address_id = @address
-		@unko = @order.address_id
 
 		if current_user.addresses.blank?
 		else
@@ -32,16 +29,14 @@ class OrdersController < ApplicationController
 		else
 			order.address_id = params[:address_id]
 
-			redirect_to user_orders_path(current_user.id, order.address_id)
+			redirect_to user_orders_path(current_user.id)
 		end
 	end
 
 	def show
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
-		@address = Address.find_by(address_id: params[:address_id])
-		binding.pry
-
+		@address = Address.find(@order.address_id)
 	end
 end
 
