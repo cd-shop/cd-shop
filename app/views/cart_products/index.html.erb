@@ -44,13 +44,10 @@
             <%= address.building%><br>
         <% end %>
 
-        <%= form.submit "aaa"%>
+        <p class="buy"><%= form.submit "注文する",class:"buy1" %></p>
     <% end %>
 </div>
 
-
-
-            <p class="buy"><%= link_to "注文に進む",cart_product_orders_path(@cart_products),method: :post %></p>
             <p class="back_product"><%= link_to "商品一覧に戻る",products_path %></p>
         <% end %>
 
@@ -130,7 +127,7 @@
         text-align:center;
         padding: 0.5em 1em;
         background:#ee9999;
-        border-radius:10%;
+        border-radius:10px;
     }
 
     .delete>a{
@@ -143,7 +140,14 @@
         width:20%;
         padding: 0.5em 1em;
         background: skyblue;
-        border-radius:10%;
+        border-radius:10px;
+    }
+
+    .buy1{
+        border:none;
+        color:#fff;
+        background:skyblue;
+        font-size:17px;
     }
 
     .buy>a{
@@ -155,7 +159,7 @@
         width:25%;
         padding: 0.5em 1em;
         background: red;
-        border-radius:20%;
+        border-radius:20px;
     }
     .no_buy>a {
         color:#fff;
@@ -167,7 +171,7 @@
         width:20%;
         padding: 0.5em 1em;
         background: purple;
-        border-radius:10%;
+        border-radius:10px;
     }
     .back_product>a{
         color:#fff;
