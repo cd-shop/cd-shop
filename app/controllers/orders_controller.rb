@@ -39,8 +39,8 @@ class OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
-		@address = Address.find_by(address_id: params[:address_id])
-		binding.pry
+		@address = Address.find(@order.address_id)
+		
 
 	end
 end

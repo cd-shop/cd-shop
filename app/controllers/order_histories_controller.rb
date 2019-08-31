@@ -15,7 +15,6 @@ class OrderHistoriesController < ApplicationController
         order.user_id = current_user.id
 #ラジオボタンで選択した住所のIDを受け取る
         order.address_id = params[:order][:address_id]
-        binding.pry
         order.postage = 500
         subtotal = 0
 
@@ -48,9 +47,6 @@ class OrderHistoriesController < ApplicationController
                 cart.product.save
             end
         end
-        
-        binding.pry
-        
 
         #save出来なかった時にif回す？
         redirect_to user_order_path(current_user.id, order.id)
