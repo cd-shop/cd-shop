@@ -45,16 +45,20 @@ class OrderHistoriesController < ApplicationController
             order_history.total_amount = order.subtotal + order.postage
             order_history.shipment_status = 0
             order_history.quantity = cart.purchase_number
-            order_history.save
-        
+            if order_history.save
+                cart.destroy
+                cart.product.stock_number -= cart.purchase_number
+                cart.product.save
+                
+            end
         end
 
 #save出来なかった時にif回す？
+redirect_to user_order_path(current_user.id, order.id)
+flash[:notice] = "購入ありがとうございます。またのご利用をお待ちしております。"
+        
 
-        @all_products.destroy_all
-        flash[:notice] = "購入ありがとうございます。またのご利用をお待ちしております。"
-
-        redirect_to user_order_path(current_user.id, order.id)
+        
     end
 
     private

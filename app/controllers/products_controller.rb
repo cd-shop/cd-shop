@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 	end
 
 	def show
+		@cart_products = current_user.cart_products.all
 		@product = Product.find(params[:id])
 		if user_signed_in?
 			@cart = current_user.cart_products.new
