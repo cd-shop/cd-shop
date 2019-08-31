@@ -1,5 +1,6 @@
 class OrderHistoriesController < ApplicationController
     def index
+
         @user = User.with_deleted.find(params[:user_id])
         @all_products = Order.all
         @order_histories = OrderHistory.where(user_id: params[:user_id])
@@ -7,16 +8,14 @@ class OrderHistoriesController < ApplicationController
     end
 
     def create
+
 		@all_products = current_user.cart_products.all
 #ここで注文の保存
-        order= Order.new
+        order= Order.new(order_params)
         order.user_id = current_user.id
 #ラジオボタンで選択した住所のIDを受け取る
-        order.address_id = params[:address_id]
-        order.address_number = current_user.addresses.first.address_number
-        order.prefecture = current_user.addresses.first.prefecture
-        order.municipality = current_user.addresses.first.municipality
-        order.building = current_user.addresses.first.building
+        order.address_id = params[:order][:address_id]
+        binding.pry
         order.postage = 500
         subtotal = 0
 
@@ -25,8 +24,6 @@ class OrderHistoriesController < ApplicationController
                 subtotal += total
             end
         order.subtotal = subtotal
-            #URLに値を渡す前に住所の選択をさせて、パラメータに渡せばいいのか
-            # redirect_to action: :show, user_id: order.user_id, address_number: current_user.addresses.first.address_number, prefecture: current_user.addresses.first.prefecture, municipality: current_user.addresses.first.municipality, building: current_user.addresses.first.building
         order.save
 
 #ここで各購入の保存、order idがおなじやつとればいいのか
@@ -49,19 +46,23 @@ class OrderHistoriesController < ApplicationController
                 cart.destroy
                 cart.product.stock_number -= cart.purchase_number
                 cart.product.save
-                
             end
         end
-
-#save出来なかった時にif回す？
-redirect_to user_order_path(current_user.id, order.id)
-flash[:notice] = "購入ありがとうございます。またのご利用をお待ちしております。"
+        
+        binding.pry
         
 
-        
+        #save出来なかった時にif回す？
+        redirect_to user_order_path(current_user.id, order.id)
+        flash[:notice] = "購入ありがとうございます。またのご利用をお待ちしております。"
+
     end
 
     private
+    def order_params
+        params.require(:order).permit(:address_id)
+    end
+
     def order_history_params
         #チェックボックスしていないとエラーなる
         params.require(:order_history).permit(order_histories_attributes: [:pay_select])

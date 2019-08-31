@@ -1,9 +1,3 @@
-<% unless current_user.admin?  %>
-    管理者ではない
-<% else %>
-    管理者
-<% end %>
-
 <div class= "user_information">
     <h2>ユーザー情報</h2>
     <div class="user_name">ユーザー名：<%= @user.name %><%= @user.lastname %></div><br>

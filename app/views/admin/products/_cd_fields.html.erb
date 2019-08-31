@@ -1,5 +1,5 @@
 <p class="nested-fields">
-	<%= f.text_field :cdname %><br>
+	CD:<%= f.text_field :cdname %><br>
 	<%= link_to_remove_association 'CDを削除', f %>
 		<%= link_to_add_association '曲を追加', f, :songs %>
 		<%= f.fields_for :songs do |song| %>
