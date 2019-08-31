@@ -1,26 +1,38 @@
-<div class="nested-fields">
-	<div class="field">
-		<div class="field">
-			<%= f.label :郵便番号 %><br>
-		  <%= f.text_field :address_number %>
+
+<div class="user_edit">
+    <div class="border-edit">
+		<div class="nested-fields">
+			<div class="field">
+				<div class="field">
+					<%= f.label :郵便番号 %><br>
+				<%= f.text_field :address_number %>
+				</div>
+				<div class="field">
+					<%= f.label :都道府県 %><br>
+				<%= f.text_field :prefecture %>
+				</div>
+				<div class="field">
+					<%= f.label :市区町村 %><br>
+				<%= f.text_field :municipality %>
+				</div>
+				<div class="field">
+					<%= f.label :建物 %><br>
+				<%= f.text_field :building %>
+				</div>
+			</div>
+			<div class="links">
+				<%= link_to_remove_association '住所を削除', f %>
+				<br><%= f.submit "update user information", class: 'btn btn-success' %>
+			</div>
 		</div>
-		<div class="field">
-			<%= f.label :都道府県 %><br>
-		  <%= f.text_field :prefecture %>
-		</div>
-		<div class="field">
-			<%= f.label :市区町村 %><br>
-		  <%= f.text_field :municipality %>
-		</div>
-		<div class="field">
-			<%= f.label :建物 %><br>
-		  <%= f.text_field :building %>
-		</div>
-	</div>
-	<div class="links">
-		<%= link_to_remove_association '住所を削除', f %>
-		<br><%= f.submit "update user information", class: 'btn btn-success' %>
 	</div>
 </div>
+	<style>
+	.user_edit {
+    text-align: center;
+    margin:0 auto;
+    width: 700px;
+    height: 500px;
+}
 
-<style>
+	</style>
