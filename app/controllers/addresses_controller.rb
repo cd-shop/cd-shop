@@ -5,7 +5,7 @@ class AddressesController < ApplicationController
 	end
 
 	def update
-		address = Address.find_by(user_id: current_user.id)
+		address = Address.find_by(id: params[:id])
 		address.update(address_params)
 		redirect_to user_path(current_user.id)
 	end
