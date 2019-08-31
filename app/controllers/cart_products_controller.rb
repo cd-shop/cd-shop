@@ -2,8 +2,7 @@ class CartProductsController < ApplicationController
 
     def index
         @cart_products = current_user.cart_products.all
-
-        @cart_product = current_user.cart_products.new(params[:id])
+        @cart_product = current_user.cart_products.new
         @address = current_user.addresses.all
         @user = current_user.id
 

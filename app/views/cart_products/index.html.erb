@@ -34,21 +34,11 @@
         <p class="no_buy"><%= link_to "カートに商品を追加してください",products_path %></p>
         <% else %>
 
-<div class="select_address">
-    <%= form_with(url: cart_product_orders_path(@cart_products),method: :post) do |form|%>
-        <% current_user.addresses.each do |address| %>
-            <%= form.radio_button :address_id, address.id %>
-            <%= address.address_number %>
-            <%= address.prefecture %>
-            <%= address.municipality %>
-            <%= address.building%><br>
-        <% end %>
+    <div class="select_address">
+        <%= link_to "注文する", cart_product_orders_path(@cart_products),method: :post,class:"buy1" %>
+    </div>
 
-        <p class="buy"><%= form.submit "注文する",class:"buy1" %></p>
-    <% end %>
-</div>
-
-            <p class="back_product"><%= link_to "商品一覧に戻る",products_path %></p>
+        <p class="back_product"><%= link_to "商品一覧に戻る",products_path %></p>
         <% end %>
 
 
