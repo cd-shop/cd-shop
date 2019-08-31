@@ -28,7 +28,21 @@
     <p class="form"><%= product.collection_select :label_id, Label.all, :id, :labelname %>
     <%= link_to '⇦にレーベルが無い場合はこちら', new_admin_label_path %></p><br>
 
-    
+
+                <%= product.fields_for :cds do |cd| %>
+                    <p class="nested-fields">
+                        CD名: <%= cd.text_field :cdname %><br>
+                        <%= link_to_remove_association 'CDを削除', cd %>
+                            <%= link_to_add_association '曲を追加', cd, :songs %>
+                            <%= cd.fields_for :songs do |song| %>
+                                <p class="nested-fields">
+                                    曲名: <%= song.text_field :songname %>
+                                    <%= song.select :song_number, options_for_select((0..30).to_a) %><br>
+                                    <%= link_to_remove_association '曲を削除', song %>
+                                </p>
+                            <% end %>
+                    </p>
+                <% end %>
     </div>
     <%= product.submit "商品を更新する", :class=>"btn"%>
     <% end %>
