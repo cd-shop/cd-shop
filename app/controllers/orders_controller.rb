@@ -59,9 +59,6 @@ class OrdersController < ApplicationController
 			order.prefecture = current_user.addresses.first.prefecture
 			order.municipality = current_user.addresses.first.municipality
 			order.building = current_user.addresses.first.building
-			
-			binding.pry
-			
 			redirect_to user_orders_path(current_user.id)
 		end
 	end

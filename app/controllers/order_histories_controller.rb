@@ -13,9 +13,6 @@ class OrderHistoriesController < ApplicationController
         order.user_id = current_user.id
 #ラジオボタンで選択した住所のIDを受け取る
         order.address_id = params[:address_id]
-        
-        binding.pry
-        
         order.address_number = current_user.addresses.first.address_number
         order.prefecture = current_user.addresses.first.prefecture
         order.municipality = current_user.addresses.first.municipality
