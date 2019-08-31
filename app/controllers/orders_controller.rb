@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
-		@address = Address.find(@order.address_id)
+		@address = Address.find_by(@order.address_id)
 	end
 end
 
