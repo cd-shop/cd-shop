@@ -1,5 +1,8 @@
 class Admin::UsersController < ApplicationController
-    before_action :admin_users
+    before_action :admin_users, except: [:another]
+    def another
+    end
+
     def index
         @users = User.with_deleted
     end

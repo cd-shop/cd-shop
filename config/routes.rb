@@ -24,8 +24,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:show]
 
+
   namespace :admin do
     get "top" => "products#top"
+    get "adasdfasdfasdfasdfksadfihsdfioehiepfahdvklasndfasknefpiaseipasefabsdklva" => "users#another", as:"another"
     resources :users
     resources :products
     resources :artist, only: [:new, :create]
