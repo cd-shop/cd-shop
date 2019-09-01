@@ -35,6 +35,7 @@ class OrderHistoriesController < ApplicationController
             order_history.product_id = product.id
             order_history.image_id = product.image_id
             order_history.productname = product.productname
+            order_history.price = product.price
             order_history.artistname = product.artist.artistname
             order_history.labelname = product.label.labelname
             order_history.genrename = product.genre.genrename

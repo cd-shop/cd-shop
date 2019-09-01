@@ -4,18 +4,25 @@
     <% @order_histories.each do |order| %>
 	<section class="left">
         <span class="product">
+        <% if current_user.admin? %>
+            <%= link_to admin_product_path(order) do %>
+            <span class="image">
+                <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
+            </span>
+            <% end %>
+        <% else %>
             <%= link_to product_path(order.product.id) do %>
             <span class="image">
                 <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
             </span>
             <% end %>
+        <% end %>
             <span class="text">
-                <p class="song"><%= order.product.productname %></p><br>
-                <p class="price"><%= order.product.artist.artistname %></p>
-                <p class="price">¥<%= order.product.price %></p>
+                <p class="song"><%= order.productname %></p><br>
+                <p class="price"><%= order.artistname %></p>
+                <p class="price">¥<%= order.price %></p>
                 <p class="price">購入枚数：<%= order.quantity %>枚</p>
                 <p class="price">配送状況: <%= order.shipment_status %></p>
-
             </span>
         </span>
     </section>
