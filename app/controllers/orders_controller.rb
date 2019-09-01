@@ -34,10 +34,7 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
 		@address = Address.find(@order.address_id)
-		@order.address_number = @address.address_number
-		@order.prefecture = @address.prefecture
-		@order.municipality = @address.municipality
-		@order.building = @address.building
+
 	end
 
 	def update

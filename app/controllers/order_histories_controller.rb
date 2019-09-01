@@ -13,6 +13,11 @@ class OrderHistoriesController < ApplicationController
         order.user_id = current_user.id
 #ラジオボタンで選択した住所のIDを受け取る
         order.address_id = params[:order][:address_id]
+		address = Address.find(order.address_id)
+        order.address_number = address.address_number
+		order.prefecture = address.prefecture
+		order.municipality = address.municipality
+		order.building = address.building
         order.postage = 500
         subtotal = 0
 
