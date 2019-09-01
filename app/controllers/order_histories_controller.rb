@@ -1,4 +1,5 @@
 class OrderHistoriesController < ApplicationController
+
     def index
         @user = User.with_deleted.find(params[:user_id])
         @all_products = Order.all
@@ -56,7 +57,15 @@ class OrderHistoriesController < ApplicationController
     end
 
     def update
-        @order_history = OrderHistory.find(params[:id])
+		@order_history = OrderHistory.where(order_id: params[:id])
+
+        @order_history.first.shipment_status = params[:shipment_status]
+        binding.pry
+        @order_history.update(shipment_params)
+		
+		binding.pry
+
+		redirect_to user_order_path(current_user.id, @order.id)
     end
 
     private
@@ -67,6 +76,10 @@ class OrderHistoriesController < ApplicationController
     def order_history_params
         #チェックボックスしていないとエラーなる
         params.require(:order_history).permit(order_histories_attributes: [:pay_select])
+    end
+
+	def shipment_params
+		params.require(:order_history).permit(order_hisrories_attributes: [:shipment_status])
     end
 end
 

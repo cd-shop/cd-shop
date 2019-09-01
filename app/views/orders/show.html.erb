@@ -4,22 +4,16 @@
     <% @order_histories.each do |order| %>
 	<section class="left">
         <span class="product">
-        <% if current_user.admin? %>
-            <%= link_to admin_product_path(order) do %>
             <span class="image">
                 <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
             </span>
-            <% end %>
-        <% else %>
-            <%= link_to product_path(order.product.id) do %>
-            <span class="image">
-                <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
-            </span>
-            <% end %>
-        <% end %>
+
             <span class="text">
-                <p class="song"><%= order.productname %></p><br>
-                <p class="price"><%= order.artistname %></p>
+                <p class="song">商品名：<%= order.productname %></p><br>
+                <p class="price">ジャンル名：<%= order.genrename %></p>
+                <p class="price">レーベル名：<%= order.labelname %></p>
+
+                <p class="price">アーティスト名：<%= order.artistname %></p>
                 <p class="price">¥<%= order.price %></p>
                 <p class="price">購入枚数：<%= order.quantity %>枚</p>
                 <p class="price">配送状況: <%= order.shipment_status %></p>
@@ -48,15 +42,11 @@
                 <% end %>
         </p>
         <br>
-
     <% if current_user.admin?%>
-    <%= form_for @order, url:user_order_path(current_user.id, @order.id ) do |f| %>
-        <p class="form"><%= f.select :shipment_status, @order.order_histories.shipment_statuses.keys, :selected => @order.order_histories.shipment_statuses[@order.order_histories.shipment_statuses]%></p><br>
-        <%= f.submit "配送状況を変更"%>
-    <% end %>
-        <% else %>
-        <p class="back_product"><%= link_to "ショッピングを続ける", products_path %>
-    <% end %>
+
+            <% else %>
+            <p class="back_product"><%= link_to "ショッピングを続ける", products_path %>
+        <% end %>
     </section>
 
 <style>
@@ -93,7 +83,7 @@
 
     .product{
         width:80%;
-        height:190px;
+        height:280px;
         display:flex;
         justify-content: space-around;
         text-align:justify;

@@ -34,7 +34,7 @@
         <p class="no_buy"><%= link_to "カートに商品を追加してください",products_path %></p>
         <% else %>
 
-    <div class="select_address">
+    <div class="cart_product">
         <%= link_to "注文する", cart_product_orders_path(@cart_products),method: :post, class:"buy1" %>
     </div>
 
@@ -164,6 +164,17 @@
         border-radius:10px;
     }
     .back_product>a{
+        color:#fff;
+    }
+    .cart_product{
+        margin:40px auto;
+        text-align:center;
+        width:20%;
+        padding: 0.5em 1em;
+        background: skyblue;
+        border-radius:10px;
+    }
+    .cart_product>a{
         color:#fff;
     }
     .select_address {

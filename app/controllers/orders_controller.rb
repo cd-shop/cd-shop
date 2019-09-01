@@ -34,22 +34,12 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
 		@address = Address.find(@order.address_id)
-
-	end
-
-	def update
-		@order = Order.find(params[:id])
-		@order.update(order_params)
-		
-		binding.pry
-		
-		redirect_to user_order_path(current_user.id, @order.id)
 	end
 
 	private
-	#ストロングパラメータ書く,
-	def order_params
-		params.require(:order).permit(order_attributes: [:shipment_status])
-	end
+	def shipment_params
+		params.require(:order_history).permit(order_hisrories_attributes: [:shipment_status])
+    end
+
 end
 

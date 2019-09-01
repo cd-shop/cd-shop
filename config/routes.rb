@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:create, :destroy]
   end
 
-  resources :orders, only: [:index]
+  resources :orders, only: [:show]
 
   namespace :admin do
     get "top" => "products#top"
