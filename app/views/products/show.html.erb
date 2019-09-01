@@ -1,18 +1,22 @@
 <h1>商品詳細</h1>
     <section class="col-xs-5 left">
-        <div class="status-box">
-            <div class="status">在庫残り<%= @product.stock_number %>枚
-            </div>
             <% if @product.stock_number > 0 %>
-                <div class="status">
-                    販売中
+                <div class="status-box">
+                    <div class="status">在庫残り<%= @product.stock_number %>枚
+                    </div>
+                        <div class="status">
+                            販売中
+                        </div>
                 </div>
             <% else %>
-                <div class="status">
-                    品切
+                <div class="status-box1">
+                    <div class="status">在庫残り<%= @product.stock_number %>枚
+                    </div>
+                        <div class="status">
+                            品切
+                        </div>
                 </div>
             <% end %>
-        </div>
         <p class="product-item">商品名：</p><br>
         <p class="product-item">CD名：</p><br>
         <p class="product-item">アーティスト名：</p><br>
@@ -150,6 +154,17 @@
         background: -moz-linear-gradient(#ffb03c, #ff708d);
         background: -webkit-linear-gradient(#ffb03c, #ff708d);
         background: linear-gradient(to right, #ffb03c, #ff708d);
+        border-radius:30px;
+        color: #FFF;
+    }
+    .status-box1{
+        position: relative;
+        height: 100px;
+        display: inline-block;
+        width:200px;
+        margin-bottom: 110px;
+        padding: 0.5em 1em;
+        background: red;
         border-radius:30px;
         color: #FFF;
     }

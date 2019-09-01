@@ -10,8 +10,8 @@
                             </span>
                             <span class="text">
 
-                                <p class="song"><%= order.product.productname %></p>
-                                <p class="artist"><%= order.product.artist.artistname %></p>
+                                <p class="song"><%= order.productname %></p>
+                                <p class="artist"><%= order.artistname %></p>
                                 <p class="price">購入日時<%= order.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
                                 <p class="price"><%= link_to "詳細はこちら", user_order_path(order.user_id, order.order.id)  %></p>
 
