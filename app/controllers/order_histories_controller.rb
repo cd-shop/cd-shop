@@ -1,10 +1,8 @@
 class OrderHistoriesController < ApplicationController
     def index
-
         @user = User.with_deleted.find(params[:user_id])
         @all_products = Order.all
         @order_histories = OrderHistory.where(user_id: params[:user_id])
-
     end
 
     def create
@@ -47,11 +45,12 @@ class OrderHistoriesController < ApplicationController
                 cart.product.save
             end
         end
-
-        #save出来なかった時にif回す？
         redirect_to user_order_path(current_user.id, order.id)
         flash[:notice] = "購入ありがとうございます。またのご利用をお待ちしております。"
+    end
 
+    def update
+        @order_history = OrderHistory.find(params[:id])
     end
 
     private
