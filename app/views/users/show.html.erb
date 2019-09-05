@@ -1,7 +1,11 @@
 <div class= "user_information">
     <h2>ユーザー情報</h2>
     <div class="user_name">ユーザー名：<%= @user.name %><%= @user.lastname %></div><br>
+    <div class="user_name">カタカナ：<%= @user.name_kana %><%= @user.lastname_kana %></div><br>
+
     <div class="user_email">E-mail：<%= @user.email %></div><br>
+    <div class="user_email">電話番号：<%= @user.tellnumber %></div><br>
+
     <% @user.addresses.each_with_index do |address, i| %>
         <h3>住所<%= i + 1 %></h3>
         <div>郵便番号：<%= address.address_number %></div>
