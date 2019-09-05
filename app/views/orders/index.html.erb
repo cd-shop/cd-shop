@@ -23,30 +23,31 @@
     <% else %>
     <section class="address-box">
 		<p class="pri">小計：¥<%= @order.subtotal %></p>
-        <p class="pri">送料：¥<%= @order.postage %></p><br>
+        <p class="pri">送料：¥<%= @order.postage %></p>
 		<p class="pri fin">総計：¥<%= @order.postage + @order.subtotal %></p><br>
-        <p class="how">お支払い方法</p>
 
     <%= form_for(Order.new,url:user_order_histories_path(current_user.id), method: :post) do |f| %>
-            <% current_user.addresses.each do |address| %>
-                <%= f.radio_button :address_id, address.id,checked: true  %>
-<%= address.address_number %>
-<%= address.prefecture %>
-                <%= address.municipality %>
-                <%= address.building%><br>
-            <% end %>
-                <%= form_for(OrderHistory.new, url:user_order_histories_path(current_user.id), method: :post) do |form| %>
-            <div class="select-pay">
-                <%= form.radio_button :pay_select, "0",class: "label", checked: true %>
-                <%= form.label(:pay_select, "クレジットカード", value: "0",class: "label la" )  %>
-
-                <%= form.radio_button :pay_select, "1",class: "label"%>
-                <%= form.label(:pay_select, "着払い", value: "1",class: "label")  %>
-
-                <%= form.radio_button :pay_select, "2",class: "label" %>
-                <%= form.label(:pay_select, "コンビニ払い", value: "2",class: "label")  %>
-                <br>
+            <div class="select_address">
+                <p class="address_message">住所を選択してください</p><br>
+                <% current_user.addresses.each do |address| %>
+                    <%= f.radio_button :address_id, address.id,checked: true  %>
+                    <%= address.address_number %><%= address.prefecture %><%= address.municipality %><%= address.building%><br>
+                <% end %>
             </div>
+
+                <%= form_for(OrderHistory.new, url:user_order_histories_path(current_user.id), method: :post) do |form| %>
+                    <div class="select-pay">
+                    <p class="how">お支払い方法</p>
+                        <%= form.radio_button :pay_select, "0",class: "label", checked: true %>
+                        <%= form.label(:pay_select, "クレジットカード", value: "0",class: "label la" )  %>
+
+                        <%= form.radio_button :pay_select, "1",class: "label"%>
+                        <%= form.label(:pay_select, "着払い", value: "1",class: "label")  %>
+
+                        <%= form.radio_button :pay_select, "2",class: "label" %>
+                        <%= form.label(:pay_select, "コンビニ払い", value: "2",class: "label")  %>
+                        <br>
+                    </div>
                 <%= f.submit "購入", data: {confirm: "本当に購入しますか？"},class: "btn" %>
 
         <% end %>
@@ -173,7 +174,7 @@
     }
 
     .address-box{
-        height:500px;
+        height:550px;
         width:80%;
         background:#fffff0;
         border-radius:20px;
@@ -247,6 +248,12 @@
         color:#fff;
         font-size:24px;
         margin:30px auto 0 40%;
+    }
+    .select_address{
+        text-align: center;
+    }
+    .address_message{
+        font-size: 22px;
     }
 
 

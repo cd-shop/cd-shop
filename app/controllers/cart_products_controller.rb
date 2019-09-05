@@ -5,7 +5,6 @@ class CartProductsController < ApplicationController
         @cart_product = current_user.cart_products.new
         @address = current_user.addresses.all
         @user = current_user.id
-
     end
 
     def create

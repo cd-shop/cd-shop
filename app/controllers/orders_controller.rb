@@ -2,17 +2,17 @@ class OrdersController < ApplicationController
 
 	def index
 		@all_products = current_user.cart_products.all
-		@order = Order.find_by(params[:user_id])
+
+		@order = Order.new
+		# @order = Order.find_by(params[:user_id])
 
 
 		if current_user.addresses.blank?
 		else
 		end
-
+#総計で送料を５００たせばいいだけ
 		@order.postage = 500
-
 		@order.subtotal = 0
-
 		@all_products.each do |cp|
 			total = cp.product.price * cp.purchase_number
 			@order.subtotal += total
@@ -36,7 +36,15 @@ class OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
-		@address = Address.find_by(@order.address_id)
+
+		@address = Address.find(@order.address_id)
+
 	end
+
+	private
+	def shipment_params
+		params.require(:order_history).permit(order_hisrories_attributes: [:shipment_status])
+    end
+
 end
 

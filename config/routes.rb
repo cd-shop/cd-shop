@@ -5,14 +5,10 @@ Rails.application.routes.draw do
 
   #userの注文、履歴が分かりやすいようにネスト
   resources :users do
-
     resources :addresses, only: [:edit, :update, :destroy]
-
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:index, :show, :update]
     resources :order_histories, only: [:index, :create]
-
   end
-  # get 'users/:user_id/order_histories/detail', to: "order_histories#detail"
 
 
 
@@ -26,15 +22,12 @@ Rails.application.routes.draw do
     resources :orders, only: [:create, :destroy]
   end
 
-  #orderの情報を取るためにcreateだけネスト
-  resources :orders, only: [:index] 
-
-  
-
+  resources :orders, only: [:show]
 
 
   namespace :admin do
     get "top" => "products#top"
+    get "adasdfasdfasdfasdfksadfihsdfioehiepfahdvklasndfasknefpiaseipasefabsdklva" => "users#another", as:"another"
     resources :users
     resources :products
     resources :artist, only: [:new, :create]

@@ -4,28 +4,28 @@
     <% @order_histories.each do |order| %>
 	<section class="left">
         <span class="product">
-            <%= link_to product_path(order.product.id) do %>
             <span class="image">
                 <%= attachment_image_tag order.product, :image, fallback:"no_image.png", size:"50x50" %>
             </span>
-            <% end %>
-            <span class="text">
-                <p class="song"><%= order.product.productname %></p><br>
-                <p class="price"><%= order.product.artist.artistname %></p>
-                <p class="price">¥<%= order.product.price %></p>
-                <p class="price">購入枚数：<%= order.quantity %>枚</p>
-                <p class="price">配送状況: <%= order.shipment_status %></p>
 
+            <span class="text">
+                <p class="song">商品名：<%= order.productname %></p><br>
+                <p class="price">ジャンル名：<%= order.genrename %></p>
+                <p class="price">レーベル名：<%= order.labelname %></p>
+
+                <p class="price">アーティスト名：<%= order.artistname %></p>
+                <p class="price">¥<%= order.price %></p>
+                <p class="price">購入枚数：<%= order.quantity %>枚</p>
             </span>
         </span>
     </section>
     <% end %>
 	</section>
     <section class="address-box">
-    <p class="price pri">購入日時：<%= @order_histories.first.created_at.strftime('%Y/%m/%d/%H:%M') %></p><br>
+    <br><p class="price pri">購入日時：<%= @order_histories.first.created_at.strftime('%Y/%m/%d/%H:%M') %></p><br>
 
-		<p class="price">郵便番号：<%= @address.address_number %></p>
-		<p class="price">配送先住所:<%= @address.prefecture %><%= @address.municipality %><%= @address.building %></p>
+		<p class="price">郵便番号：<%= @order.address_number %></p>
+		<p class="price">配送先住所:<%= @order.prefecture %><%= @order.municipality %><%= @order.building %></p>
 
 		<p class="price">送料：¥<%= @order.postage %></p>
 		<p class="price">小計：¥<%= @order.subtotal %></p><br>
@@ -41,12 +41,12 @@
                             <p class="price">不明</p>
                 <% end %>
         </p>
-        <br>
-
+                <p class="price">配送状況: <%= @order_histories.first.shipment_status %></p>
     <% if current_user.admin?%>
-        <% else %>
-        <p class="back_product"><%= link_to "ショッピングを続ける", products_path %>
-    <% end %>
+
+            <% else %>
+            <p class="back_product"><%= link_to "ショッピングを続ける", products_path %>
+        <% end %>
     </section>
 
 <style>
@@ -83,7 +83,7 @@
 
     .product{
         width:80%;
-        height:190px;
+        height:280px;
         display:flex;
         justify-content: space-around;
         text-align:justify;
@@ -162,7 +162,7 @@
     }
 
     .address-box{
-        height:420px;
+        height:480px;
         width:80%;
         background:#fffff0;
         border-radius:20px;
