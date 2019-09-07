@@ -2,6 +2,7 @@
     <h1>商品の編集</h1>
     <section class="add-box">
     <div class="left">
+        <p class="add-text">画像</p><br>
         <p class="add-text">商品名</p><br>
         <p class="add-text">価格</p><br>
         <p class="add-text">画像を追加</p><br>
@@ -12,10 +13,11 @@
         <p class="add-text">レーベル名</p>
     </div>
     <div class="right">
+        <p class="form"><%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %></p>
+
     <%= nested_form_for(@product, url: admin_product_path, method: :PUT) do |product| %>
     <p class="form"><%= product.text_field :productname, :placeholder => "商品名"  %></p> <br class="s">
     <p class="form"><%= product.number_field :price, :placeholder => "値段" %></p><br>
-    <p class="form"><%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %></p><br>
     <p class="form"><%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br><br>
     <p class="form"><%= product.select :stock_number, options_for_select((0..100).to_a) %></p><br><br>
 
@@ -37,7 +39,7 @@
                             <%= cd.fields_for :songs do |song| %>
                                 <p class="nested-fields">
                                     曲名: <%= song.text_field :songname %>
-                                    <%= song.select :song_number, options_for_select((0..30).to_a) %><br>
+                                    <%= song.collection_select :song_number, Song.all, :song_number, :song_number %><br>
                                     <%= link_to_remove_association '曲を削除', song %>
                                 </p>
                             <% end %>
