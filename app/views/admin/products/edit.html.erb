@@ -12,7 +12,7 @@
         <p class="add-text">レーベル名</p>
     </div>
     <div class="right">
-    <%= nested_form_for(@product, url: admin_product_path, method: :PUT) do |product| %>
+    <%= nested_form_for(@product, url: admin_product_path, method: :put) do |product| %>
     <p class="form"><%= product.text_field :productname, :placeholder => "商品名"  %></p> <br class="s">
     <p class="form"><%= product.number_field :price, :placeholder => "値段" %></p><br>
     <p class="form"><%= product.attachment_field :image, format: 'jpeg', size: "100x100", fallback:"no_image.png" %></p><br>
@@ -37,7 +37,7 @@
                             <%= cd.fields_for :songs do |song| %>
                                 <p class="nested-fields">
                                     曲名: <%= song.text_field :songname %>
-                                    <%= song.select :song_number, options_for_select((0..30).to_a) %><br>
+                                    <%= song.select :song_number, options_for_select((1..30).to_a) %><br>
                                     <%= link_to_remove_association '曲を削除', song %>
                                 </p>
                             <% end %>
