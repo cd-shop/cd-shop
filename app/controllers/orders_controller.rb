@@ -2,8 +2,10 @@ class OrdersController < ApplicationController
 
 	def index
 		@all_products = current_user.cart_products.all
+
 		@order = Order.new
 		# @order = Order.find_by(params[:user_id])
+
 
 		if current_user.addresses.blank?
 		else
@@ -26,6 +28,7 @@ class OrdersController < ApplicationController
 			redirect_to edit_user_path(current_user.id)
 		else
 			order.address_id = params[:address_id]
+
 			redirect_to user_orders_path(current_user.id)
 		end
 	end
@@ -33,7 +36,9 @@ class OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@order_histories = OrderHistory.where(order_id: params[:id])
+
 		@address = Address.find(@order.address_id)
+
 	end
 
 	private
