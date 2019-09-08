@@ -39,8 +39,8 @@
 
     <section class="col-xs-4 right">
         <h2>収録曲</h2>
-        <% cd.songs.each do |song| %>
-            <p class="product-item song"><%= song.song_number %>. <%= song.songname %></p><br>
+        <% cd.songs.each_with_index do |song, i| %>
+            <p class="product-item song"><%= i + 1 %>. <%= song.songname %></p><br>
         <% end %>
     </section>
     <% end %>

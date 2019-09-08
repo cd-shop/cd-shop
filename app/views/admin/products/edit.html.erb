@@ -39,7 +39,6 @@
                             <%= cd.fields_for :songs do |song| %>
                                 <p class="nested-fields">
                                     曲名: <%= song.text_field :songname %>
-                                    <%= song.collection_select :song_number, Song.all, :song_number, :song_number %><br>
                                     <%= link_to_remove_association '曲を削除', song %>
                                 </p>
                             <% end %>
