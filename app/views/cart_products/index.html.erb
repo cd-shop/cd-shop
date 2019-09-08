@@ -34,41 +34,11 @@
         <p class="no_buy"><%= link_to "カートに商品を追加してください",products_path %></p>
         <% else %>
 
-<div class="select_address">
-    <% id = 0 %>
-     <%= form_with(url: cart_product_orders_path(@cart_products),method: :post) do |form|%>
-     <script language="javascript" type="text/javascript">
-            function getRadioValue(address){
-                //ラジオボタンオブジェクトを取得する
-            var radios = document.getElementsByName(address);
- 
-                //取得したラジオボタンオブジェクトから選択されたものを探し出す
-            var result;
-                for(var i=0; i<radios.length; i++){
-             if (radios[i].checked) {
-                 //選択されたラジオボタンのvalue値を取得する
-            result = radios[i].value;
-                 break;
-                }
-             }
- 
-            
-            }
-        </script>
-        <% current_user.addresses.each do |address| %>
-            <input type="radio" id=<%=id+=1%> name="address" value="<%= address.address_number %>
-            <%= address.prefecture %>
-            <%= address.municipality %>">
-            <label for=<%=id%>><%= address.address_number %>
-            <%= address.prefecture %>
-            <%= address.municipality %></label><br>
-            <p class="buy"><%= form.submit "注文する",onclick:"getRadioValue('grp1');",class:"buy1" %></p>
-        <% end %>
-        
-    <% end %>
-</div>
+    <div class="cart_product">
+        <%= link_to "注文する", cart_product_orders_path(@cart_products),method: :post, class:"buy1" %>
+    </div>
 
-            <p class="back_product"><%= link_to "商品一覧に戻る",products_path %></p>
+        <p class="back_product"><%= link_to "商品一覧に戻る",products_path %></p>
         <% end %>
 
 
@@ -194,6 +164,17 @@
         border-radius:10px;
     }
     .back_product>a{
+        color:#fff;
+    }
+    .cart_product{
+        margin:40px auto;
+        text-align:center;
+        width:20%;
+        padding: 0.5em 1em;
+        background: skyblue;
+        border-radius:10px;
+    }
+    .cart_product>a{
         color:#fff;
     }
     .select_address {
