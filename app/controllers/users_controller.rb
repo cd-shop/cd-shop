@@ -16,8 +16,12 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        @user.update(user_params)
-        redirect_to user_path(params[:id])
+        if @user.update(user_params)
+            redirect_to user_path(params[:id])
+        else
+            flash[:alert] = "住所の保存に失敗しました！"
+            render "edit"
+        end
     end
 
     def destroy
