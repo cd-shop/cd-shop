@@ -34,5 +34,5 @@ class Product < ApplicationRecord
 	accepts_nested_attributes_for :cart_products
 
 	#enum
-	enum sale_status: {販売中: 0, 品切: 1}
+	
 end
