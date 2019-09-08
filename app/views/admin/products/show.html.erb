@@ -68,9 +68,9 @@
                 </div>
                 <div class="song-box">
                 <div class="title-box"><p class="title">タイトル</p></div>
-                <% song_cd.songs.each do |song| %>
+                <% song_cd.songs.each_with_index do |song, i| %>
                     <div class="song-name">
-                    <p class="song"><%= song.song_number %>. <%= song.songname %></p>
+                    <p class="song"><%= i + 1 %>. <%= song.songname %></p>
                     </div>
                 <% end %>
                 </div>
