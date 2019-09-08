@@ -50,15 +50,16 @@ class OrdersController < ApplicationController
 		order = Order.new
 		order.user_id = current_user.id
 		@all_products = current_user.cart_products.all
+		@all_address = current_user.address.all
 
 		if current_user.addresses.empty?
 			flash[:address] = "住所を追加してください"
 			redirect_to edit_user_path(current_user.id)
 		else
 			order.address_id = params[:address_id]
-			order.prefecture = current_user.addresses.first.prefecture
-			order.municipality = current_user.addresses.first.municipality
-			order.building = current_user.addresses.first.building
+			order.prefecture = current_user.addresses.prefecture
+			order.municipality = current_user.addresses.municipality
+			order.building = current_user.addresses.building
 			redirect_to user_orders_path(current_user.id)
 		end
 	end

@@ -35,16 +35,36 @@
         <% else %>
 
 <div class="select_address">
-    <%= form_with(url: cart_product_orders_path(@cart_products),method: :post) do |form|%>
+    <% id = 0 %>
+     <%= form_with(url: cart_product_orders_path(@cart_products),method: :post) do |form|%>
+     <script language="javascript" type="text/javascript">
+            function getRadioValue(address){
+                //ラジオボタンオブジェクトを取得する
+            var radios = document.getElementsByName(address);
+ 
+                //取得したラジオボタンオブジェクトから選択されたものを探し出す
+            var result;
+                for(var i=0; i<radios.length; i++){
+             if (radios[i].checked) {
+                 //選択されたラジオボタンのvalue値を取得する
+            result = radios[i].value;
+                 break;
+                }
+             }
+ 
+            
+            }
+        </script>
         <% current_user.addresses.each do |address| %>
-            <%= form.radio_button :address_id, address.id %>
-            <%= address.address_number %>
+            <input type="radio" id=<%=id+=1%> name="address" value="<%= address.address_number %>
             <%= address.prefecture %>
-            <%= address.municipality %>
-            <%= address.building%><br>
+            <%= address.municipality %>">
+            <label for=<%=id%>><%= address.address_number %>
+            <%= address.prefecture %>
+            <%= address.municipality %></label><br>
+            <p class="buy"><%= form.submit "注文する",onclick:"getRadioValue('grp1');",class:"buy1" %></p>
         <% end %>
-
-        <p class="buy"><%= form.submit "注文する",class:"buy1" %></p>
+        
     <% end %>
 </div>
 
