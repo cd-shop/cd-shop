@@ -1,5 +1,7 @@
 class CartProductsController < ApplicationController
 
+  before_action :stock_set, only: [:create]
+
     def index
         @cart_products = current_user.cart_products.all
         @cart_product = current_user.cart_products.new
@@ -25,4 +27,12 @@ class CartProductsController < ApplicationController
     def cart_product_params
         params.require(:cart_product).permit(:purchase_number)
     end
+
+    def stock_set
+       @product = Product.find(params[:product_id])
+       @stock_number = @product.stock_number
+       if @stock_number == 0
+           redirect_to product_path(@product)
+       end
+   end
 end

@@ -18,8 +18,12 @@
     <%= nested_form_for(@product, url: admin_product_path, method: :PUT) do |product| %>
     <p class="form"><%= product.text_field :productname, :placeholder => "商品名"  %></p> <br class="s">
     <p class="form"><%= product.number_field :price, :placeholder => "値段" %></p><br>
-    <p class="form"><%= product.select :sale_status, Product.sale_statuses.keys, :selected => Product.sale_statuses[@product.sale_status]%></p><br><br>
-    <p class="form"><%= product.select :stock_number, options_for_select((0..100).to_a) %></p><br><br>
+    <p class="form"><%= product.attachment_field :image, format: "jpeg", size: "100x100", fallback: 'no_image.png' %></p><br>
+    <p class="form">
+        <label><%= product.radio_button :sale_status, '販売中' %> 販売中  </label>
+        <label><%= product.radio_button :sale_status, '停止中' %> 品切れ  </label>
+    </p><br><br>
+    <p class=“form”><%= product.number_field :stock_number%></p><br>
 
     <p class="form"><%= product.collection_select :artist_id, Artist.all, :id, :artistname %>
     <%= link_to '⇦にアーティスト名が無い場合はこちら', new_admin_artist_path %></p><br>
