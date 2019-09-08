@@ -1,62 +1,91 @@
-<h1>商品詳細</h1>
-    <div class="top-box">
-
+<section class="around-border">
+    <div class="text_of_top"><p style="color:white;">商品詳細</p>
     </div>
-    <section class="col-xs-5 left">
-            <% if @product.stock_number > 0 %>
-            <div class="status-box">
-                <div class="status">在庫残り<%= @product.stock_number %>枚</div>
-                    <div class="status">
-                        販売中
-                    </div>
-                </div>
-            </div>
-
-            <% else %>
-            <div class="status-box1">
-                <div class="status1">在庫残り<%= @product.stock_number %>枚</div>
-                    <div class="status1">
-                        品切
-                    </div>
-                </div>
-            </div>
-            <% end %>
-        <p class="product-item">商品名： </p><br>
-        <p class="product-item">CD名：</p><br>
-        <p class="product-item">アーティスト名： </p><br>
-        <p class="product-item">レーベル名： </p><br>
-        <p class="product-item">ジャンル：</p><br>
-        <p class="product-item">価格： </p>
-        <div class="edit">
-            <%= link_to "edit", edit_admin_product_path(@product.id), class: 'btn btn-primary'%>
-        </div>
-        <div class="edit">
-            <%= link_to "destroy", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"}, class: 'btn btn-danger' %>
-        </div>
-    </section>
-
-
-    <section class="col-xs-2 center">
-        <span class="image">
+    <section class="product_info">
+        <div class="image-box">
             <%= attachment_image_tag @product, :image, fallback:"no_image.png", size:"50x50" %>
-        </span>
-        <% @product.cds.each do |cd| %>
-        <p class="product-item"><%= cd.product.productname %></p><br>
-        <p class="product-item"><%= cd.cdname %></p><br>
-        <p class="product-item"><%= cd.product.artist.artistname %></p><br>
-        <p class="product-item"><%= cd.product.label.labelname %></p><br>
-        <p class="product-item"><%= cd.product.genre.genrename %></p><br>
-        <p class="product-item">¥<%= cd.product.price %></p>
-
+        </div>
+        <div class="product-text">
+            <div class="text-top">
+                <p class="product-name"><b><%= @product.productname %></b></p>
+                <p class="product-artist"><%= @product.artist.artistname %></p><br>
+                <p class="product-label">レーベル：<%= @product.label.labelname %></p>
+            </div>
+            <div class="text-bottom">
+                <% if @product.stock_number > 0 %>
+                    <div class="status">
+                        <b>販売中</b>
+                    </div>
+                <% else %>
+                    <div class="none">
+                        <b>品切</b>
+                    </div>
+                <% end %>
+                <div class="quantity"><b>在庫残り<%= @product.stock_number %>枚</b></div>
+            </div>
+        </div>
+        <div class="cart-buy-box">
+            <div class="price-box">
+                <p class="prise-text"><b>販売価格（税込）</b></p>
+                <p class="product-prise">¥<%= @product.price %></p>
+            </div>
+            <% if user_signed_in?%>
+                <% if current_user.admin?%>
+                    <div class="btn-box">
+                        <div class="btn-p"><%= link_to "編集", edit_admin_product_path(@product.id), class: 'btn-primary'%></div>
+                        <div class="btn-d"><%= link_to "削除", admin_product_path(@product.id), method: :delete, data:{confirm: "商品削除しますか？"}, class: 'btn-danger' %></div>
+                    </div>
+                <% else %>
+                <% if @product.stock_number > 0 %>
+                    <%= form_for @cart,url:product_cart_products_path(@product) do |f| %>
+                    <p class="buy_quantity">購入数</p>
+                    <%= f.select :purchase_number, @product.quantity%><br>
+                    <%= f.submit "カートに追加",class:"btn2" %></div>
+                <% end %>
+            <% else %>
+                <p class="sorry">申し訳ございません、品切れです。</p>
+            <% end %>
+            <% end %>
+            <% else %>
+                <div class="log-box">
+                <p class="status2"><%= link_to '会員登録 ', new_user_registration_path %></p>
+                <p class="status1"><%= link_to 'ログイン ',new_user_session_path %></p>
+                </div>
+            <% end %>
+        </div>
+        
     </section>
+    <div class="genre-box"><p class="product-genre"><%= @product.genre.genrename %></p></div>
+    <section class="cd-info">
+        <div class="cd">
+        <p>CD内容</p>
+        </div>
+        
+        <% @product.cds.each do |song_cd| %>
+        <div class="cd-in">
+                <div class="cd-name">
+                <b class="product-item"><b><%= song_cd.cdname %></b></p>
+                </div>
+                <div class="song-box">
+                <div class="title-box"><p class="title">タイトル</p></div>
+                <% song_cd.songs.each do |song| %>
+                    <div class="song-name">
+                    <p class="song"><%= song.song_number %>. <%= song.songname %></p>
+                    </div>
+                <% end %>
+                </div>
+        </div>
 
-    <section class="col-xs-4 right">
-        <h2>収録曲</h2>
-        <% cd.songs.each_with_index do |song, i| %>
-            <p class="product-item song"><%= i + 1 %>. <%= song.songname %></p><br>
         <% end %>
-    </section>
-    <% end %>
+        
+    </section>   
+    <%= link_to "戻る", products_path, class: 'btn'%>
+ </section>
+
+        
+    
+        
+   
     
 
 <style>
@@ -65,103 +94,259 @@
         padding:0;
         box-sizing:border-box;
     }
+
     h1{
-        text-align:center;
-    }
-    .top-box{
-        position: relative;
-        left: 330px;
-        margin-bottom: 40px;
-    }
-    .image{
-        height:160px;
-        width:160px;
-        margin: 0 auto 50px;
-        display:inline-block;
-    }
-    .left{
-        text-align: right;
-        padding-right: 40px;
-        margin-bottom: 70px;
-    }
-    .edit{
-        margin-top: 50px;
-    }
-    .destroy{
-        margin-top: 50px;
-    }
-    .btn-primary{
-        height: 40px;
-        width: 100px;
-        font-size: 21px;
-        line-height: 21px;
-    }
-    .btn-danger{
-        height: 40px;
-        width: 100px;
-        font-size: 21px;
-        line-height: 21px;
-    }
-    .product-item{
-        font-size: 30px;
-    }
-    .center{
-        text-align: left;
-        border-right: 1px solid #000000;
-        margin-bottom: 70px;
-    }
-    .image{
-        border-radius: 5%;
-    }
-    .right{
-        width:40%;
-        float:right;
-    }
-    .status{
-        font-size:16px;
-        text-align: center;
-        line-height:43px;
-    }
-    .status1{
-        font-size:16px;
-        text-align: center;
-        line-height:43px;
-    }
-    .price{
-        font-size:20px;
-        margin-top:10px;
-        text-align:center;
-    }
-    .status-box{
-        position: relative;
-        top: 60px;
-        left: 40px;
-        height: 100px;
-        display: inline-block;
-        width:200px;
-        margin-bottom: 110px;
-        padding: 0.5em 1em;
-        background: -moz-linear-gradient(#ffb03c, #ff708d);
-        background: -webkit-linear-gradient(#ffb03c, #ff708d);
-        background: linear-gradient(to right, #ffb03c, #ff708d);
-        border-radius:70%;
-        color: #FFF;
-    }
-    .status-box1{
-        position: relative;
-        top: 60px;
-        left: 40px;
-        height: 100px;
-        display: inline-block;
-        width:200px;
-        margin-bottom: 110px;
-        padding: 0.5em 1em;
-        background: red;
-        border-radius:70%;
-        color: #FFF;
-    }
-    .right h2{
-        margin-bottom: 50px;
+        text-align:left;
     }
 
+    .around-border{
+        margin:5% 6% 5% 6%;
+        border:1px solid #ddd;
+    }
+
+    .product_info{
+        padding:25px 35px;;
+    }
+
+    .text_of_top{
+        background-color:black;
+        height:5%;
+        width:38%;
+        font-size:18px;
+        padding:0.4%;
+        margin-top:1%;
+        margin-left:-1%;
+    }
+
+    .text_of_top>p{
+        margin:0;
+    }
+
+    .image-box{
+        width:280px;
+        height:280px;
+        margin-right:35px;
+        display:inline-block;
+        float:left;
+    }
+
+    .image-box>img{
+        width:280px;
+        height:280px;
+    }
+
+    .product-text{
+        width:45%;
+        display:inline-block;
+    }
+
+    .text-top{
+        height:200px;
+    }
+
+    .product-name{
+        font-size:24px;
+    }
+
+    .product-artist{
+        font-size:20px;
+    }
+
+    .text-bottom{
+        height:80px;
+        border-top:1px solid #ddd;
+        border-bottom:1px solid #ddd;
+    }
+
+    .status{
+        font-size:19px;
+    }
+
+    .none{
+        font-size:19px;
+        color:red;
+    }
+
+    .quantity{
+        font-size:16px;
+    }
+
+    .cart-buy-box{
+        width:22%;
+        height:260px;
+        background-color:#d3e7ff;
+        display:inline-block;
+        float:right;
+    }
+
+    .prise-text{
+        font-size:18px;
+        margin:15px;
+
+    }
+
+    .product-prise{
+        font-size:28px;
+        margin-right:19px;
+        float:right;
+        margin-left:63%;
+    }
+
+    .buy_quantity{
+        font-size:19px;
+        margin-left:40px;
+        float:left;
+        margin-top:12px;
+    }
+
+    #cart_product_purchase_number{
+        border:solid 1px #ddd;
+        width:30px;
+        height:25px;
+        float:right;
+        margin-top:12px;
+        font-size:15px;
+        margin-right:50px;
+    }
+
+    .btn2{
+        width:190px;
+        height:40px;
+        background-color:red;
+        border-radius:20px;
+        color:white;
+        font-size:20px;
+        margin:30px 0 0 20px;
+    }
+
+    .genre-box{
+        width:160px;
+        height:30px;
+        background:black;
+        color:white;
+        margin-left:100px;
+        font-size:22px;
+        text-align:center;
+    }
+
+    .cd{
+        background:black;
+        color:white;
+        margin:100px 80px 0 80px;
+        height:30px;
+        font-size:22px;
+        padding-left:20px;
+    }
+
+    .cd-in{
+        border:solid 1px #ddd;
+        margin:30px 90px 0 90px;
+    }
+
+    .btn{
+        background:black;
+        padding:5px 10px 5px 10px;
+        font-size:20px;
+        border-radius:9px;
+        margin:50px 0 40px 47%;
+        color:white;
+    }
+
+    .cd-name{
+        background:#808080;
+        color:white;
+        font-size:15px;
+        height:30px;
+        padding-top:4px;
+        padding-left:12px;
+    }
+
+    .song-box{
+        margin:10px;
+    }
+
+    .title-box{
+        background:gray;
+        color:white;
+        height:38px;
+        font-size:14px;
+        padding:9px 0 0 10px;
+    }
+
+    .song-name{
+        font-size:16px;
+        padding:8px 0 0 12px;
+        font-weight:normal;
+        height:40px;
+    }
+
+    .song-name:nth-child(odd){
+        background:#e6e6e6;
+    }
+
+    .song-name:nth-child(even){
+        background:#ccc;
+    }
+
+    .status1{
+        padding:8px 0 0 47px;
+        background:#888;
+        border-radius:20px;
+        width:160px;
+        height:40px;
+        margin:30px 0 0 13%;
+        font-size:17px;
+    }
+
+    .status1>a{
+        color:white;
+    }
+
+    .status2{
+        padding:8px 0 0 46px;
+        background:#111;
+        border-radius:20px;
+        width:160px;
+        height:40px;
+        margin:80px 0 0 13%;
+        font-size:17px;
+    }
+
+    .status2>a{
+        color:white;
+    }
+
+    .price-box{
+        width:100%;
+        height:100px;
+        display:inline-block;
+    }
+
+    .btn-box{
+        width:100%;
+        height:150px;
+        display:inline-block;
+    }
+    
+    .btn-p{
+        margin:30px 0 0 57px;
+        font-size:20px;
+    }
+
+    .btn-primary{
+        padding:10px 40px;
+        font-size:20px;
+        border-radius:10px;
+    }
+
+    .btn-d{
+        margin:40px 0 0 57px;
+        font-size:20px;
+    }
+
+    .btn-danger{
+        font-size:20px;
+        padding:10px 40px;
+        border-radius:10px;
+    }
 </style>
